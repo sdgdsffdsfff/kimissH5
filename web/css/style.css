@@ -1,0 +1,28 @@
+/* Put your CSS here */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+a {
+  cursor: pointer;
+}
+
+.navbar .nav > li > a.active {
+  color: black;
+  font-weight: bold;
+}
+.navbar{
+    position: fixed;
+    width: 100%;
+}
+.index{
+    width: 100%;
+    height: 2000px;
+    background-color: gray;
+}
+.infobody{
+    padding-top: 60px;
+}

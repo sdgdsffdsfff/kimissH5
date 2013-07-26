@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>美丽闺蜜</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <link rel="stylesheet" href="css/bootstrap.css"/>
+    <link rel="stylesheet" href="css/app.css"/>
+</head>
+<body>
+<script src="libs/jquery-1.10.2.min.js"></script>
+<script src="libs/underscore.js"></script>
+<script src="libs/backbone.js"></script>
+<script src="libs/handlebars.js"></script>
+<script src="js/utils.js"></script>
+
+    <script type="text/x-handlebars-template" id="tpl">
+        {{>navBar}}
+    </script>
+    <script type="text/x-handlebars-template" id="navBar-tpl">
+        <div id="navBar" class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="expand box orivc">
+                    <div class="box orihc">
+                        <h1>Title</h1>
+                    </div>
+                </div>
+                <div class="expand">
+                    <div id="menu" class="pull-left bar-btn box orivc">
+                        <div class="bar-btn-inner menu-btn box orihc"></div>
+                    </div>
+                    <div id="search" class="pull-right bar-btn box orivc">
+                        <div class="bar-btn-inner search-btn box orihc"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="navbarBody" class="navbar-body">
+                <div></div>
+            </div>
+        </div>
+    </script>
+
+
+
+    <script src="js/app.js"></script>
+</body>
+</html>

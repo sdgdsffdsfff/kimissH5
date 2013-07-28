@@ -1,3 +1,13 @@
+var _system ={
+    win : navigator.platform.indexOf("Win") == 0,
+    mac : navigator.platform.indexOf("Mac") == 0,
+    xll : (navigator.platform == "X11") || (navigator.platform.indexOf("Linux") == 0)
+};
+var _eventName = {
+    start:_system.win?'mousedown':'touchstart',
+    move:_system.win?'mousemove':'touchmove',
+    end:_system.win?'mouseup':'touchend'
+};
 Object.defineProperty(Array.prototype, "contains", {
     writable: false,
     enumerable: false,

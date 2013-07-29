@@ -1,0 +1,10 @@
+<div class="menu-inner">
+    <ul>
+        <%_.each(list,function(item){%>
+        <li>
+            <a href="<%=item.link%>" class="item"><%=item.name%></a>
+        </li>
+        <%});%>
+        <div class="clear"></div>
+    </ul>
+</div>

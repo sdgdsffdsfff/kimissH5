@@ -1,0 +1,7 @@
+{
+    "baseUrl":"/partials/",
+    "templates":[{
+        "name":"navBar",
+        "path":"navBar.html"
+    }]
+}

@@ -116,12 +116,13 @@ ul,ol{
     position: fixed;
     height: 100%;
     background: gray;
-    top: 100%;
+    top: 0;
+    left: 100%;
     width: 100%;
-    -webkit-transition: top .3s ease-in-out;
+    -webkit-transition: left .3s ease-in-out;
 }
 .searchView-show{
-    top:0;
+    left: 0;
 }
 #menuView{
     display: none;

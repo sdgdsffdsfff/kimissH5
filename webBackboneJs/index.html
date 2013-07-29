@@ -72,12 +72,18 @@
         </ul>
     </script>
     <script type="text/template" id="brand-tpl">
-        <ul>
-            <li class="index-list-item">
-                <img src="http://new-img1.ol-img.com/89/749/liC1flI797gwA.jpg"/>
-                <p>http://new-img1.ol-img.com/89/749/liC1flI797gwA.jpg</p>
-            </li>
-        </ul>
+        <div class="brand-pack">
+            <div class="brand-indexes">
+                <%_.each(indexes,function(item){%>
+                <div class="bindex"><%=item%></div>
+                <%});%>
+            </div>
+            <div class="brand-items">
+                <%_.each(items,function(item){%>
+                <div class="bitem">item</div>
+                <%});%>
+            </div>
+        </div>
     </script>
 
     <script src="js/app.js"></script>

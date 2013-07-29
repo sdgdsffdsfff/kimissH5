@@ -125,9 +125,9 @@ var _navBody = Backbone.View.extend({
                 name:'品牌',
                 link:'#brand'
             },{
-                name:'首页'
+                name:'分类'
             },{
-                name:'首页'
+                name:'功效'
             },{
                 name:'首页'
             }]

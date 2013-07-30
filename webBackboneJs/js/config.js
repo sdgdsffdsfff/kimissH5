@@ -35,7 +35,7 @@ var _templatesMap_ = [{
     path:'/partials/brand.html'
 },{
     name:'index',
-    path:'/partials/index.html'
+    path:'/partials/indexListItem.html'
 },{
     name:'loading',
     path:'/partials/loading.html'

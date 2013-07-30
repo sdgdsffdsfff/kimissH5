@@ -1,5 +1,5 @@
 var _navBody = Backbone.View.extend({
-    menuTpl:_.template($('#menu-tpl').html()),
+    menuTpl:_.template(AppTplMap.menu),
     initialize:function(){
         this.render();
     },

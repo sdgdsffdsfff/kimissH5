@@ -1,3 +1,22 @@
+function requireApp(){
+    require([
+        'js/models/IndexModel',
+        'js/collections/IndexList',
+
+        'js/views/Kimiss',
+        'js/views/NavBar',
+        'js/views/NavBody',
+        'js/views/Button',
+        'js/views/SearchBtn',
+        'js/views/MenuBtn',
+        'js/views/Body',
+        'js/views/Loading',
+        'js/views/Search',
+
+        'js/routes/Router'
+    ]);
+}
+
 var _templatesMap_ = [{
     name:'navBar',
     path:'/partials/navBar.html'
@@ -20,21 +39,6 @@ var _templatesMap_ = [{
     name:'searchView',
     path:'/partials/searchView.html'
 }];
-function requireApp(){
-    require([
-        'js/views/Kimiss',
-        'js/views/NavBar',
-        'js/views/NavBody',
-        'js/views/Button',
-        'js/views/SearchBtn',
-        'js/views/MenuBtn',
-        'js/views/Body',
-        'js/views/Loading',
-        'js/views/Search',
-
-        'js/routes/Router'
-    ]);
-}
 
 
 var AppTplMap = {},_templatesMap_L = 0;

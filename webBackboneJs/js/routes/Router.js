@@ -5,18 +5,10 @@ var _router = Backbone.Router.extend({
         'brand':'brand'
     },
     index:function(){
-        Body.load('index',{
-            data:{
-                list:[1,1,1,1,1,1,1,1]
-            }
-        });
+        Body.switch('index');
     },
     brand:function(){
-        Body.load('brand',{
-            data:{
-                list:[1,1,1,1,1,1,1,1]
-            }
-        });
+        Body.switch('brand');
     }
 });
 KmRouter = new _router();

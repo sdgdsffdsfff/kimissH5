@@ -1,17 +1,24 @@
 function requireApp(){
     require([
+        'js/views/Button',
+
         'js/models/IndexModel',
+
         'js/collections/IndexList',
 
         'js/views/Kimiss',
-        'js/views/NavBar',
-        'js/views/NavBody',
-        'js/views/Button',
-        'js/views/SearchBtn',
-        'js/views/MenuBtn',
-        'js/views/Body',
-        'js/views/Loading',
-        'js/views/Search',
+
+        'js/views/nav/NavBar',
+        'js/views/nav/NavBody',
+        'js/views/nav/MenuBtn',
+
+        'js/views/loading/Loading',
+
+        'js/views/search/Search',
+        'js/views/search/SearchBtn',
+
+        'js/views/body/Body',
+        'js/views/body/Index',
 
         'js/routes/Router'
     ]);

@@ -1,8 +1,8 @@
-function requireApp(){
+function requireApp1(){
     require([
-        'js/views/Button',
-
         'js/models/IndexModel',
+
+        'js/views/Button',
 
         'js/collections/IndexList',
 
@@ -17,11 +17,23 @@ function requireApp(){
         'js/views/search/Search',
         'js/views/search/SearchBtn',
 
-        'js/views/body/Body',
         'js/views/body/Index',
+        'js/views/body/Body',
 
         'js/routes/Router'
     ]);
+}
+function requireApp(){
+    require.config({
+        baseUrl:'js'
+    });
+    require(['views/Kimiss'],function(Kimiss){
+        var kimiss = new Kimiss({
+            el:$('#app')
+        }).render();
+        window['Kimiss'] = kimiss;
+        Backbone.history.start();
+    });
 }
 
 var _templatesMap_ = [{
@@ -34,7 +46,7 @@ var _templatesMap_ = [{
     name:'brand',
     path:'/partials/brand.html'
 },{
-    name:'index',
+    name:'indexListItem',
     path:'/partials/indexListItem.html'
 },{
     name:'loading',

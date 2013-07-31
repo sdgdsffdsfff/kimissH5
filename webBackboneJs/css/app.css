@@ -43,6 +43,13 @@ ul,ol{
     -webkit-box-orient: horizontal;
     -webkit-box-align: center;
 }
+
+.orihc h1{
+    margin:0px;
+    color:#ffffff;
+    font-size:28px;
+}
+
 .container-fluid{
     padding: 0 10px;
 }
@@ -89,14 +96,20 @@ ul,ol{
     height: 0;
     background: #b3b3b3;
 }
+.navbar{
+    height:40px;
+    min-height:40px;
+}
 .navbar-inner{
     left:0;
     right:0;
     position: absolute;
     width: 100%;
+    height: 100%;
     padding: 0;
     z-index: 2;
     -webkit-transform: translate(0,0);
+    background-color: #222222;
 }
 .nav-body{
     left:0;
@@ -115,7 +128,7 @@ ul,ol{
 .searchView{
     position: fixed;
     height: 100%;
-    background: gray;
+    background: #F7F7F9;
     top: 0;
     left: 100%;
     width: 100%;
@@ -164,6 +177,19 @@ ul,ol{
     width: 100%;
 }
 
+#search-field{
+    position: absolute;
+    /*margin: 120px 5px 40px 5px;*/
+    top:110px;
+    bottom:40px;
+    left:0px;
+    right:0px;
+}
+#search-field .tab-pane{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+}
 
 
 

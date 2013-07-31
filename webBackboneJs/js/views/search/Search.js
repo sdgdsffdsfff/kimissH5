@@ -2,6 +2,12 @@ define(function(){
     var _searchView = Backbone.View.extend({
         clsShow:'searchView-show',
         status:'close',
+        initialize:function(){
+            this.render();
+        },
+        render:function(){
+
+        },
         toggle:function(){
             if(this.status == 'close'){
                 this.$el.addClass(this.clsShow);

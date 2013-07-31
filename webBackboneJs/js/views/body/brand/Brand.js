@@ -78,12 +78,14 @@ define(['collections/BrandList'],function(BrandListClt){
                 indexes:indexes
             });
             this.indexesEL.height($(window).height() - 40);
-            window.addEventListener('resize',function(){
-                me.indexesEL.height($(window).height() - 40);
-            },false);
-            new iScroll('brand-indexes-scroller',{
+
+            var brandIndexScroller = new iScroll('brand-indexes-scroller',{
                 vScrollbar:false
             });
+            window.addEventListener('resize',function(){
+                me.indexesEL.height($(window).height() - 40);
+                brandIndexScroller.refresh();
+            },false);
         },
         show:function(){
             this.$el.show();

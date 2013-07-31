@@ -99,6 +99,8 @@ ul,ol{
 .navbar{
     height:40px;
     min-height:40px;
+    margin:0;
+    padding:0;
 }
 .navbar-inner{
     left:0;
@@ -119,11 +121,13 @@ ul,ol{
     z-index: 1;
     background: lightblue;
     -webkit-box-shadow: #333 0 0 5px 2px;
-    -webkit-transition: -webkit-transform .3s ease-in-out;
-    -webkit-transform: translateY(-100%);
+    display: none;
+    /*-webkit-transition: -webkit-transform .3s ease-in-out;*/
+    /*-webkit-transform: translateY(-100%);*/
 }
 .nav-body-show{
-    -webkit-transform: translateY(0);
+    /*-webkit-transform: translateY(0);*/
+    display: block;
 }
 .searchView{
     position: fixed;
@@ -176,6 +180,36 @@ ul,ol{
 .index-list-item img{
     width: 100%;
 }
+
+.brand-indexes-pack{
+    position: fixed;
+    top:40px;
+    width: 40px;
+    background: gray;
+    color: white;
+}
+.brand-indexes{
+    display: none;
+}
+.brand-indexes li{
+    line-height: 40px;
+    text-align: center;
+    margin: 2px;
+    border: #ffffff 1px solid;
+}
+.brand-items-pack{
+    margin-left: 40px;
+}
+.brand-items-pack ul li:first-child{
+    border-top: #999 1px solid;
+}
+.brand-items-pack ul li{
+    margin: 0 8px;
+    border-bottom: #999 1px solid;
+    padding: 8px 5px;
+}
+
+
 
 #search-field{
     position: absolute;

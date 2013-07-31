@@ -1,4 +1,4 @@
-define(['views/Button','views/nav/NavBody'],function(Button,NavBody){
+define(['views/common/Button','views/nav/NavBody'],function(Button,NavBody){
     var _navBar = Backbone.View.extend({
         initialize:function(){
             this.MenuBtn = new Button({

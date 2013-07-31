@@ -1,4 +1,4 @@
-define(['views/body/Index'],function(Index){
+define(['views/body/index/Index','views/body/brand/Brand'],function(Index,Brand){
     var _body = Backbone.View.extend({
         initialize:function(){
             this.render();
@@ -12,8 +12,8 @@ define(['views/body/Index'],function(Index){
             this.modules.Index = new Index({
                 el:$('#index')
             });
-            this.modules.Brand = new Index({
-
+            this.modules.Brand = new Brand({
+                el:$('#brand')
             });
         },
         switch:function(name){

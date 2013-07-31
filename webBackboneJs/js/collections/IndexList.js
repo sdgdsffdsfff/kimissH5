@@ -1,4 +1,4 @@
-define(['views/body/IndexListItem','models/IndexModel'],function(IndexListItem,IndexModel){
+define(['models/IndexModel'],function(IndexModel){
     var _indexList = Backbone.Collection.extend({
         initialize:function(){
             this.bind('add',this.onItemAdd,this);
@@ -10,9 +10,7 @@ define(['views/body/IndexListItem','models/IndexModel'],function(IndexListItem,I
             return resp.de.ty;
         },
         onItemAdd:function(model){
-            Kimiss.Body.getModule('Index').addItem(new IndexListItem({
-                model:model
-            }));
+            Kimiss.Body.getModule('Index').addItem(model);
         }
     });
     return _indexList;

@@ -21,7 +21,6 @@
     </div>
     <div id="search-field" class="tab-content">
         <div class="tab-pane fade active" id="fenlei">
-            <div id="scroll1">
             <ul>
                 <li>分类1</li>
                 <li>分类2</li>
@@ -63,10 +62,8 @@
                 <li>分类</li>
                 <li>分类100</li>
             </ul>
-            </div>
         </div>
         <div class="tab-pane fade" id="gongxiao">
-            <div id="scroll2">
             <ul>
                 <li>功效1</li>
                 <li>功效2</li>
@@ -129,9 +126,8 @@
                 <li>功效</li>
                 <li>功效100</li>
             </ul>
-            </div>
         </div>
-        <div class="tab-pane fade" id="paixu">
+        <div class="tab-pane fade" id="paixu"
             <div id="scroll3">
             <ul>
                 <li>排序1</li>
@@ -262,27 +258,44 @@
                 <li>排序</li>
                 <li>排序</li>
                 <li>排序20</li>
-            </ul>
+            </ul
             </div>
         </div>
-        <div class="tab-pane fade" id="pinpai">品牌列表</div>
+        <div class="tab-pane fade" id="pinpai">
+            <ul>
+                <li>品牌</li>
+                <li>品牌</li>
+                <li>品牌</li>
+                <li>品牌</li>
+                <li>品牌</li>
+                <li>品牌</li>
+                <li>品牌</li>
+                <li>品牌</li>
+            </ul>
+        </div>
     </div>
     <script>
         $(function () {
-            $('#myTab a:first').tab('show');
             $('#myTab a').click(function (e) {
                 e.preventDefault();
                 $(this).tab('show');
-            })
-            window.myScroll1=new iScroll('fenlei');
-            window.myScroll2=new iScroll('gongxiao',{
-                custom:"test",
-                vScrollbar:true
             });
-            window.myScroll3=new iScroll('paixu',{
-                custom:"test",
-                vScrollbar:true
+            $('#myTab a').on('shown.bs.tab',function (e) {
+//                e.preventDefault();
+//                console.log(e)
+                var $target=$(e.target);
+                if($target.data('scrolled')){
+                    return;
+                };
+                var scrollId=$target.attr('href');
+                scrollId=scrollId.substring(1);
+                console.log(scrollId)
+                window['myScroll'+scrollId]=new iScroll(scrollId,{
+                    vScrollbar:true
+                });
+                $target.data('scrolled',true)
             });
+            $('#myTab a:first').tab('show')
         })
     </script>
 </div>

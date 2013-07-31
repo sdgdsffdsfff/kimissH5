@@ -185,23 +185,24 @@ ul,ol{
     position: fixed;
     top:40px;
     width: 40px;
-    background: gray;
-    color: white;
+    color: gray;
 }
 .brand-indexes{
-    display: none;
 }
+
 .brand-indexes li{
     line-height: 40px;
     text-align: center;
     margin: 2px;
-    border: #ffffff 1px solid;
+    border: gray 1px solid;
 }
+.brand-indexes-pressing{
+    background-color: gray;
+    color: white;
+}
+
 .brand-items-pack{
     margin-left: 40px;
-}
-.brand-items-pack ul li:first-child{
-    border-top: #999 1px solid;
 }
 .brand-items-pack ul li{
     margin: 0 8px;

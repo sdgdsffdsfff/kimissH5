@@ -1,4 +1,5 @@
-define(['views/body/index/Index','views/body/brand/Brand'],function(Index,Brand){
+define(['views/body/Index','views/body/Brand',
+    'views/body/Article','views/body/Loading'],function(Index,Brand,Article,Loading){
     var _body = Backbone.View.extend({
         initialize:function(){
             this.render();
@@ -9,11 +10,17 @@ define(['views/body/index/Index','views/body/brand/Brand'],function(Index,Brand)
             return this.modules[name];
         },
         render:function(){
+            this.Loading = new Loading({
+                el:$('#loading')
+            });
             this.modules.Index = new Index({
                 el:$('#index')
             });
             this.modules.Brand = new Brand({
                 el:$('#brand')
+            });
+            this.modules.Article = new Article({
+                el:$('#article')
             });
         },
         switch:function(name){

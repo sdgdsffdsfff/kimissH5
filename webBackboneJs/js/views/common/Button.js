@@ -2,7 +2,16 @@ define(function(){
     var _button = Backbone.View.extend({
         mdown:null,
         initialize:function(){
-            this.clsPressing = this.options.clsPressing;
+            for(var i in this.options){
+                this[i] = this.options[i];
+            }
+//            this.clsPressing = this.options.clsPressing;
+//            this.className = this.options.className;
+//            this.text = this.options.text;
+            this.render();
+        },
+        render:function(){
+            this.$el.text(this.text);
         },
         clsPressing:null,
         events:{

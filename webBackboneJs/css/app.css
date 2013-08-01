@@ -95,6 +95,7 @@ ul,ol{
     width: 100%;
     height: 0;
     background: #b3b3b3;
+    z-index: 3;
 }
 .navbar{
     height:40px;
@@ -166,27 +167,67 @@ ul,ol{
 
 
 .bodyview{
-    padding-top: 50px;
+    padding-top: 40px;
+    min-height: 100%;
 }
 .body-item{
     display: none;
 }
 
 
-
-.index-list-item{
+.index-list{}
+.index-list li{
+    padding: 5px;
+}
+.index-list li:ACTIVE{
     background-color: #e7e7e7;
 }
-.index-list-item img{
-    width: 100%;
+.index-list li img{
+     width: 100%;
+ }
+.index-list li p{
+    text-align: center;
 }
-
+.index-load-more{
+    position: relative;
+    line-height: 40px;
+    text-align:center;
+    margin: 5px;
+    border: #999 1px solid;
+}
+.index-load-more:before{
+    position: absolute;
+    font-family: 'IcoMoon';
+    content: ' ';
+    margin-left: -20px;
+    -webkit-animation: loadMore 1s infinite linear;
+    -webkit-animation-play-state: paused;
+    -webkit-transform: rotateZ(0deg);
+}
+.index-load-more-run{}
+.index-load-more-run:before{
+    content:'#';
+    -webkit-animation-play-state: running;
+}
+.index-load-more-pressing{
+    background-color: darkgray;
+    color: white;
+}
 .brand-indexes-pack{
     position: fixed;
     top:40px;
     width: 40px;
     color: gray;
 }
+@-webkit-keyframes loadMore{
+    0%{
+        -webkit-transform: rotateZ(0deg);
+    }
+    100%{
+        -webkit-transform: rotateZ(360deg);
+    }
+}
+
 .brand-indexes{
 }
 

@@ -1,0 +1,41 @@
+<div>
+    <div class="carousel">
+        <div class="carousel-inner">
+            <%_.each(iy,function(item){%>
+            <div class="item active">
+                <img src="<%=item%>"/>
+            </div>
+            <%});%>
+        </div>
+    </div>
+    <div class="data-grid">
+        <div class="col">
+            <div class="row">
+                <div class="name">星级：</div>
+                <div class="value"><%=pt%></div>
+            </div>
+            <div class="row">
+                <div class="name">上市时间：</div>
+                <div class="value"><%=pk%></div>
+            </div>
+            <div class="row">
+                <div class="name">规格：</div>
+                <div class="value"><%=psy%></div>
+            </div>
+            <div class="row">
+                <div class="name">属性：</div>
+                <div class="value"><%=pt%></div>
+            </div>
+            <div class="row">
+                <div class="name">简介：</div>
+                <div class="value"><%=po%></div>
+            </div>
+        </div>
+    </div>
+    <div class="split-line">
+        <div class="txt pinglunicon">共 <em style="color:red;"><%=pn%></em> 条评论</div>
+        <div class="line"></div>
+    </div>
+    <ul class="comment-list"></ul>
+    <div class="small-loading"></div>
+</div>

@@ -20,13 +20,9 @@ define(['collections/IndexList','views/common/Button'],function(IndexList,Button
         },
         className:'index-list',
         events:{
-            'click li':function(e){
-                Kimiss.Body.Loading.show();
-                Kimiss.Body.getModule('Article').load($(e.currentTarget).attr('article-id'),function(){
-                    Kimiss.Body.Loading.hide();
-                });
-
-            }
+//            'click li':function(e){
+//                Kimiss.Body.switch('Article',[$(e.currentTarget).attr('article-id')]);
+//            }
         },
         itemTpl: _.template(AppTplMap.indexListItem),
 //        ListItem: _indexListItem,

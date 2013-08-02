@@ -1,0 +1,26 @@
+<div>
+    <img class="topImg" src="<%=tg%>"/>
+    <p class="title"><%=te%></p>
+    <div class="split-line">
+        <div class="txt"><%=tt%></div>
+        <div class="line"></div>
+    </div>
+    <p><%=to%></p>
+    <%if(tp&&tp == 1){%>
+    <div>
+        <%=th%>
+    </div>
+    <%}else{%>
+    <ul>
+        <%_.each(tn,function(item){%>
+        <li>
+            <a href="#proDetail/<%=item.pd%>"><img src="<%=item.il%>"/></a>
+            <h6><%=item.pe%></h6>
+            <p><%=item.ct%></p>
+        </li>
+        <%})%>
+    </ul>
+    <%}%>
+
+</div>
+

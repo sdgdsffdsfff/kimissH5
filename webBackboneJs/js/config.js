@@ -60,6 +60,15 @@ var _templatesMap_ = [{
 },{
     name:'searchView',
     path:'/partials/searchView.html'
+},{
+    name:'article',
+    path:'/partials/article.html'
+},{
+    name:'proDetail',
+    path:'/partials/proDetail.html'
+},{
+    name:'comment',
+    path:'/partials/comment.html'
 }];
 
 

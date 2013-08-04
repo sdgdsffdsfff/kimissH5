@@ -11,7 +11,11 @@
             </div>
         </section>
         <footer>
-            <span><%=ce%></span>
-            <span class="starLevel"><%=cs%></span>
+            <div class="date dataIcon"><%=ce%></div>
+            <ol>
+                <%_.each(_.range(cs),function(){%>
+                <li class="redStar"></li>
+                <%});%>
+            </ol>
         </footer>
     </li>

@@ -4,8 +4,10 @@ define(function(){
             '': 'index',
             'index':'index',
             'brand':'brand',
+            'brand/:type':'brandType',
             'article/:td':'article',
-            'proDetail/:pd':'proDetail'
+            'proDetail/:pd':'proDetail',
+            'productsSo/:pswy':'productsSo'
         },
         index:function(){
             Kimiss.Body.switch('Index');
@@ -18,6 +20,12 @@ define(function(){
         },
         article:function(td){
             Kimiss.Body.switch('Article',[td]);
+        },
+        productsSo:function(pswy){
+            Kimiss.Body.switch('ProductList',[pswy,'so']);
+        },
+        brandType:function(type){
+            Kimiss.Body.getModule('Brand').switchMode(type);
         }
     });
     return _router;

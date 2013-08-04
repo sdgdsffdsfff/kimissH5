@@ -69,6 +69,12 @@ var _templatesMap_ = [{
 },{
     name:'comment',
     path:'/partials/comment.html'
+},{
+    name:'productList',
+    path:'/partials/products.html'
+},{
+    name:'segmentbtn',
+    path:'/partials/segmentbtn.html'
 }];
 
 

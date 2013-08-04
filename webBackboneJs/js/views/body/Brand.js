@@ -89,6 +89,7 @@ define(['collections/BrandList'],function(BrandListClt){
         },
         show:function(){
             this.$el.show();
+            Kimiss.NavBar.showCenterSeg();
             if(!this.hasLoaded){
                 this.load();
                 this.hasLoaded = true;
@@ -96,6 +97,15 @@ define(['collections/BrandList'],function(BrandListClt){
         },
         hide:function(){
             this.$el.hide();
+            Kimiss.NavBar.hideCenterSeg();
+        },
+        switchMode:function(type){
+            var anchor = Kimiss.NavBar.$el.find('.brand-seg [brand-anchor='+type+']');
+            anchor.addClass('on');
+            anchor.siblings('a').removeClass('on');
+            if(type == 'hot'){
+
+            }
         },
         load:function(){
             var me = this;
@@ -103,6 +113,18 @@ define(['collections/BrandList'],function(BrandListClt){
                 success:function(clt){
                     me.addIndexes(clt.indexes);
                     me.addItem(clt.models[0]);
+                    Kimiss.NavBar.loadCenterSeg({
+                        btnList:[{
+                            name:'全部品牌',
+                            link:'#brand/all',
+                            anchor:'all'
+                        },{
+                            name:'热门品牌',
+                            link:'#brand/hot',
+                            anchor:'hot'
+                        }],
+                        activeIndex:0
+                    });
                 }
             });
         }

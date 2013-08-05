@@ -1,6 +1,6 @@
-define(['collections/BrandList'],function(BrandListClt){
-    var _brandIndex = Backbone.View.extend({
-        tpl: _.template(AppTplMap.brandIndexes),
+define(['collections/SortList'],function(SortListClt){
+    var _sortIndex = Backbone.View.extend({
+        tpl: _.template(AppTplMap.sortIndexes),
         events:{
             'click ul li':function(e){
                 var brand =  Kimiss.Body.getModule('Brand');
@@ -30,9 +30,9 @@ define(['collections/BrandList'],function(BrandListClt){
             }));
         }
     });
-    var _brandList = Backbone.View.extend({
+    var _sortList = Backbone.View.extend({
         className:'brand-list',
-        tpl: _.template(AppTplMap.brandList),
+        tpl: _.template(AppTplMap.sortList),
         model:null,
         initialize:function(){
             this.arr = this.options.arr;
@@ -50,58 +50,16 @@ define(['collections/BrandList'],function(BrandListClt){
             this.elp.append(this.$el);
         }
     });
-    var _brand = Backbone.View.extend({
-        BrandIndex:_brandIndex,
-        BrandList:_brandList,
-        initialize:function(){
-            this.BrandListClt = new BrandListClt;
-            this.render();
-        },
-        render:function(){
-            this.indexesEL = this.$el.find('.brand-indexes-pack');
-            this.itemsEL = this.$el.find('.brand-items-pack');
-            this.allEL = this.$el.find('.brand-all');
-            this.hotEL = this.$el.find('.brand-hot');
-        },
+    var _v = Backbone.View.extend({
+        SortIndex:_sortIndex,
+        SortList:_sortList,
+        SortListClt:new SortListClt,
         hasLoaded:false,
-        brandListMap:{},
-        hotTpl: _.template(AppTplMap.brandHot),
-        addHot:function(){
-            var s = '128,140,272,145,183,105,197,182,355,125,198,177,118,211,253,102,119,212,338,255,374,144,126,181,151,127,259,112,353,328,107,231,283,252,185,111,155,1098,685,114,526,439,184,237,204,104,234,218,918,180';
-            s = s.split(',');
-            this.hotEL.html(this.hotTpl({
-                list:s
-            }));
-        },
-        addItem:function(model){
-            var l = new this.BrandList({
-                elp:this.itemsEL,
-                model:model
-            });
-            this.brandListMap[model.get('index')] = l;
-            return l;
-        },
-        addIndexes:function(indexes){
-            var me = this;
-            new this.BrandIndex({
-                el:this.indexesEL,
-                indexes:indexes
-            });
-            this.indexesEL.height($(window).height() - 40);
-
-            var brandIndexScroller = new iScroll('brand-indexes-scroller',{
-                vScrollbar:false
-            });
-            window.addEventListener('resize',function(){
-                me.indexesEL.height($(window).height() - 40);
-                brandIndexScroller.refresh();
-            },false);
-        },
         show:function(type){
             var me = this;
             type = type||'hot';
-            this.$el.show();
-            Kimiss.NavBar.showCenterSeg('brand');
+            me.$el.show();
+            Kimiss.NavBar.showCenterSeg('sort');
             if(!this.hasLoaded){
                 this.load(function(){
                     me.switchMode(type);
@@ -115,16 +73,33 @@ define(['collections/BrandList'],function(BrandListClt){
                 me.resetHotWidth();
             },false);
         },
-        resetHotWidth:function(){
-            var w = this.$el.width();
-            this.hotEL.width(w - w%70);
+        hide:function(){},
+        hotTpl: _.template(AppTplMap.sortHot),
+        addItem:function(model){
+//            var l = new this.SortList({
+//                elp:this.itemsEL,
+//                model:model
+//            });
+//            this.brandListMap[model.get('index')] = l;
+//            return l;
         },
-        hide:function(){
-            this.$el.hide();
-            Kimiss.NavBar.hideCenterSeg();
+        addIndexes:function(indexes){
+//            var me = this;
+//            new this.SortIndex({
+//                el:this.indexesEL,
+//                indexes:indexes
+//            });
+        },
+        addHot:function(){
+            var s = '2076,2071,2068,2075,9036,2072,1884,827,902,1880,1888,2070,1881,2069,1885,881,1893,1894,1988,1882,2083,2042,2197,1883,2041,2171,901,2008,1891,2048,9029,1895,1903,2089,867,2079,1320';
+            s = s.split(',');
+            s.push('2518,2541,2542,2543,2548,2549,2550');
+            this.hotEL.html(this.hotTpl({
+                list:s
+            }));
         },
         switchMode:function(type){
-            var anchor = Kimiss.NavBar.$el.find('.brand-seg [type-anchor='+type+']');
+            var anchor = Kimiss.NavBar.$el.find('.sort-seg [type-anchor='+type+']');
             anchor.addClass('on');
             anchor.siblings('a').removeClass('on');
             if(type == 'hot'){
@@ -135,14 +110,15 @@ define(['collections/BrandList'],function(BrandListClt){
                 this.hotEL.hide();
             }
         },
-        load:function(callback){
+        load:function(){
             var me = this;
-            this.BrandListClt.fetch({
+            this.SortListClt.fetch({
                 success:function(clt){
-                    me.addIndexes(clt.indexes);
-                    me.addItem(clt.models[0]);
-                    me.addHot();
-                    Kimiss.NavBar.loadBrandSeg({
+//                    me.addIndexes(clt.indexes);
+//                    me.addItem(clt.models[0]);
+//                    me.addHot();
+                    console.log(arguments);
+                    Kimiss.NavBar.loadCenterSeg({
                         btnList:[{
                             name:'热门分类',
                             link:'#sort/hot',
@@ -159,5 +135,6 @@ define(['collections/BrandList'],function(BrandListClt){
             });
         }
     });
-    return _brand;
+
+    return _v;
 });

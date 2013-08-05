@@ -454,6 +454,25 @@ ul,ol{
     background-color: darkgray;
     color: white;
 }
+.brand{}
+.brand .brand-hot{
+    margin: 0 auto;
+}
+.brand .brand-hot li{
+    float: left;
+    border: #dbdbdb 1px solid;
+    border-radius: .4em;
+    margin: 5px;
+}
+.brand .brand-hot li a{
+    border-radius: .4em;
+    width: 58px;
+    height: 58px;
+    display: block;
+    background-position: 0 0;
+    background-image: url(/resources/hotPinpai.jpg);
+    background-size: auto 100%;
+}
 .brand-indexes-pack{
     position: fixed;
     top:40px;

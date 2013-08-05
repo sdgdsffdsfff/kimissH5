@@ -1,6 +1,8 @@
 define(['views/body/Index','views/body/Brand',
     'views/body/Article','views/body/Loading',
-    'views/body/ProDetail','views/body/ProductList'],function(Index,Brand,Article,Loading,ProDetail,ProductList){
+    'views/body/ProDetail','views/body/ProductList',
+    'views/body/Sort'],
+function(Index,Brand,Article,Loading,ProDetail,ProductList,Sort){
     var _body = Backbone.View.extend({
         initialize:function(){
             this.render();
@@ -28,6 +30,9 @@ define(['views/body/Index','views/body/Brand',
             });
             this.modules.ProductList = new ProductList({
                 el:$('#productList')
+            });
+            this.modules.Sort = new Sort({
+                el:$('#sort')
             });
         },
         switch:function(name,params){

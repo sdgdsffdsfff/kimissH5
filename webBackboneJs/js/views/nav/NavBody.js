@@ -31,7 +31,8 @@ define(function(){
                     name:'品牌',
                     link:'#brand'
                 },{
-                    name:'分类'
+                    name:'分类',
+                    link:'#sort'
                 },{
                     name:'功效'
                 }],

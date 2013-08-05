@@ -49,6 +49,18 @@ var _templatesMap_ = [{
     name:'brandIndexes',
     path:'/partials/brandIndex.html'
 },{
+    name:'brandHot',
+    path:'/partials/brandHot.html'
+},{
+    name:'sortList',
+    path:'/partials/sortList.html'
+},{
+    name:'sortIndexes',
+    path:'/partials/sortIndex.html'
+},{
+    name:'sortHot',
+    path:'/partials/sortHot.html'
+},{
     name:'indexListItem',
     path:'/partials/indexListItem.html'
 },{

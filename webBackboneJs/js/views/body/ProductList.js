@@ -3,10 +3,12 @@ define(['collections/ProductList','models/ProductsModel'],function(ProductList,P
         productList:new ProductList,
         model:new ProductsModel,
         tpl: _.template(AppTplMap.productList),
-        show:function(pswy,so){
+        show:function(pswyORpd,so){
             this.$el.show();
             if(so){
-                this.loadSo(pswy);
+                this.loadSo(pswyORpd);
+            }else{
+                this.loadList(pswyORpd);
             }
         },
         addItems:function(data){
@@ -17,6 +19,18 @@ define(['collections/ProductList','models/ProductsModel'],function(ProductList,P
         },
         hide:function(){
             this.$el.hide();
+        },
+        loadList:function(pd){
+            var me = this;
+            this.productList.setListUrl();
+            this.productList.fetch({
+                data:{
+                    pd:'['+pd+']'
+                },
+                success:function(clt,data){
+                    me.addItems(data.de.py);
+                }
+            });
         },
         loadSo:function(pswy){
             var me = this;

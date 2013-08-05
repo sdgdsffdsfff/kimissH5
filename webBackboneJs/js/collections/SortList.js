@@ -1,10 +1,7 @@
-define(['models/BrandModel'],function(BrandModel){
+define(['models/SortModel'],function(SortModel){
     var _brandList = Backbone.Collection.extend({
-        url:'http://m.kimiss.com/files/product_index.php?c=iapp&rd=20',
-        model:BrandModel,
-        initialize:function(){
-//            this.bind('add',this.onItemAdd,this);
-        },
+        url:'http://m.kimiss.com/files/product_index.php?c=iapp&rd=21&st=1',
+        model:SortModel,
         sync: function(method, model, options) {
             // Default JSON-request options.
             return $.ajax({
@@ -24,7 +21,7 @@ define(['models/BrandModel'],function(BrandModel){
         },
         indexes:[],
         parse:function(data){
-            data = data.de.by;
+            data = data.de.pcy;
             var re = [], t,p;
             for(var i in data){
                 this.indexes.push(i);

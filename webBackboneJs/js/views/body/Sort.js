@@ -55,6 +55,46 @@ define(['collections/SortList'],function(SortListClt){
         SortList:_sortList,
         SortListClt:new SortListClt,
         hasLoaded:false,
+        initialize:function(){
+            this.render();
+        },
+        events:{
+            'click ul.sort-indexes li':'startpli'
+        },
+        getP:function(e){
+            return {
+                x: e.touches? e.touches[0].pageX: e.pageX,
+                y: e.touches? e.touches[0].clientY: e.clientY
+            };
+        },
+        indexesDown:false,
+        setScrollTop:function(s){
+            var ele = this.itemsEL.children('dl[sort-group-index='+s+']');
+            if(ele.length){
+                var top = ele.offset().top;
+                $('body').scrollTop(top-40);
+            }
+        },
+        startpli:function(e){
+            this.setScrollTop($(e.target).html());
+            $(e.target).addClass('on').siblings('li').removeClass('on');
+        },
+        render:function(){
+            this.indexesEL = this.$el.find('.sort-indexes-pack');
+            this.itemsEL = this.$el.find('.sort-items-pack');
+            this.allEL = this.$el.find('.sort-all');
+            this.hotEL = this.$el.find('.sort-hot');
+        },
+        scrolling:function(){
+            var me = this;
+            this.itemsEL.children('dl').each(function(i,a){
+                if($(a).offset().top>= $('body').scrollTop()){
+                    me.indexesEL.find('ul li[index-name='+$(a).prev().attr('sort-group-index')+']').
+                        addClass('on').siblings('li').removeClass('on');
+                    return false;
+                }
+            });
+        },
         show:function(type){
             var me = this;
             type = type||'hot';
@@ -72,23 +112,34 @@ define(['collections/SortList'],function(SortListClt){
             window.addEventListener('resize',function(){
                 me.resetHotWidth();
             },false);
+            $(window).bind('scroll',function(){
+                me.scrolling();
+            });
         },
-        hide:function(){},
+        resetHotWidth:function(){
+            var w = this.$el.width();
+            this.hotEL.width(w - w%62);
+        },
+        hide:function(){
+            this.$el.hide();
+            $(window).unbind('scroll');
+        },
         hotTpl: _.template(AppTplMap.sortHot),
-        addItem:function(model){
-//            var l = new this.SortList({
-//                elp:this.itemsEL,
-//                model:model
-//            });
-//            this.brandListMap[model.get('index')] = l;
-//            return l;
+        indexesTpl: _.template(AppTplMap.sortIndexes),
+        listTpl: _.template(AppTplMap.sortList),
+        addItems:function(models){
+            var re = [];
+            models.each(function(a){
+                re.push(a.attributes);
+            });
+            this.itemsEL.html(this.listTpl({
+                list:re
+            }));
         },
         addIndexes:function(indexes){
-//            var me = this;
-//            new this.SortIndex({
-//                el:this.indexesEL,
-//                indexes:indexes
-//            });
+            this.indexesEL.html(this.indexesTpl({
+                indexes:indexes
+            }));
         },
         addHot:function(){
             var s = '2076,2071,2068,2075,9036,2072,1884,827,902,1880,1888,2070,1881,2069,1885,881,1893,1894,1988,1882,2083,2042,2197,1883,2041,2171,901,2008,1891,2048,9029,1895,1903,2089,867,2079,1320';
@@ -110,15 +161,15 @@ define(['collections/SortList'],function(SortListClt){
                 this.hotEL.hide();
             }
         },
-        load:function(){
+        load:function(callback){
             var me = this;
             this.SortListClt.fetch({
                 success:function(clt){
-//                    me.addIndexes(clt.indexes);
-//                    me.addItem(clt.models[0]);
-//                    me.addHot();
+                    me.addIndexes(clt.indexes);
+                    me.addItems(clt.models);
+                    me.addHot();
                     console.log(arguments);
-                    Kimiss.NavBar.loadCenterSeg({
+                    Kimiss.NavBar.loadSortSeg({
                         btnList:[{
                             name:'热门分类',
                             link:'#sort/hot',

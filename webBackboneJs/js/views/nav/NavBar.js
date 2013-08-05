@@ -48,6 +48,10 @@ define(['views/common/Button','views/nav/NavBody'],function(Button,NavBody){
             this.hideTitle();
             this.$el.find('.brand-seg').html(this.segTpl(options)).show();
         },
+        loadSortSeg:function(options){
+            this.hideTitle();
+            this.$el.find('.sort-seg').html(this.segTpl(options)).show();
+        },
         showTitle:function(){
             this.$el.find('[data-title=1]').show();
         },

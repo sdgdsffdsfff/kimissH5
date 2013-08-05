@@ -117,7 +117,7 @@ define(['collections/BrandList'],function(BrandListClt){
         },
         resetHotWidth:function(){
             var w = this.$el.width();
-            this.hotEL.width(w - w%70);
+            this.hotEL.width(w - w%62);
         },
         hide:function(){
             this.$el.hide();
@@ -144,12 +144,12 @@ define(['collections/BrandList'],function(BrandListClt){
                     me.addHot();
                     Kimiss.NavBar.loadBrandSeg({
                         btnList:[{
-                            name:'热门分类',
-                            link:'#sort/hot',
+                            name:'热门品牌',
+                            link:'#brand/hot',
                             anchor:'hot'
                         },{
-                            name:'全部分类',
-                            link:'#sort/all',
+                            name:'全部品牌',
+                            link:'#brand/all',
                             anchor:'all'
                         }],
                         activeIndex:0

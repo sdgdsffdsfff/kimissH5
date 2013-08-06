@@ -546,6 +546,9 @@ ul,ol{
     border-bottom: #999 1px solid;
     padding: 8px 5px;
 }
+.brand-items-pack ul li a{
+    display: block;
+}
 .sort-items-pack{
 
 }
@@ -575,7 +578,23 @@ ul,ol{
     padding-left: 12px;
     font-size: 14px;
 }
-
+.sort-items-pack dl dd a{
+    display: block;
+}
+.effect{
+    padding: 5px;
+}
+.effect a{
+    background-color: lightcoral;
+    display: inline-block;
+    padding: 3px 5px;
+    margin: 5px;
+    color: white;
+}
+.effect a:active{
+    background-color: #ffff00;
+    color: #999;
+}
 
 .article{
     padding: 5px;

@@ -34,11 +34,12 @@ define(function(){
                     name:'分类',
                     link:'#sort'
                 },{
-                    name:'功效'
+                    name:'功效',
+                    link:'#effect'
                 }],
                 list1:[{
                     name:'新品ewq',
-                    link:'#productsSo/美白'
+                    link:'#productList/pswy=美白'
                 },{
                     name:'面132膜',
                     link:''

@@ -39,9 +39,12 @@ define(['views/common/Button','views/nav/NavBody'],function(Button,NavBody){
                 this.$el.find('.brand-seg').hide();
             }
         },
-        hideCenterSeg:function(){
+        hideCenterSeg:function(type){
             this.showTitle();
+            if(type == 'brand')
             this.$el.find('.brand-seg').hide();
+            if(type == 'sort')
+            this.$el.find('.sort-seg').hide();
         },
         segTpl: _.template(AppTplMap.segmentbtn),
         loadBrandSeg:function(options){

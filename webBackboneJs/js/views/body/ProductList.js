@@ -3,13 +3,9 @@ define(['collections/ProductList','models/ProductsModel'],function(ProductList,P
         productList:new ProductList,
         model:new ProductsModel,
         tpl: _.template(AppTplMap.productList),
-        show:function(pswyORpd,so){
+        show:function(params){
             this.$el.show();
-            if(so){
-                this.loadSo(pswyORpd);
-            }else{
-                this.loadList(pswyORpd);
-            }
+            this.loadList(params);
         },
         addItems:function(data){
             console.log(data);
@@ -20,25 +16,26 @@ define(['collections/ProductList','models/ProductsModel'],function(ProductList,P
         hide:function(){
             this.$el.hide();
         },
-        loadList:function(pd){
+        loadList:function(params){
             var me = this;
-            this.productList.setListUrl();
-            this.productList.fetch({
-                data:{
-                    pd:'['+pd+']'
-                },
-                success:function(clt,data){
-                    me.addItems(data.de.py);
+            var data = {};
+            if(params.pswy){
+                data.pswy = '['+params.pswy+']';
+            }else{
+                if(params.bdy){
+                    data.bdy = '['+params.bdy+']';
                 }
-            });
-        },
-        loadSo:function(pswy){
-            var me = this;
-            this.productList.setSoUrl();
+                if(params.pcdy){
+                    data.pcdy = '['+params.pcdy+']';
+                }
+                if(params.pfdy){
+                    data.pfdy = '['+params.pfdy+']';
+                }
+            }
+            this.productList.setListUrl();
+            console.log(data);
             this.productList.fetch({
-                data:{
-                    pswy:'['+pswy+']'
-                },
+                data:data,
                 success:function(clt,data){
                     me.addItems(data.de.py);
                 }

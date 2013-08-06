@@ -76,6 +76,9 @@ var _templatesMap_ = [{
     name:'article',
     path:'/partials/article.html'
 },{
+    name:'effect',
+    path:'/partials/effect.html'
+},{
     name:'proDetail',
     path:'/partials/proDetail.html'
 },{

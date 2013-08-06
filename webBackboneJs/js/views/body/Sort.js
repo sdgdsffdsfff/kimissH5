@@ -59,7 +59,10 @@ define(['collections/SortList'],function(SortListClt){
             this.render();
         },
         events:{
-            'click ul.sort-indexes li':'startpli'
+            'click ul.sort-indexes li':function(e){
+                this.setScrollTop($(e.target).html());
+                $(e.target).addClass('on').siblings('li').removeClass('on');
+            }
         },
         getP:function(e){
             return {
@@ -75,10 +78,6 @@ define(['collections/SortList'],function(SortListClt){
                 $('body').scrollTop(top-40);
             }
         },
-        startpli:function(e){
-            this.setScrollTop($(e.target).html());
-            $(e.target).addClass('on').siblings('li').removeClass('on');
-        },
         render:function(){
             this.indexesEL = this.$el.find('.sort-indexes-pack');
             this.itemsEL = this.$el.find('.sort-items-pack');
@@ -88,8 +87,8 @@ define(['collections/SortList'],function(SortListClt){
         scrolling:function(){
             var me = this;
             this.itemsEL.children('dl').each(function(i,a){
-                if($(a).offset().top>= $('body').scrollTop()){
-                    me.indexesEL.find('ul li[index-name='+$(a).prev().attr('sort-group-index')+']').
+                if($(a).offset().top + $(a).height()>= $('body').scrollTop()+41){
+                    me.indexesEL.find('ul li[index-name='+$(a).attr('sort-group-index')+']').
                         addClass('on').siblings('li').removeClass('on');
                     return false;
                 }
@@ -123,6 +122,7 @@ define(['collections/SortList'],function(SortListClt){
         hide:function(){
             this.$el.hide();
             $(window).unbind('scroll');
+            Kimiss.NavBar.hideCenterSeg('sort');
         },
         hotTpl: _.template(AppTplMap.sortHot),
         indexesTpl: _.template(AppTplMap.sortIndexes),

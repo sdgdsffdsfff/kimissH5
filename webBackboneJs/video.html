@@ -2,17 +2,189 @@
 <html>
 <head>
     <title>Video</title>
-    <link href="http://vjs.zencdn.net/4.1/video-js.css" rel="stylesheet">
-    <script src="http://vjs.zencdn.net/4.1/video.js"></script>
+    <!--<link href="http://vjs.zencdn.net/4.1/video-js.css" rel="stylesheet">-->
+    <!--<script src="http://vjs.zencdn.net/4.1/video.js"></script>-->
+    <style>
+        html,body{
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            /*font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;*/
+            font-family: 'Century Gothic';
+        }
+        body{
+            background-image: url(/bg.png);
+        }
+        a{
+            color: #e1b600;
+            text-decoration: none;;
+        }
+        a:visited{
+            color: #e1b600;
+        }
+        a:hover{
+            color: #e1b600;
+            text-decoration: underline;
+        }
+        ul,ol{
+            list-style: none;
+        }
+        header{
+            height: 30%;
+        }
+        .title{
+            background-image: url(/logo.png);
+            background-repeat: no-repeat;
+            background-position:  center center;
+            background-size: 360px auto;;
+        }
+        section{
+            width: 100%;
+            height: 60%;
+            overflow: hidden;
+            position: relative;
+            color: #fff;
+        }
+        .video-pack h1{
+            position: absolute;
+            width: 100%;
+            z-index: 3;
+            font-size: 98px;
+            /*font: normal 98px/98px 'AvenirLT-Medium', 'Helvetica Neue', helvetica, arial, sans-serif;*/
+            margin: auto 0;
+            text-align: center;
+            text-transform: uppercase;
+            -webkit-transform: translateY(-50%);
+            top: 50%;
+        }
+        .video-pack h3{
+            position: absolute;
+            font: normal 16px/16px 'AvenirLT-Medium', 'Helvetica Neue', helvetica, arial, sans-serif;
+            width: 100%;
+            z-index: 2;
+            font-family: 'Microsoft Yahei';
+        }
+        .video-pack h3.line1{
+            top: 60%;
+            padding-left: 60%
+        }
+        .video-pack h3.line2{
+            top: 67%;
+            padding-left: 65%
+        }
+        .video-pack video{
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            width: 100%;
+        }
+        footer.foot{
+            display: -webkit-box;
+            display: -moz-box;
+            -webkit-box-orient: vertical;
+            -moz-box-orient: vertical;
+            -webkit-box-align: center;
+            -moz-box-align: center;
+            height: 10%;
+            background-color: rgba(255,255,255,0.1);
+        }
+        footer.foot ul{
+            display: -webkit-box;
+            display: -moz-box;
+            -webkit-box-orient: horizontal;
+            -moz-box-orient: horizontal;
+            -webkit-box-align: center;
+            -moz-box-align: center;
+            margin: 0 auto;
+            width: 60%;
+            max-width: 600px;
+        }
+        footer.foot ul li{
+            -webkit-box-flex:1;
+            -moz-box-flex:1;
+            padding-top: 15px;
+            max-width: 120px;
+        }
+        footer.foot ul li a{
+            font-size: 24px;
+            font-family: 'Microsoft Yahei';
+        }
+        @media screen and (max-width: 1280px){
+
+            .video-pack h1{
+                /*font: normal 80px/80px 'AvenirLT-Medium', 'Helvetica Neue', helvetica, arial, sans-serif;*/
+                font-size: 80px;
+            }
+        }
+        @media screen and (max-width: 1024px){
+            .title{
+                background-size: 280px auto;;
+            }
+            .video-pack h1{
+                /*font: normal 74px/74px 'AvenirLT-Medium', 'Helvetica Neue', helvetica, arial, sans-serif;*/
+                font-size: 74px;
+            }
+            footer.foot ul li a{
+                font-size: 18px;
+            }
+        }
+        @media screen and (max-width: 968px){
+            .video-pack h1{
+                /*font: normal 54px/54px 'AvenirLT-Medium', 'Helvetica Neue', helvetica, arial, sans-serif;*/
+                font-size: 54px;
+            }
+        }
+        @media screen and (max-width: 768px){
+            .title{
+                background-size: 220px auto;;
+            }
+            .video-pack h1{
+                /*font: normal 34px/34px 'AvenirLT-Medium', 'Helvetica Neue', helvetica, arial, sans-serif;*/
+                font-size: 34px;
+            }
+            footer.foot ul li a{
+                font-size: 14px;
+            }
+            .video-pack h3{
+                  display: none;
+              }
+            .video-pack video{
+                width: auto;
+                height: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
-<video id="example_video_1" class="video-js vjs-default-skin"
-       controls preload="auto" width="640" height="264"
-       poster="http://video-js.zencoder.com/oceans-clip.png"
-       data-setup='{"example_option":true}'>
-    <source src="http://video-js.zencoder.com/oceans-clip.mp4" type='video/mp4' />
-    <source src="http://video-js.zencoder.com/oceans-clip.webm" type='video/webm' />
-    <source src="http://video-js.zencoder.com/oceans-clip.ogv" type='video/ogg' />
-</video>
+<header class="title">
+
+</header>
+<section  class="video-pack">
+    <h1>MEET THE BETTER SELF</h1>
+    <h3 class="line1">人生，任何时候发生改变，都不算晚</h3>
+    <h3 class="line2">笑容，任何时候更加灿烂，都不算迟</h3>
+    <video autoplay="" loop="loop" poster="/video.jpg" style="display: none;">
+        <source src="/video.mp4" type="video/mp4">
+        <!--<source src="/themes/expo/media/video/exponent.ogv" type="video/ogg">-->
+        <img src="/video.jpg" width="100%" height="100%" alt="">
+    </video>
+</section>
+<footer class="foot">
+    <ul>
+        <li><a href="#">首页</a></li>
+        <li><a href="#">美容</a></li>
+        <li><a href="#">时尚</a></li>
+        <li><a href="#">生活</a></li>
+        <li><a href="#">品牌</a></li>
+    </ul>
+</footer>
+<script src="/libs/jquery-1.10.2.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $('.video-pack video').fadeIn();
+    });
+</script>
 </body>
 </html>

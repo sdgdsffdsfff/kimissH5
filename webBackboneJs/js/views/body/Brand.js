@@ -117,11 +117,11 @@ define(['collections/BrandList'],function(BrandListClt){
         },
         resetHotWidth:function(){
             var w = this.$el.width();
-            this.hotEL.width(w - w%62);
+            this.hotEL.width(w - w%72);
         },
         hide:function(){
             this.$el.hide();
-            Kimiss.NavBar.hideCenterSeg();
+            Kimiss.NavBar.hideCenterSeg('brand');
         },
         switchMode:function(type){
             var anchor = Kimiss.NavBar.$el.find('.brand-seg [type-anchor='+type+']');

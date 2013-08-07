@@ -163,6 +163,7 @@ define(['collections/SortList'],function(SortListClt){
         },
         load:function(callback){
             var me = this;
+            Kimiss.Body.Loading.show();
             this.SortListClt.fetch({
                 success:function(clt){
                     me.addIndexes(clt.indexes);
@@ -182,6 +183,7 @@ define(['collections/SortList'],function(SortListClt){
                         activeIndex:0
                     });
                     callback();
+                    Kimiss.Body.Loading.hide();
                 }
             });
         }

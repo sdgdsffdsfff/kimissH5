@@ -33,11 +33,12 @@ define(['collections/ProductList','models/ProductsModel'],function(ProductList,P
                 }
             }
             this.productList.setListUrl();
-            console.log(data);
+            Kimiss.Body.Loading.show();
             this.productList.fetch({
                 data:data,
                 success:function(clt,data){
                     me.addItems(data.de.py);
+                    Kimiss.Body.Loading.hide();
                 }
             });
         }

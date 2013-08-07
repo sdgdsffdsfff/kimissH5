@@ -4,23 +4,21 @@ define(['models/ArticleModel'],function(ArticleModel){
             this.$el.hide();
         },
         show:function(id){
-            Kimiss.Body.Loading.show();
-            this.load(id,function(){
-                Kimiss.Body.Loading.hide();
-            });
+            this.load(id);
             this.$el.show();
         },
         tpl: _.template(AppTplMap.article),
         model:new ArticleModel,
-        load:function(id,callback){
+        load:function(id){
             var me = this;
+            Kimiss.Body.Loading.show();
             this.model.fetch({
                 data:{
                     td:id
                 },
                 success:function(model){
                     me.$el.html(me.tpl(model.attributes));
-                    callback();
+                    Kimiss.Body.Loading.hide();
                 }
             });
         }

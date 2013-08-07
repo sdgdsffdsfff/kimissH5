@@ -190,8 +190,28 @@ ul,ol{
     top: 40px;
     width: 100%;
     height: 0;
-    background: #b3b3b3;
+    background: #dbdbdb;
     z-index: 3;
+    display: -webkit-box;
+    -webkit-box-orient:vertical;
+    -webkit-box-align:center;
+}
+.loading-v{
+    display: -webkit-box;
+    -webkit-box-orient:horizontal;
+    -webkit-box-align:center;
+    height: 100%;
+}
+.loading-h{
+}
+.loading-h:before{
+    position: absolute;
+    font-family: 'IcoMoon';
+    content:'#';
+    color: #000000;
+    font-size: 34px;
+    -webkit-animation: loadMore 1s infinite linear;
+    -webkit-transform: rotateZ(45deg);
 }
 .navbar{
     height:40px;
@@ -427,8 +447,20 @@ ul,ol{
     display: none;
 }
 
+.index-title{
+    padding: 5px;
+}
+.index-title li{
+    float: left;
+    width: 25%;
+}
+.index-title li a{
+    display: block;
+    padding-left: 20px;
+}
+.index-list{
 
-.index-list{}
+}
 .index-list li{
     padding: 5px;
 }

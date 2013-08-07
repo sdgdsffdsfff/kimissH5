@@ -11,6 +11,7 @@ define(['models/ProDetailModel','collections/CommentList'],function(ProDetailMod
         },
         loadComment:function(pd){
             var me = this;
+            Kimiss.Body.Loading.show();
             this.commentList.fetch({
                 data:{
                     pdy: '['+pd+']'
@@ -24,6 +25,7 @@ define(['models/ProDetailModel','collections/CommentList'],function(ProDetailMod
                     });
 
                     me.$el.find('.small-loading').hide();
+                    Kimiss.Body.Loading.hide();
                 }
             });
         },

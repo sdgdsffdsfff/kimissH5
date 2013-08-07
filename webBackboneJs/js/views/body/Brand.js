@@ -137,6 +137,7 @@ define(['collections/BrandList'],function(BrandListClt){
         },
         load:function(callback){
             var me = this;
+            Kimiss.Body.Loading.show();
             this.BrandListClt.fetch({
                 success:function(clt){
                     me.addIndexes(clt.indexes);
@@ -155,6 +156,7 @@ define(['collections/BrandList'],function(BrandListClt){
                         activeIndex:0
                     });
                     callback();
+                    Kimiss.Body.Loading.hide();
                 }
             });
         }

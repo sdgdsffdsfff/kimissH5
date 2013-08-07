@@ -24,7 +24,7 @@ define(['collections/IndexList','views/common/Button'],function(IndexList,Button
 //                Kimiss.Body.switch('Article',[$(e.currentTarget).attr('article-id')]);
 //            }
         },
-        itemTpl: _.template(AppTplMap.indexListItem),
+        listTpl: _.template(AppTplMap.indexListItem),
 //        ListItem: _indexListItem,
         hasLoaded:false,
         items:[],
@@ -36,20 +36,24 @@ define(['collections/IndexList','views/common/Button'],function(IndexList,Button
 //            this.$el.append(item.$el);
 //        },
         addItems:function(models){
-            var me = this;
+            var me = this,re = [];
             models.each(function(model){
-                me.$el.html(me.$el.html()+me.itemTpl(model.attributes));
+                re.push(model.attributes);
             });
+            console.log(re);
+            me.$el.html(this.listTpl({
+                list:re
+            }));
         },
         show:function(){
-            this.$el.parent().show();
+            this.$el.show();
             if(!this.hasLoaded){
                 this.load();
                 this.hasLoaded = true;
             }
         },
         hide:function(){
-            this.$el.parent().hide();
+            this.$el.hide();
         },
         loadMoreCmp:null,
         removeLoadMore:function(){
@@ -88,6 +92,7 @@ define(['collections/IndexList','views/common/Button'],function(IndexList,Button
         pageNum:1,
         load:function(){
             var me = this;
+            Kimiss.Body.Loading.show();
             this.IndexList.fetch({
                 data:{
                     ie:me.pageNum++
@@ -104,6 +109,7 @@ define(['collections/IndexList','views/common/Button'],function(IndexList,Button
                     }else if(l < 10){
                         me.removeLoadMore();
                     }
+                    Kimiss.Body.Loading.hide();
                 }
             });
         }

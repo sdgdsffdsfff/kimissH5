@@ -36,46 +36,9 @@ define(function(){
                 },{
                     name:'功效',
                     link:'#effect'
-                }],
-                list1:[{
-                    name:'新品ewq',
-                    link:'#productList/pswy=美白'
                 },{
-                    name:'面132膜',
-                    link:''
-                },{
-                    name:'精dddads华',
-                    link:''
-                },{
-                    name:'眼a霜',
-                    link:''
-                },{
-                    name:'美白',
-                    link:''
-                },{
-                    name:'祛dsa痘',
-                    link:''
-                },{
-                    name:'瘦q身',
-                    link:''
-                },{
-                    name:'更多',
-                    link:''
-                },{
-                    name:'测试链接',
-                    link:''
-                },{
-                    name:'测试链接测试',
-                    link:''
-                },{
-                    name:'测试链接测',
-                    link:''
-                },{
-                    name:'测试链接测试链接',
-                    link:''
-                },{
-                    name:'测试链接测试链',
-                    link:''
+                    name:'我的闺蜜',
+                    link:'#admin'
                 }]
             }));
             return this;

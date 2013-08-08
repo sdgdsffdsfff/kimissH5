@@ -297,6 +297,7 @@ ul,ol{
     background: lightblue;
     -webkit-box-shadow: #333 0 0 5px 2px;
     display: none;
+    width: 180px;
     /*-webkit-transition: -webkit-transform .3s ease-in-out;*/
     /*-webkit-transform: translateY(-100%);*/
 }
@@ -326,8 +327,6 @@ ul,ol{
     -webkit-box-flex: 1;
     background-color: indianred;
     padding: 1px;
-    max-width: 75px;
-    min-width: 75px;
 }
 .menu-inner .navIndex li{
 
@@ -457,12 +456,28 @@ ul,ol{
 .index-title li a{
     display: block;
     padding-left: 20px;
+    text-align: center;
+    margin: 5px;
+    position: relative;
+}
+.index-title li a:before{
+    position: absolute;
+    top:0;
+    left: 0;
+    height: 22px;
+    width: 20px;
+    content: ' ';
+    background-color: lightcoral;
+}
+.index-title li a:active{
+    background-color: gray;
 }
 .index-list{
 
 }
 .index-list li{
-    padding: 5px;
+    margin: 5px;
+    border: #dbdbdb 1px solid;
 }
 .index-list li:ACTIVE{
     background-color: #e7e7e7;
@@ -472,6 +487,9 @@ ul,ol{
  }
 .index-list li p{
     text-align: center;
+    margin: 0;
+    line-height: 28px;
+    height: 28px;
 }
 .index-load-more{
     position: relative;

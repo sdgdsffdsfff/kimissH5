@@ -1,28 +1,4 @@
-function requireApp1(){
-    require([
-        'js/models/IndexModel',
 
-        'js/views/Button',
-
-        'js/collections/IndexList',
-
-        'js/views/Kimiss',
-
-        'js/views/nav/NavBar',
-        'js/views/nav/NavBody',
-        'js/views/nav/MenuBtn',
-
-        'js/views/loading/Loading',
-
-        'js/views/search/Search',
-        'js/views/search/SearchBtn',
-
-        'js/views/body/Index',
-        'js/views/body/Body',
-
-        'js/routes/Router'
-    ]);
-}
 function requireApp(){
     require.config({
         baseUrl:'js'

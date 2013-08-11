@@ -175,15 +175,13 @@ ul,ol,li{
     text-align: center;
 }
 .bar-btn:HOVER{
-    color: white;
     text-decoration: none;
 }
 .bar-btn:ACTIVE{
-    color: white;
-    background-color: red;
+    color: #999;
 }
 .bar-btn-pressing{
-    background-color: red;
+
 }
 .menu-btn:before{
     content: "!";
@@ -532,6 +530,7 @@ ul,ol,li{
     text-align: center;
     margin: 5px;
     position: relative;
+    color: #e8627b;
 }
 .index-title li a:before{
     position: absolute;

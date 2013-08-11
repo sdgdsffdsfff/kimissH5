@@ -61,8 +61,11 @@ var _templatesMap_ = [{
     name:'sortHot',
     path:'/partials/sortHot.html'
 },{
-    name:'indexListItem',
-    path:'/partials/indexListItem.html'
+    name:'indexListBody',
+    path:'/partials/indexListBody.html'
+},{
+    name:'indexListTitle',
+    path:'/partials/indexListTitle.html'
 },{
     name:'loading',
     path:'/partials/loading.html'

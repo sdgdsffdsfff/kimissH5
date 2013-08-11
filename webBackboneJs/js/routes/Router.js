@@ -10,12 +10,12 @@ define(function(){
             'article/:td':'article',
             'effect':'effect',
             'proDetail/:pd':'proDetail',
-            'productList/pswy=:pswy':'productList',
-            'productList/bdy=:bdy':'productList',
-            'productList/pcdy=:pcdy':'productList',
-            'productList/pfdy=:pfdy':'productList',
-            'productList/bdy=:bdy/pcdy=:pcdy/pfdy=:pfdy/pswy=:pswy':'productList'
-//            'productsSo/:pswy':'productsSo'
+            'productList/s=:s&t=:t':'productList'
+//            'productList/pswy=:pswy':'productListPswy',
+//            'productList/bdy=:bdy':'productListBdy',
+//            'productList/pcdy=:pcdy':'productListPcdy',
+//            'productList/pfdy=:pfdy':'productListPfdy',
+//            'productList/bdy=:bdy/pcdy=:pcdy/pfdy=:pfdy/pswy=:pswy':'productList'
         },
         index:function(){
             Kimiss.Body.switch('Index');
@@ -26,14 +26,22 @@ define(function(){
         article:function(td){
             Kimiss.Body.switch('Article',[td]);
         },
-        productList:function(bdy,pcdy,pfdy,pswy){
-            Kimiss.Body.switch('ProductList',[{
-                bdy:bdy,
-                pcdy:pcdy,
-                pfdy:pfdy,
-                pswy:pswy
-            }]);
+        productList:function(s,t){
+            var d = {
+                s: '['+s+']',
+                t: t
+            };
+//            d[t] = '['+s+']';
+            Kimiss.Body.switch('ProductList',[d]);
         },
+//        productList:function(bdy,pcdy,pfdy,pswy){
+//            Kimiss.Body.switch('ProductList',[{
+//                bdy:bdy,
+//                pcdy:pcdy,
+//                pfdy:pfdy,
+//                pswy:pswy
+//            }]);
+//        },
         brandType:function(type){
             Kimiss.Body.switch('Brand',[type]);
         },

@@ -105,19 +105,20 @@ define(['collections/BrandList'],function(BrandListClt){
             if(!this.hasLoaded){
                 this.load(function(){
                     me.switchMode(type);
+                    me.resetHotWidth();
                 });
                 this.hasLoaded = true;
             }else{
                 me.switchMode(type);
             }
-            me.resetHotWidth();
             window.addEventListener('resize',function(){
                 me.resetHotWidth();
             },false);
         },
         resetHotWidth:function(){
             var w = this.$el.width();
-            this.hotEL.width(w - w%72);
+            var me = this;
+            this.hotEL.width(w - w%70);
         },
         hide:function(){
             this.$el.hide();

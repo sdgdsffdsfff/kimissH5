@@ -10,15 +10,15 @@ define(['views/nav/navBar','views/search/Search','views/body/Body','routes/Route
             me.$el.html(
                 this.navBarTpl()+
                     this.loadingTpl()+
-                    this.searchViewTpl()+
+//                    this.searchViewTpl()+
                     this.bodyTpl()
             );
             this.NavBar = new NavBar({
                 el:$('#navBar')
             });
-            this.SearchView = new SearchView({
-                el:$('#searchView')
-            });
+//            this.SearchView = new SearchView({
+//                el:$('#searchView')
+//            });
             this.Body = new Body({
                 el:$('#body')
             });

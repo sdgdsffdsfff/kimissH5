@@ -1,4 +1,4 @@
-define(['collections/IndexList','views/common/Button'],function(IndexList,Button){
+define(['collections/IndexList','views/common/LoadMore'],function(IndexList,LoadMore){
 //    var _indexListItem = Backbone.View.extend({
 //        tagName:'li',
 //        className:'index-list-item',
@@ -24,7 +24,8 @@ define(['collections/IndexList','views/common/Button'],function(IndexList,Button
 //                Kimiss.Body.switch('Article',[$(e.currentTarget).attr('article-id')]);
 //            }
         },
-        listTpl: _.template(AppTplMap.indexListItem),
+        titleTpl: _.template(AppTplMap.indexListTitle),
+        bodyTpl: _.template(AppTplMap.indexListBody),
 //        ListItem: _indexListItem,
         hasLoaded:false,
         items:[],
@@ -35,15 +36,22 @@ define(['collections/IndexList','views/common/Button'],function(IndexList,Button
 //            this.items.push(item);
 //            this.$el.append(item.$el);
 //        },
+        addTitle:function(){
+            this.$el.html(this.titleTpl());
+        },
         addItems:function(models){
             var me = this,re = [];
+            if(this.loadMoreCmp){
+                this.loadMoreCmp.remove();
+            }
             models.each(function(model){
                 re.push(model.attributes);
             });
-            console.log(re);
-            me.$el.html(this.listTpl({
+            me.$el.html(me.$el.html()+this.bodyTpl({
                 list:re
             }));
+            this.loadMoreCmp = this.getLoadMore();
+            me.$el.append(this.loadMoreCmp.$el);
         },
         show:function(){
             this.$el.show();
@@ -56,61 +64,42 @@ define(['collections/IndexList','views/common/Button'],function(IndexList,Button
             this.$el.hide();
         },
         loadMoreCmp:null,
-        removeLoadMore:function(){
-            if(this.loadMoreCmp){
-                this.loadMoreCmp.$el.hide();
-            }
-        },
-        addLoadMore:function(){
-            if(!this.loadMoreCmp){
-                this.loadMoreCmp = new Button({
-                    className:'index-load-more',
-                    clsPressing:'index-load-more-pressing',
-                    text:'加载更多',
-                    startAnim:function(){
-                        this.$el.addClass('index-load-more-run');
-                    },
-                    stopAnim:function(){
-                        this.$el.removeClass('index-load-more-run');
-                    }
-                });
-                this.loadMoreCmp.loading = false;
-                this.loadMoreCmp.on({
-                    tap:function(){
-                        var me = this;
-                        if(this.loading === false){
-                            me.startAnim();
-                            Kimiss.Body.getModule('Index').load();
-                            this.loading = true;
-                        }
-                    }
-                });
-                this.$el.parent().append(this.loadMoreCmp.$el);
-            }
-            this.loadMoreCmp.$el.show();
+        getLoadMore:function(){
+            var me = this;
+            return new LoadMore({
+                ontap:function(callback){
+                    me.loadMore(callback);
+                }
+            });
         },
         pageNum:1,
-        load:function(){
+        loadMore:function(callback){
             var me = this;
-            Kimiss.Body.Loading.show();
             this.IndexList.fetch({
                 data:{
                     ie:me.pageNum++
                 },
                 success:function(clt){
                     var l = clt.models.length;
-                    if(me.loadMoreCmp){
-                        me.loadMoreCmp.loading = false;
-                        me.loadMoreCmp.stopAnim();
+                    if(l < 10&&this.loadMoreCmp){
+                        this.loadMoreCmp.remove();
                     }
-                    if(l == 10){
-                        me.addItems(clt.models);
-                        me.addLoadMore();
-                    }else if(l < 10){
-                        me.removeLoadMore();
+                    if(me.pageNum <= 2){
+                        me.addTitle();
                     }
-                    Kimiss.Body.Loading.hide();
+                    me.addItems(clt.models);
+                    callback();
+                },
+                error:function(){
+                    alert(123333);
                 }
+            });
+        },
+        load:function(){
+            var me = this;
+            Kimiss.Body.Loading.show();
+            this.loadMore(function(){
+                Kimiss.Body.Loading.hide();
             });
         }
     });

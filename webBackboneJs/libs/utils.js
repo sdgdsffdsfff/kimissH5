@@ -85,3 +85,21 @@ Object.defineProperty(String.prototype, "endsWith", {
         return reg.test(this);
     }
 });
+isNumber = function (o) {
+    return Object.prototype.toString.call(o) === '[object Number]';
+};
+isArray = function (o) {
+    return Object.prototype.toString.call(o) === '[object Array]';
+};
+isString = function (o) {
+    return Object.prototype.toString.call(o) === '[object String]';
+};
+isObject = function (o) {
+    return Object.prototype.toString.call(o) === '[object Object]';
+};
+isFunction = function (o) {
+    return Object.prototype.toString.call(o) === '[object Function]';
+};
+isBoolean = function (o) {
+    return Object.prototype.toString.call(o) === '[object Boolean]';
+};

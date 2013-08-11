@@ -18,7 +18,8 @@ a:VISITED{
 img{
     max-width: 100%;
 }
-ul,ol{
+ul,ol,li{
+    display: block;
     list-style: none;
     padding:0;
     margin:0;
@@ -50,12 +51,16 @@ ul,ol{
 .orivc{
     -webkit-box-orient: vertical;
     -webkit-box-align: center;
+    -moz-box-orient: vertical;
+    -moz-box-align: center;
     width: 100%
 }
 .orihc{
     height: 100%;
     -webkit-box-orient: horizontal;
     -webkit-box-align: center;
+    -moz-box-orient: horizontal;
+    -moz-box-align: center;
 }
 
 .orihc h1{
@@ -77,6 +82,9 @@ ul,ol{
     display: -webkit-box;
     -webkit-box-align: center;
     -webkit-box-orient: horizontal;
+    display: -moz-box;
+    -moz-box-align: center;
+    -moz-box-orient: horizontal;
 }
 .split-line .line{
     max-height: 1px;
@@ -84,6 +92,7 @@ ul,ol{
     background-color: rgb(211, 211, 211);
     top: 50%;
     -webkit-box-flex: 1;
+    -moz-box-flex: 1;
 }
 .split-line .txt{
     padding: 0px 5px;
@@ -102,11 +111,14 @@ ul,ol{
 .carousel-inner{
     -webkit-box-orient: horizontal;
     display: -webkit-box;
+    -moz-box-orient: horizontal;
+    display: -moz-box;
+    left: 50%;
     width: auto;
 }
 .carousel-inner > .item{
     width: 200px;
-    margin: 10px;
+    padding: 10px;
 }
 .carousel-inner > .item img{
     border: #dbdbdb 1px solid;
@@ -115,23 +127,30 @@ ul,ol{
 .data-grid{
     -webkit-box-orient: horizontal;
     display: -webkit-box;
+    -moz-box-orient: horizontal;
+    display: -moz-box;
 }
 .data-grid .col{
     -webkit-box-flex:1;
+    -moz-box-flex:1;
 }
 .data-grid .col .row{
     -webkit-box-orient: horizontal;
     display: -webkit-box;
+    -moz-box-orient: horizontal;
+    display: -moz-box;
 }
 .data-grid .col .row .name{
     text-align: right;
     -webkit-box-flex:1;
+    -moz-box-flex:1;
     max-width: 80px;
     min-width: 80px;
 }
 .data-grid .col .row .value{
     text-align: left;
     -webkit-box-flex:1;
+    -moz-box-flex:1;
 }
 
 
@@ -153,6 +172,7 @@ ul,ol{
     color: white;
     font-size: 18px;
     font-family: "IcoMoon";
+    text-align: center;
 }
 .bar-btn:HOVER{
     color: white;
@@ -184,6 +204,8 @@ ul,ol{
     font-size: 32px;
     -webkit-animation: loadMore 1s infinite linear;
     -webkit-transform: rotateZ(0deg);
+    -moz-animation: loadMore 1s infinite linear;
+    -moz-transform: rotateZ(0deg);
 }
 .loading{
     position: fixed;
@@ -195,23 +217,26 @@ ul,ol{
     display: -webkit-box;
     -webkit-box-orient:vertical;
     -webkit-box-align:center;
+    display: -moz-box;
+    -moz-box-orient:vertical;
+    -moz-box-align:center;
 }
-.loading-v{
-    display: -webkit-box;
-    -webkit-box-orient:horizontal;
-    -webkit-box-align:center;
-    height: 100%;
-}
-.loading-h{
-}
-.loading-h:before{
+.loading:before{
     position: absolute;
     font-family: 'IcoMoon';
     content:'#';
     color: #000000;
     font-size: 34px;
+    top:50%;
+    left:50%;
+    -webkit-transform:translate(-50%,-50%);
     -webkit-animation: loadMore 1s infinite linear;
-    -webkit-transform: rotateZ(45deg);
+    -webkit-transform: rotateZ(0deg);
+    -webkit-animation-play-state: running;
+    -moz-transform:translate(-50%,-50%);
+    -moz-animation: loadMore 1s infinite linear;
+    -moz-transform: rotateZ(45deg);
+    -moz-animation-play-state: running;
 }
 .navbar{
     height:40px;
@@ -228,30 +253,50 @@ ul,ol{
     padding: 0;
     z-index: 2;
     -webkit-transform: translate(0,0);
+    -moz-transform: translate(0,0);
     background-color: #222222;
 }
+.navbar-inner h1{
+    display: block;
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    color: white;
+    font-size: 24px;
+    line-height: 40px;
+    margin: 0;
+    padding: 0;
+}
+
 .brand-seg{
     position: absolute;
     left: 50%;
     -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
     height: 100%;
     display: -webkit-box;
+    display: -moz-box;
 }
 .sort-seg{
     position: absolute;
     left: 50%;
     -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
     height: 100%;
     display: -webkit-box;
+    display: -moz-box;
 }
 .seg-btnpack{
     margin: 5px;
     display: -webkit-box;
+    display: -moz-box;
     position: relative;
 }
 .seg-backtxt{
     display: -webkit-box;
+    display: -moz-box;
     -webkit-box-orient: horizontal;
+    -moz-box-orient: horizontal;
     background-color: white;
     padding: 2px;
 }
@@ -296,6 +341,7 @@ ul,ol{
     z-index: 1;
     background: lightblue;
     -webkit-box-shadow: #333 0 0 5px 2px;
+    -moz-box-shadow: #333 0 0 5px 2px;
     display: none;
     width: 180px;
     /*-webkit-transition: -webkit-transform .3s ease-in-out;*/
@@ -313,6 +359,7 @@ ul,ol{
     left: 100%;
     width: 100%;
     -webkit-transition: left .3s ease-in-out;
+    -moz-transition: left .3s ease-in-out;
 }
 .searchView-show{
     left: 0;
@@ -345,6 +392,7 @@ ul,ol{
 }
 .menu-inner .proIndex{
     -webkit-box-flex: 1;
+    -moz-box-flex: 1;
 }
 .menu-inner .proIndex a{
     display: inline-block;
@@ -379,6 +427,8 @@ ul,ol{
 .productList ul > li{
     display: -webkit-box;
     -webkit-box-orient:horizontal;
+    display: -moz-box;
+    -moz-box-orient:horizontal;
     border-bottom: #dbdbdb 1px solid;
     padding: 5px;
 }
@@ -386,6 +436,9 @@ ul,ol{
     display: -webkit-box;
     -webkit-box-orient: horizontal;
     -webkit-box-flex: 1;
+    display: -moz-box;
+    -moz-box-orient: horizontal;
+    -moz-box-flex: 1;
 }
 .productList ul li a:HOVER{
     text-decoration: none;
@@ -396,11 +449,14 @@ ul,ol{
 }
 .productList ul li a section{
     -webkit-box-flex: 1;
+    -moz-box-flex: 1;
     padding: 1px;
 }
 .productList ul li a section > .foot{
     display: -webkit-box;
     -webkit-box-orient:horizontal;
+    display: -moz-box;
+    -moz-box-orient:horizontal;
 }
 .productList ul li a section > .foot span{
     padding-left: 20px;
@@ -412,6 +468,8 @@ ul,ol{
 .productList ul li a section > .foot ol{
     display: -webkit-box;
     -webkit-box-orient: horizontal;
+    display: -moz-box;
+    -moz-box-orient: horizontal;
     height: 22px;
 }
 .productList ul li a section > .foot ol li{
@@ -467,10 +525,10 @@ ul,ol{
     height: 22px;
     width: 20px;
     content: ' ';
-    background-color: lightcoral;
+    background-size: 100%;
 }
 .index-title li a:active{
-    background-color: gray;
+    color: lightcoral;
 }
 .index-list{
 
@@ -493,6 +551,8 @@ ul,ol{
 }
 .index-load-more{
     position: relative;
+    display: block;
+    height: 40px;
     line-height: 40px;
     text-align:center;
     margin: 5px;
@@ -506,11 +566,15 @@ ul,ol{
     -webkit-animation: loadMore 1s infinite linear;
     -webkit-animation-play-state: paused;
     -webkit-transform: rotateZ(0deg);
+    -moz-animation: loadMore 1s infinite linear;
+    -moz-animation-play-state: paused;
+    -moz-transform: rotateZ(0deg);
 }
 .index-load-more-run{}
 .index-load-more-run:before{
     content:'#';
     -webkit-animation-play-state: running;
+    -moz-animation-play-state: running;
 }
 .index-load-more-pressing{
     background-color: darkgray;
@@ -523,22 +587,23 @@ ul,ol{
 }
 .brand .brand-hot li,.sort .sort-hot li{
     float: left;
-    border: #dbdbdb 1px solid;
-    border-radius: .4em;
     margin: 5px;
 }
-.brand .brand-hot li a,.sort .sort-hot li a{
+.brand .brand-hot a,.sort .sort-hot a{
+    margin: 5px;
+    float: left;
+    border: #dbdbdb 1px solid;
     border-radius: .4em;
+    display: block;
     width: 60px;
     height: 60px;
-    display: block;
-    background-position: 0 0;
-    background-size: auto 100%;
+    background-size: auto 58px;
+    background-repeat: no-repeat;
 }
-.brand .brand-hot li a{
+.brand .brand-hot a{
     background-image: url(/resources/hotPinpai.jpg);
 }
-.sort .sort-hot li a{
+.sort .sort-hot a{
     background-image: url(/resources/hotFenlei.jpg);
 }
 .brand-indexes-pack{
@@ -552,6 +617,7 @@ ul,ol{
     right: 10px;
     top:50%;
     -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
 }
 .sort-indexes{
     padding: 10px 0;
@@ -565,6 +631,14 @@ ul,ol{
 .sort-indexes li.on{
     background-color: lightcoral;
 }
+@-moz-keyframes loadMore{
+     0%{
+         -moz-transform: rotateZ(0deg);
+     }
+     100%{
+         -moz-transform: rotateZ(360deg);
+     }
+ }
 @-webkit-keyframes loadMore{
     0%{
         -webkit-transform: rotateZ(0deg);

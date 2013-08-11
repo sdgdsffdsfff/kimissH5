@@ -117,7 +117,7 @@ define(['collections/SortList'],function(SortListClt){
         },
         resetHotWidth:function(){
             var w = this.$el.width();
-            this.hotEL.width(w - w%72);
+            this.hotEL.width(w - w%70);
         },
         hide:function(){
             this.$el.hide();

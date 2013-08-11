@@ -1,4 +1,4 @@
-define(['models/ProDetailModel','collections/CommentList'],function(ProDetailModel,CommentList){
+define(['models/ProDetailModel','collections/CommentList','views/common/Carousel'],function(ProDetailModel,CommentList,Carousel){
     var _v = Backbone.View.extend({
         model:new ProDetailModel,
         commentList:new CommentList,
@@ -40,6 +40,9 @@ define(['models/ProDetailModel','collections/CommentList'],function(ProDetailMod
                 },
                 success:function(model){
                     me.$el.html(me.tpl(model.attributes));
+                    new Carousel({
+                        el:me.$el.find('#proDetail-carousel')
+                    });
                     me.loadComment(pd);
                 }
             });

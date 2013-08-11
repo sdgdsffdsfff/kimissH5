@@ -26,19 +26,24 @@ define(function(){
             me.$el.html(me.menuTpl({
                 list:[{
                     name:'首页',
-                    link:'#index'
+                    link:'#index',
+                    icon:'indexIcon'
                 },{
                     name:'品牌',
-                    link:'#brand'
+                    link:'#brand',
+                    icon:'brandIcon'
                 },{
                     name:'分类',
-                    link:'#sort'
+                    link:'#sort',
+                    icon:'sortIcon'
                 },{
                     name:'功效',
-                    link:'#effect'
+                    link:'#effect',
+                    icon:'effectIcon'
                 },{
                     name:'我的闺蜜',
-                    link:'#admin'
+                    link:'#admin',
+                    icon:'adminIcon'
                 }]
             }));
             return this;

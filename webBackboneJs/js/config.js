@@ -1,37 +1,16 @@
-function requireApp1(){
-    require([
-        'js/models/IndexModel',
-
-        'js/views/Button',
-
-        'js/collections/IndexList',
-
-        'js/views/Kimiss',
-
-        'js/views/nav/NavBar',
-        'js/views/nav/NavBody',
-        'js/views/nav/MenuBtn',
-
-        'js/views/loading/Loading',
-
-        'js/views/search/Search',
-        'js/views/search/SearchBtn',
-
-        'js/views/body/Index',
-        'js/views/body/Body',
-
-        'js/routes/Router'
-    ]);
-}
 function requireApp(){
     require.config({
         baseUrl:'js'
     });
-    require(['views/Kimiss'],function(Kimiss){
+    require(['views/Kimiss','analysis/analysis'],function(Kimiss,Analysis){
         var kimiss = new Kimiss({
             el:$('#app')
         }).render();
         window['Kimiss'] = kimiss;
+        var analysis = new Analysis({
+            url:'http://localhost:3001'
+        });
+        analysis.start();
         Backbone.history.start();
     });
 }

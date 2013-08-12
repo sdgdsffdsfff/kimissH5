@@ -16,7 +16,12 @@ app.listen(port);
 showIP();
 console.log('listen on port : '+ port);
 
-
+var io = require('socket.io').listen(3001);
+io.sockets.on('connection',function(socket){
+    socket.on('/gesture',function(data){
+        console.log(data);
+    });
+});
 
 
 

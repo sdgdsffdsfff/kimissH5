@@ -12,8 +12,7 @@ define(function(){
         start:function(){
             var me = this;
             if(io){
-                console.log(this.url);
-                var socket = io.connect(this.url);
+                var socket = io.connect('42.96.193.252:3001');
                 socket.on('connect',this.onopen);
                 socket.on('msg',this.onmessage);
                 this.socket = socket;
@@ -35,9 +34,9 @@ define(function(){
         end:function(){},
         gesture:function(){},
         click:function(){},
-        apply:function(data){
+        emit:function(data){
             if(this.socket){
-                this.socket.emit('msg',data);
+                this.socket.emit('gesture',data);
             }
         }
     };

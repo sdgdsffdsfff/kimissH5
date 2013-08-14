@@ -6,11 +6,10 @@ function requireApp(){
         var kimiss = new Kimiss({
             el:$('#app')
         }).render();
-        window['Kimiss'] = kimiss;
-        var analysis = new Analysis({
-            url:'http://localhost:3001'
-        });
+        window['Km'] = window['Kimiss'] = kimiss;
+        var analysis = new Analysis();
         analysis.start();
+        Km.Analysis = analysis;
         Backbone.history.start();
     });
 }

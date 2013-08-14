@@ -1,27 +1,31 @@
 var fs = require('fs');
+var http = require('http');
+var server = http.createServer();
 var express = require('express');
-var data = require('./data');
-var app = express();
+var app = express(server);
 var os = require('os');
-var dns = require('dns');
-var port = 3000;
+var port = 80;
 app.get('/',function(req,res){
-    res.sendfile(__dirname + '/webBackboneJs/index.html');
+    var headers = {};
+    headers["Access-Control-Allow-Origin"] = "*";
+    headers["Access-Control-Allow-Methods"] = "POST, GET, PUT, DELETE, OPTIONS";
+    headers["Access-Control-Allow-Credentials"] = true;
+    headers["Access-Control-Max-Age"] = '86400'; // 24 hours
+    headers["Access-Control-Allow-Headers"] = "X-Requested-With, Access-Control-Allow-Origin, X-HTTP-Method-Override, Content-Type, Authorization, Accept";
+    fs.readFile(__dirname + '/webBackboneJs/index.html',function(err,data){
+        if(err) throw err;
+        res.writeHead(200, headers);
+        res.write(data);
+        res.end();
+    });
 });
-data.srv(app);
 app.configure(function(){
     app.use(express.static(__dirname + '/webBackboneJs'));
 });
-app.listen(port);
-showIP();
-console.log('listen on port : '+ port);
 
-var io = require('socket.io').listen(3001);
-io.sockets.on('connection',function(socket){
-    socket.on('/gesture',function(data){
-        console.log(data);
-    });
-});
+showIP();
+app.listen(port);
+console.log('listen on port : '+ port);
 
 
 

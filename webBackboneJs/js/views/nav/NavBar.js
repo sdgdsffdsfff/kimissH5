@@ -27,6 +27,9 @@ define(['views/common/Button','views/nav/NavBody'],function(Button,NavBody){
 //            'mouseup .bar-btn':'barBtnOff'
         },
         toogleMenu:function(e){
+            Km.Analysis.emit({
+                a:{b:['123',455]}
+            });
             Kimiss.NavBar.NavBody.toggle();
         },
         showCenterSeg:function(type){

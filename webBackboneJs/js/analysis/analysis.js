@@ -12,14 +12,20 @@ define(function(){
         start:function(){
             var me = this;
             if(io){
-                var socket = io.connect('42.96.193.252:3001');
-                socket.on('connect',function(){
-                    me.onopen();
-                });
-                socket.on('msg',function(){
-                    me.onmessage();
-                });
-                this.socket = socket;
+                try{
+                    var socket = io.connect('42.96.193.252:3001');
+                    socket.on('connect',function(){
+                        me.onopen();
+                    });
+                    socket.on('msg',function(){
+                        me.onmessage();
+                    });
+                    socket.on('error',function(){
+                        console.log('connect to gesture server error.');
+                    });
+                    this.socket = socket;
+                }catch(e){
+                }
             }
         },
         onopen:function(){
@@ -36,6 +42,9 @@ define(function(){
             me.iteratorAnalyDom(function(i,analy){
                 $(analy).attr('data-analy-reg',true);
                 $(analy).bind('click',me.socket,me.emit);
+            });
+            $(window).scroll(function(){
+                console.log('>>'+$(document.body).scrollTop());
             });
         },
         unbindAnalyEvents:function(){
@@ -69,12 +78,26 @@ define(function(){
         end:function(){},
         gesture:function(){},
         click:function(){},
-        emit:function(socket){
-            var s = $(this).attr('data-analy');
-
+        emit:function(e){
+            var socket = e.data;
+            var s = $(this).attr('data-analy'),model,json;
             if(socket){
-//                socket.emit('gesture',{});
-                console.log(s.replace());
+                try{
+                    s = s.replaceAll(':','":"').replaceAll(',','","').replaceAll('{','{"').replaceAll('}','"}');
+                    s = /(\w+)(\{[^\{\}]*\})/g.exec(s);
+                    model = s[1];
+                    json = $.parseJSON(s[2]);
+                    json.ts = Date.now();
+                    console.log('emit to model:'+model);
+                    console.log(json);
+                    console.log('emit to model==');
+                    socket.emit('gesture',{
+                        model:model,
+                        data:json
+                    });
+                }catch(e){
+                    console.log('parse emitted data error!');
+                }
 
             }
         }

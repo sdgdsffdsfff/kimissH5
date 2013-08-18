@@ -281,6 +281,9 @@ ul,ol,li{
     top: 40px;
     width: 100%;
     background-color: #aaa;
+    -webkit-box-orient: vertical;
+    -webkit-box-align: center;
+    padding-top: 4px;
 }
 .sort-seg{
     position: absolute;
@@ -293,9 +296,12 @@ ul,ol,li{
     top: 40px;
     width: 100%;
     background-color: #aaa;
+    -webkit-box-orient: vertical;
+    -webkit-box-align: center;
+    padding-top: 4px;
 }
 .seg-btnpack{
-    margin: 5px auto;
+    /*margin: 5px auto;*/
     display: -webkit-box;
     display: -moz-box;
     position: relative;

@@ -17,7 +17,6 @@ define(['models/ProDetailModel','collections/CommentList','views/common/Carousel
                     pdy: '['+pd+']'
                 },
                 success:function(clt){
-                    console.log(clt);
                     var list = me.$el.find('.comment-list');
                     clt.models.each(function(a){
                         var s = me.commentTpl(a.attributes);
@@ -39,6 +38,7 @@ define(['models/ProDetailModel','collections/CommentList','views/common/Carousel
                     pd:pd
                 },
                 success:function(model){
+                    Kimiss.NavBar.setTitle(model.get('pe'));
                     me.$el.html(me.tpl(model.attributes));
                     new Carousel({
                         el:me.$el.find('#proDetail-carousel')

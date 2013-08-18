@@ -59,6 +59,7 @@ define(['collections/IndexList','views/common/LoadMore'],function(IndexList,Load
                 this.load();
                 this.hasLoaded = true;
             }
+            Kimiss.NavBar.setTitle('美丽闺蜜');
         },
         hide:function(){
             this.$el.hide();

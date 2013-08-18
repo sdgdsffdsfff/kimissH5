@@ -260,10 +260,14 @@ ul,ol,li{
     position: absolute;
     text-align: center;
     color: white;
-    font-size: 24px;
+    font-size: 22px;
     line-height: 40px;
     margin: 0;
-    padding: 0;
+    padding: 0 40px;
+    height: 40px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .brand-seg{
@@ -274,6 +278,9 @@ ul,ol,li{
     height: 100%;
     display: -webkit-box;
     display: -moz-box;
+    top: 40px;
+    width: 100%;
+    background-color: #aaa;
 }
 .sort-seg{
     position: absolute;
@@ -283,9 +290,12 @@ ul,ol,li{
     height: 100%;
     display: -webkit-box;
     display: -moz-box;
+    top: 40px;
+    width: 100%;
+    background-color: #aaa;
 }
 .seg-btnpack{
-    margin: 5px;
+    margin: 5px auto;
     display: -webkit-box;
     display: -moz-box;
     position: relative;
@@ -603,8 +613,12 @@ ul,ol,li{
     background-color: darkgray;
     color: white;
 }
-.brand{}
-.sort{}
+.brand{
+    padding-top: 40px;
+}
+.sort{
+    padding-top: 40px;
+}
 .brand .brand-hot,.sort .sort-hot{
     margin: 0 auto;
 }
@@ -631,7 +645,7 @@ ul,ol,li{
 }
 .brand-indexes-pack{
     position: fixed;
-    top:40px;
+    top:80px;
     width: 40px;
     color: gray;
 }

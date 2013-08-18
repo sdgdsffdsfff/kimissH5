@@ -18,6 +18,7 @@ define(['views/common/Button','views/nav/NavBody'],function(Button,NavBody){
             this.NavBody = new NavBody({
                 el:$('#navBody')
             });
+            this.render();
         },
         events:{
             'click #menu':'toogleMenu'
@@ -26,34 +27,44 @@ define(['views/common/Button','views/nav/NavBody'],function(Button,NavBody){
 //            'mousedown .bar-btn':'barBtnOn',
 //            'mouseup .bar-btn':'barBtnOff'
         },
+        render:function(){
+            this.titleEL = this.$el.find('[data-title=1]');
+        },
         toogleMenu:function(e){
             Kimiss.NavBar.NavBody.toggle();
         },
         showCenterSeg:function(type){
-            this.hideTitle();
+//            this.hideTitle();
             if (type == 'brand'){
+                this.setTitle('品牌');
                 this.$el.find('.brand-seg').show();
                 this.$el.find('.sort-seg').hide();
             }else if(type == 'sort'){
+                this.setTitle('分类');
                 this.$el.find('.sort-seg').show();
                 this.$el.find('.brand-seg').hide();
             }
         },
         hideCenterSeg:function(type){
-            this.showTitle();
-            if(type == 'brand')
-            this.$el.find('.brand-seg').hide();
-            if(type == 'sort')
-            this.$el.find('.sort-seg').hide();
+//            this.showTitle();
+            if(type == 'brand'){
+                this.$el.find('.brand-seg').hide();
+            }
+            if(type == 'sort'){
+                this.$el.find('.sort-seg').hide();
+            }
         },
         segTpl: _.template(AppTplMap.segmentbtn),
         loadBrandSeg:function(options){
-            this.hideTitle();
+//            this.hideTitle();
             this.$el.find('.brand-seg').html(this.segTpl(options)).show();
         },
         loadSortSeg:function(options){
-            this.hideTitle();
+//            this.hideTitle();
             this.$el.find('.sort-seg').html(this.segTpl(options)).show();
+        },
+        setTitle:function(t){
+            this.titleEL.text(t);
         },
         showTitle:function(){
             this.$el.find('[data-title=1]').show();

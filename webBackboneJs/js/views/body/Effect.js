@@ -50,6 +50,7 @@ define(function(){
         },
         show:function(){
             this.$el.show();
+            Kimiss.NavBar.setTitle('功效');
         },
         hide:function(){
             this.$el.hide();

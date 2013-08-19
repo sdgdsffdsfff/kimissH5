@@ -1,4 +1,4 @@
-define(['views/common/Button','views/nav/NavBody'],function(Button,NavBody){
+define(function(){
     var _navBar = Backbone.View.extend({
         initialize:function(){
 //            this.MenuBtn = new Button({
@@ -15,9 +15,6 @@ define(['views/common/Button','views/nav/NavBody'],function(Button,NavBody){
 //            this.SearchBtn.on('tap',function(){
 //                Kimiss.SearchView.toggle();
 //            });
-            this.NavBody = new NavBody({
-                el:$('#navBody')
-            });
             this.render();
         },
         events:{
@@ -31,7 +28,7 @@ define(['views/common/Button','views/nav/NavBody'],function(Button,NavBody){
             this.titleEL = this.$el.find('[data-title=1]');
         },
         toogleMenu:function(e){
-            Kimiss.NavBar.NavBody.toggle();
+            Kimiss.NavBody.toggle('menu');
         },
         showCenterSeg:function(type){
 //            this.hideTitle();

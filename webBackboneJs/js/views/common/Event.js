@@ -38,16 +38,14 @@ define(function(){
             x:0,
             y:0
         },
-        touchstart:function(){},
-        touchmove:function(){},
-        touchend:function(){},
         _touchstart:function(e){
             this.originEvent = e;
             this.touchdown = true;
             this.startp = this.getP(e);
             this.curp = this.startp;
             this.pA = this.startp;
-            this.touchstart.call(this.hoster,this);
+            if(this.hoster.touchstart)
+                this.hoster.touchstart.call(this.hoster,this);
         },
         _touchmove:function(e){
             if(this.touchdown == true){
@@ -61,13 +59,15 @@ define(function(){
                     };
                     this.pA = this.curp;
                 }
-                this.touchmove.call(this.hoster,this);
+                if(this.hoster.touchmove)
+                    this.hoster.touchmove.call(this.hoster,this);
             }
         },
         _touchend:function(e){
             this.originEvent = e;
             this.touchdown = false;
-            this.touchend.call(this.hoster,this);
+            if(this.hoster.touchend)
+                this.hoster.touchend.call(this.hoster,this);
         },
         getDeltaDis:function(){
             return {
@@ -111,8 +111,10 @@ define(function(){
             this.originEvent.stopPropagation();
         },
         getTouchOrient:function(){
-            var delta = this.getAbsDeltaDis();
-            return delta.x>delta.y?'x':'y';
+            var delta = this.getDeltaDis();
+            var xy = Math.abs(delta.x)>Math.abs(delta.y)?'x':'y';
+            xy = delta[xy]>0?xy:'-'+xy;
+            return xy;
         }
     };
     return event;

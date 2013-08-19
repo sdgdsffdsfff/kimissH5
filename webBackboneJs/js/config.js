@@ -15,8 +15,8 @@ function requireApp(){
 }
 
 var _templatesMap_ = [{
-    name:'navBar',
-    path:'/partials/navBar.html'
+    name:'navBody',
+    path:'/partials/navBody.html'
 },{
     name:'body',
     path:'/partials/body.html'

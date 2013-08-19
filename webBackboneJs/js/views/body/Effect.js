@@ -51,6 +51,7 @@ define(function(){
         show:function(){
             this.$el.show();
             Kimiss.NavBar.setTitle('功效');
+            Kimiss.Body.Loading.hide();
         },
         hide:function(){
             this.$el.hide();

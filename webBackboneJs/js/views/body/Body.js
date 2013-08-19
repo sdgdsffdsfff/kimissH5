@@ -1,11 +1,42 @@
 define(['views/body/Index','views/body/Brand',
     'views/body/Article','views/body/Loading',
     'views/body/ProDetail','views/body/ProductList',
-    'views/body/Sort','views/body/Effect'],
-function(Index,Brand,Article,Loading,ProDetail,ProductList,Sort,Effect){
+    'views/body/Sort','views/body/Effect',
+    'views/common/Event'],
+function(Index,Brand,Article,Loading,ProDetail,ProductList,Sort,Effect,Event){
+    var BodyMask = Backbone.View.extend({
+        initialize:function(){
+            var me = this;
+            this.event = new Event({
+                hoster:me
+            });
+        },
+        show:function(){
+            this.$el.show();
+        },
+        hide:function(){
+            this.$el.hide();
+        },
+        touchstart:function(e){
+            e.preventDefault();
+            e.stopPropagation();
+        },
+        touchmove:function(e){
+            e.preventDefault();
+            e.stopPropagation();
+        },
+        touchend:function(e){
+            e.preventDefault();
+            e.stopPropagation();
+            Kimiss.NavBody.toggle();
+        }
+    });
     var _body = Backbone.View.extend({
         initialize:function(){
             this.render();
+            this.$el.css({
+                minHeight:$(window).height() - 40
+            });
         },
         modules:{
         },
@@ -15,6 +46,9 @@ function(Index,Brand,Article,Loading,ProDetail,ProductList,Sort,Effect){
         render:function(){
             this.Loading = new Loading({
                 el:$('#loading')
+            });
+            this.Mask = new BodyMask({
+                el:$('#body-mask')
             });
             this.modules.Index = new Index({
                 el:$('#index')

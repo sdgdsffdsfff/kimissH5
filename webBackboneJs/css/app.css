@@ -239,6 +239,12 @@ ul,ol,li{
     min-height:40px;
     margin:0;
     padding:0;
+    -webkit-transition: -webkit-transform .3s ease-in-out;
+    -moz-transition: -webkit-transform .3s ease-in-out;
+    -webkit-transform: translate3d(0,0,0);
+    -moz-transform: translate3d(0,0,0);
+    -webkit-box-shadow: #333 0 -2px 3px 1px;
+    -moz-box-shadow: #333 0 -2px 3px 1px;
 }
 .navbar-inner{
     left:0;
@@ -351,43 +357,52 @@ ul,ol,li{
 .nav-body{
     left:0;
     right:0;
-    top: 40px;
-    position: absolute;
+    top:0;
+    width: 100%;
+    height: 100%;
+    /*top: 40px;*/
+    /*position: absolute;*/
+    position: fixed;
     z-index: 1;
     background: white;
-    -webkit-box-shadow: #333 0 0 5px 2px;
-    -moz-box-shadow: #333 0 0 5px 2px;
-    display: none;
-    /*-webkit-transition: -webkit-transform .3s ease-in-out;*/
-    /*-webkit-transform: translateY(-100%);*/
 }
 .nav-body-show{
     /*-webkit-transform: translateY(0);*/
     display: block;
 }
-.searchView{
-    position: fixed;
+.nav-body .menu{
+    position: relative;
+    z-index: 2;
+    width: 80%;
     height: 100%;
-    background: #F7F7F9;
-    top: 0;
-    left: 100%;
+}
+.nav-body .search{
+    position: relative;
+    z-index: 1;
     width: 100%;
-    -webkit-transition: left .3s ease-in-out;
-    -moz-transition: left .3s ease-in-out;
+    height: 100%;
 }
-.searchView-show{
-    left: 0;
-}
-#menuView{
-    display: none;
-}
+/*.searchView{*/
+    /*position: fixed;*/
+    /*height: 100%;*/
+    /*background: #F7F7F9;*/
+    /*top: 0;*/
+    /*left: 100%;*/
+    /*width: 100%;*/
+    /*-webkit-transition: left .3s ease-in-out;*/
+    /*-moz-transition: left .3s ease-in-out;*/
+/*}*/
+/*.searchView-show{*/
+    /*left: 0;*/
+/*}*/
+/*#menuView{*/
+    /*display: none;*/
+/*}*/
 .menu-inner{
     display: -webkit-box;
 }
 .menu-inner .navIndex{
-    -webkit-box-flex: 1;
-    display: -webkit-box;
-    -webkit-box-orient: horizontal;
+    width: 100%;
 }
 .menu-inner .navIndex li{
     -webkit-box-flex: 1;
@@ -524,12 +539,28 @@ ul,ol,li{
     /*color: #999;*/
 /*}*/
 
-
-.bodyview{
-    padding-top: 40px;
+.body-view{
     min-height: 100%;
+    position: relative;
+    z-index: 2;
+    background-color: white;
+    -webkit-transition: -webkit-transform .3s ease-in-out;
+    -moz-transition: -webkit-transform .3s ease-in-out;
+    -webkit-transform: translate3d(0,0,0);
+    -moz-transform: translate3d(0,0,0);
+    -webkit-box-shadow: #333 0 -1px 3px 1px;
+    -moz-box-shadow: #333 0 -1px 3px 1px;
+    margin-top:40px;
+    padding-bottom: 1px;
 }
 .body-item{
+    display: none;
+}
+.body-mask{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 100;
     display: none;
 }
 

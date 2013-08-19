@@ -5,25 +5,11 @@ define(function(){
             this.render();
         },
         events:{
-            'click a':'itemTap'
-//            'touchstart .item':'itemOn',
-//            'touchend .item':'itemOff',
-//            'mousedown .item':'itemOn',
-//            'mouseout .item':'itemOff',
-//            'mouseup .item':'itemOff'
-        },
-//        itemOn:function(e){
-//            $(e.target).addClass('item-on');
-//        },
-//        itemOff:function(e){
-//            $(e.target).removeClass('item-on');
-//        },
-        itemTap:function(e){
-            Kimiss.NavBar.NavBody.toggle();
+            'click a':'toggle'
         },
         render:function(){
             var me = this;
-            me.$el.html(me.menuTpl({
+            me.$el.find('.menu').html(me.menuTpl({
                 list:[{
                     name:'首页',
                     link:'#index',
@@ -49,21 +35,18 @@ define(function(){
             return this;
         },
         status:'close',
-        toggle:function(){
+        toggle:function(type){
             var me = this;
             if(this.status == 'close'){
-//                me.$el.addClass('nav-body-show');
-                me.$el.fadeIn();
-                this.status = 'open'
+                this.status = 'open';
+                Kimiss.Body.Mask.show();
             }else if(this.status == 'open'){
-//                this.$el.removeClass('nav-body-show');
-                me.$el.fadeOut();
-                this.status = 'close'
+                this.status = 'close';
+                type = null;
+                Kimiss.Body.Mask.hide();
             }
-        },
-        setHeight:function(){
-            var me = this;
-            me.$el.height($(window).height() - 80);
+            Kimiss.slide(type);
+
         }
     });
     return _navBody;

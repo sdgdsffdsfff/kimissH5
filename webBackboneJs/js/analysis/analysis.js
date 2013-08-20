@@ -11,7 +11,7 @@ define(function(){
         openFlag:false,
         start:function(){
             var me = this;
-            if(io){
+            if(typeof io != 'undefined'){
                 try{
                     var socket = io.connect('42.96.193.252:3001');
                     socket.on('connect',function(){

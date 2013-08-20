@@ -5,15 +5,15 @@ define(['views/nav/navBar',
     'routes/Router'],function(NavBar,NavBody,SearchView,Body,Router){
     //eric branch test...
     var _kimiss = Backbone.View.extend({
-        navBodyTpl: _.template(AppTplMap.navBody),//_.template($('#navBar-tpl').html()),
-        loadingTpl:_.template(AppTplMap.loading),//_.template($('#loading-tpl').html()),
-        searchViewTpl:_.template(AppTplMap.searchView),//_.template($('#searchView-tpl').html()),
+//        navBodyTpl: _.template(AppTplMap.navBody),//_.template($('#navBar-tpl').html()),
+//        loadingTpl:_.template(AppTplMap.loading),//_.template($('#loading-tpl').html()),
+//        searchViewTpl:_.template(AppTplMap.searchView),//_.template($('#searchView-tpl').html()),
         bodyTpl:_.template(AppTplMap.body),//_.template($('#body-tpl').html()),
         render:function(){
             var me = this;
             me.$el.html(
-                this.navBodyTpl()+
-                    this.loadingTpl()+
+//                this.navBodyTpl()+
+//                    this.loadingTpl()+
 //                    this.searchViewTpl()+
                     this.bodyTpl()
             );
@@ -23,9 +23,9 @@ define(['views/nav/navBar',
             this.NavBody = new NavBody({
                 el:$('#navBody')
             });
-//            this.SearchView = new SearchView({
-//                el:$('#searchView')
-//            });
+            this.SearchView = new SearchView({
+                el:$('#search-view')
+            });
             this.Body = new Body({
                 el:$('#body')
             });
@@ -33,18 +33,19 @@ define(['views/nav/navBar',
             return this;
         },
         slide:function(type){
-            var per = 0;
+            var per = 0,w = 1;
             if(type == 'menu'){
                 per = 1;
             }
             if(type == 'search'){
                 per = -1;
             }
+            w = $(window).width()/100;
             this.NavBar.$el.css({
-                webkitTransform:'translate3d('+per*80+'%,0,0)'
+                webkitTransform:'translate3d('+per*80*w+'px,0,0)'
             });
             this.Body.$el.css({
-                webkitTransform:'translate3d('+per*80+'%,0,0)'
+                webkitTransform:'translate3d('+per*80*w+'px,0,0)'
             });
         }
     });

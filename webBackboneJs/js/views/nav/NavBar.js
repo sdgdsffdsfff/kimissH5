@@ -18,7 +18,8 @@ define(function(){
             this.render();
         },
         events:{
-            'click #menu':'toogleMenu'
+            'click #menu':'toggle',
+            'click #search':'toggle'
 //            'touchstart .bar-btn':'barBtnOn',
 //            'touchend .bar-btn':'barBtnOff',
 //            'mousedown .bar-btn':'barBtnOn',
@@ -27,8 +28,8 @@ define(function(){
         render:function(){
             this.titleEL = this.$el.find('[data-title=1]');
         },
-        toogleMenu:function(e){
-            Kimiss.NavBody.toggle('menu');
+        toggle:function(e){
+            Kimiss.NavBody.toggle(e.target.id);
         },
         showCenterSeg:function(type){
 //            this.hideTitle();

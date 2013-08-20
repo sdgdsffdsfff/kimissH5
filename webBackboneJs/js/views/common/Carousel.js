@@ -43,12 +43,12 @@ define(['views/common/Event'],function(Event){
         touchmove:function(e){
             var me = this,
                 inner = me.$el.children('.carousel-inner');
-            if(e.getTouchOrient() == 'x'){
+            if(e.getTouchOrient() == 'x'||e.getTouchOrient() == '-x'){
                 e.stopPropagation();
                 e.preventDefault();
                 inner.css({
                     webkitTransition:'-webkit-transform 0s ease',
-                    webkitTransform:'translateX('+ (parseInt(me.initMarginLeft-me.itemWidth*me.curIndex)+parseInt(e.getDeltaDis().x))+'px)'
+                    webkitTransform:'translate3d('+ (parseInt(me.initMarginLeft-me.itemWidth*me.curIndex)+parseInt(e.getDeltaDis().x))+'px,0,0)'
                 });
             }
         },
@@ -69,7 +69,7 @@ define(['views/common/Event'],function(Event){
                 inner = me.$el.children('.carousel-inner');
             inner.css({
                 webkitTransition:'-webkit-transform .3s ease',
-                webkitTransform:'translateX('+(me.initMarginLeft-me.itemWidth*me.curIndex)+'px)'
+                webkitTransform:'translate3d('+(me.initMarginLeft-me.itemWidth*me.curIndex)+'px,0,0)'
             });
         },
         touchend:function(e){

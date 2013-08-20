@@ -39,8 +39,11 @@ define([
             this.lastLoadParams = params;
             data.ie = params.ie;
             data[params.t] = params.s;
-            console.log(data);
-            this.productList.setListUrl();
+            if(params.t == 'pswy'){
+                this.productList.setSoUrl();
+            }else{
+                this.productList.setListUrl();
+            }
             this.productList.fetch({
                 data:data,
                 success:function(clt,data){

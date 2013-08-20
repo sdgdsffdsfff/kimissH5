@@ -14,64 +14,84 @@ function requireApp(){
     });
 }
 
-var _templatesMap_ = [{
-    name:'navBody',
-    path:'/partials/navBody.html'
-},{
-    name:'body',
-    path:'/partials/body.html'
-},{
-    name:'brandList',
-    path:'/partials/brandList.html'
-},{
-    name:'brandIndexes',
-    path:'/partials/brandIndex.html'
-},{
-    name:'brandHot',
-    path:'/partials/brandHot.html'
-},{
-    name:'sortList',
-    path:'/partials/sortList.html'
-},{
-    name:'sortIndexes',
-    path:'/partials/sortIndex.html'
-},{
-    name:'sortHot',
-    path:'/partials/sortHot.html'
-},{
-    name:'indexListBody',
-    path:'/partials/indexListBody.html'
-},{
-    name:'indexListTitle',
-    path:'/partials/indexListTitle.html'
-},{
-    name:'loading',
-    path:'/partials/loading.html'
-},{
-    name:'menu',
-    path:'/partials/menu.html'
-},{
-    name:'searchView',
-    path:'/partials/searchView.html'
-},{
-    name:'article',
-    path:'/partials/article.html'
-},{
-    name:'effect',
-    path:'/partials/effect.html'
-},{
-    name:'proDetail',
-    path:'/partials/proDetail.html'
-},{
-    name:'comment',
-    path:'/partials/comment.html'
-},{
-    name:'productList',
-    path:'/partials/products.html'
-},{
-    name:'segmentbtn',
-    path:'/partials/segmentbtn.html'
-}];
+var _templatesMap_ = [
+//    {
+//        name:'navBody',
+//        path:'/partials/navBody.html'
+//    },
+    {
+        name: 'body',
+        path: '/partials/body.html'
+    },
+    {
+        name: 'brandList',
+        path: '/partials/brandList.html'
+    },
+    {
+        name: 'brandIndexes',
+        path: '/partials/brandIndex.html'
+    },
+    {
+        name: 'brandHot',
+        path: '/partials/brandHot.html'
+    },
+    {
+        name: 'sortList',
+        path: '/partials/sortList.html'
+    },
+    {
+        name: 'sortIndexes',
+        path: '/partials/sortIndex.html'
+    },
+    {
+        name: 'sortHot',
+        path: '/partials/sortHot.html'
+    },
+    {
+        name: 'indexListBody',
+        path: '/partials/indexListBody.html'
+    },
+    {
+        name: 'indexListTitle',
+        path: '/partials/indexListTitle.html'
+    },
+//    {
+//        name: 'loading',
+//        path: '/partials/loading.html'
+//    },
+//    {
+//        name: 'menu',
+//        path: '/partials/menu.html'
+//    },
+//    {
+//        name: 'searchView',
+//        path: '/partials/searchView.html'
+//    },
+    {
+        name: 'article',
+        path: '/partials/article.html'
+    },
+    {
+        name: 'effect',
+        path: '/partials/effect.html'
+    },
+    {
+        name: 'proDetail',
+        path: '/partials/proDetail.html'
+    },
+    {
+        name: 'comment',
+        path: '/partials/comment.html'
+    },
+    {
+        name: 'productList',
+        path: '/partials/products.html'
+    },
+    {
+        name: 'segmentbtn',
+        path: '/partials/segmentbtn.html'
+    }
+];
 
 
 var AppTplMap = {},_templatesMap_L = 0;

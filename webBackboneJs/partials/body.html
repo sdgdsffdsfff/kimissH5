@@ -1,34 +1,80 @@
-    <div id="navBar" class="navbar navbar-inverse navbar-fixed-top">
-        <div class="navbar-inner">
-            <h1 data-title="1">美丽闺蜜</h1>
-            <div class="expand">
-                <a href="javascript:void(0)" data-analy="Model{name:menu-btn,actionType:tap}" id="menu" class="pull-left bar-btn menu-btn box orivc"></a>
-                <a href="javascript:void(0)" data-analy="Model{name:search-btn,actionType:tap}" id="search" class="pull-right bar-btn search-btn box orivc"></a>
-            </div>
+<div id="loading" class="loading">
+</div>
+<div id="navBody" class="nav-body">
+    <div class="menu">
+        <div class="menu-inner">
+            <ul class="navIndex">
+                <li>
+                    <div class="navIndex-item indexIcon">
+                        <a href="#index">首页</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="navIndex-item brandIcon">
+                        <a href="#brand">品牌</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="navIndex-item sortIcon">
+                        <a href="#sort">分类</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="navIndex-item effectIcon">
+                        <a href="#effect">功效</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="navIndex-item adminIcon">
+                        <a href="#admin">我的闺蜜</a>
+                    </div>
+                </li>
+            </ul>
         </div>
-        <div class="brand-seg"></div>
-        <div class="sort-seg"></div>
     </div>
-    <div id="body" class="body-view">
-        <div id="body-mask" class="body-mask"></div>
-        <div id="index" class="body-item">
+    <div id="search-view" class="search">
+        <div class="head">
+            <form action="/#productList/s=keyword&t=pswy">
+                <input type="search" placeholder="搜索"/>
+            </form>
+            <a class="submit-btn" href="#productList/s=keyword&t=pswy">搜索</a>
         </div>
-        <div id="brand" class="body-item brand">
-            <div class="brand-all">
-                <div id="brand-indexes-scroller" class="brand-indexes-pack"></div>
-                <div class="brand-items-pack"></div>
-            </div>
-            <div class="brand-hot"></div>
-        </div>
-        <div id="sort" class="body-item sort">
-            <div class="sort-all">
-                <div class="sort-indexes-pack"></div>
-                <div class="sort-items-pack"></div>
-            </div>
-            <ul class="sort-hot"></ul>
-        </div>
-        <div id="article" class="body-item article"></div>
-        <div id="effect" class="body-item effect"></div>
-        <div id="proDetail" class="body-item proDetail"></div>
-        <div id="productList" class="body-item productList"></div>
     </div>
+</div>
+<div id="navBar" class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <h1 data-title="1">美丽闺蜜</h1>
+
+        <div class="expand">
+            <a href="javascript:void(0)" data-analy="Model{name:menu-btn,actionType:tap}" id="menu"
+               class="pull-left bar-btn menu-btn box orivc"></a>
+            <a href="javascript:void(0)" data-analy="Model{name:search-btn,actionType:tap}" id="search"
+               class="pull-right bar-btn search-btn box orivc"></a>
+        </div>
+    </div>
+    <div class="brand-seg"></div>
+    <div class="sort-seg"></div>
+</div>
+<div id="body" class="body-view">
+    <div id="body-mask" class="body-mask"></div>
+    <div id="index" class="body-item">
+    </div>
+    <div id="brand" class="body-item brand">
+        <div class="brand-all">
+            <div id="brand-indexes-scroller" class="brand-indexes-pack"></div>
+            <div class="brand-items-pack"></div>
+        </div>
+        <div class="brand-hot"></div>
+    </div>
+    <div id="sort" class="body-item sort">
+        <div class="sort-all">
+            <div class="sort-indexes-pack"></div>
+            <div class="sort-items-pack"></div>
+        </div>
+        <ul class="sort-hot"></ul>
+    </div>
+    <div id="article" class="body-item article"></div>
+    <div id="effect" class="body-item effect"></div>
+    <div id="proDetail" class="body-item proDetail"></div>
+    <div id="productList" class="body-item productList"></div>
+</div>

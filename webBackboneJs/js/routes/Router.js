@@ -31,7 +31,7 @@ define(function(){
                 s: '['+s+']',
                 t: t
             };
-//            d[t] = '['+s+']';
+            Kimiss.NavBar.setTitle(s);
             Kimiss.Body.switch('ProductList',[d]);
         },
 //        productList:function(bdy,pcdy,pfdy,pswy){

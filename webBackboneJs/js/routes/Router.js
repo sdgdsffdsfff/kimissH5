@@ -10,7 +10,8 @@ define(function(){
             'article/:td':'article',
             'effect':'effect',
             'proDetail/:pd':'proDetail',
-            'productList/s=:s&t=:t':'productList'
+            'productList/s=:s&t=:t':'productList',
+            'comments/:pd':'comments'
 //            'productList/pswy=:pswy':'productListPswy',
 //            'productList/bdy=:bdy':'productListBdy',
 //            'productList/pcdy=:pcdy':'productListPcdy',
@@ -33,6 +34,9 @@ define(function(){
             };
             Kimiss.NavBar.setTitle(s);
             Kimiss.Body.switch('ProductList',[d]);
+        },
+        comments:function(pd){
+            Kimiss.Body.switch('Comments',[pd]);
         },
 //        productList:function(bdy,pcdy,pfdy,pswy){
 //            Kimiss.Body.switch('ProductList',[{

@@ -3,7 +3,7 @@ define(function(){
         clsShow:'searchView-show',
         status:'close',
         events:{
-            'click a':'click',
+            'click a':'submit',
             'submit form':'submit'
         },
         click:function(e){
@@ -12,8 +12,10 @@ define(function(){
         },
         submit:function(e){
             var v = this.$el.find('input').val();
-            this.click();
-            location.hash = '#productList/s='+v+'&t=pswy';
+            Kimiss.slide();
+            setTimeout(function(){
+                location.hash = '#productList/s='+v+'&t=pswy';
+            },300);
             return false;
         },
         initialize:function(){

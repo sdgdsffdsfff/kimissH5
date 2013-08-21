@@ -9,6 +9,12 @@ define(['models/ProDetailModel','collections/CommentList','views/common/Carousel
             this.load(pd);
             this.$el.show();
         },
+        addNoComments:function(){
+
+        },
+        viewMoreComments:function(pd){
+            this.$el.find('.view-more-comment').attr('href','#comments/'+pd).css('display','block');
+        },
         loadComment:function(pd){
             var me = this;
             Kimiss.Body.Loading.show();
@@ -18,11 +24,16 @@ define(['models/ProDetailModel','collections/CommentList','views/common/Carousel
                 },
                 success:function(clt){
                     var list = me.$el.find('.comment-list');
-                    clt.models.each(function(a){
-                        var s = me.commentTpl(a.attributes);
-                        list.html(list.html()+s);
-                    });
-
+//                    clt.models.each(function(a){
+//                        var s = me.commentTpl(a.attributes);
+//                        list.html(list.html()+s);
+//                    });
+                    if(clt.models.length>0){
+                        list.html(me.commentTpl(clt.models[0].attributes));
+                        me.viewMoreComments(pd);
+                    }else{
+                        me.addNoComments();
+                    }
                     me.$el.find('.small-loading').hide();
                     Kimiss.Body.Loading.hide();
                 }

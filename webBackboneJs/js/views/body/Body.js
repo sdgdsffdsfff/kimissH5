@@ -2,8 +2,8 @@ define(['views/body/Index','views/body/Brand',
     'views/body/Article','views/body/Loading',
     'views/body/ProDetail','views/body/ProductList',
     'views/body/Sort','views/body/Effect',
-    'views/common/Event'],
-function(Index,Brand,Article,Loading,ProDetail,ProductList,Sort,Effect,Event){
+    'views/common/Event','views/body/Comments'],
+function(Index,Brand,Article,Loading,ProDetail,ProductList,Sort,Effect,Event,Comments){
     var BodyMask = Backbone.View.extend({
         initialize:function(){
             var me = this;
@@ -70,6 +70,9 @@ function(Index,Brand,Article,Loading,ProDetail,ProductList,Sort,Effect,Event){
             });
             this.modules.Effect = new Effect({
                 el:$('#effect')
+            });
+            this.modules.Comments = new Comments({
+                el:$('#comments')
             });
         },
         switch:function(name,params){

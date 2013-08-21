@@ -17,7 +17,7 @@ define(function(){
         },
         parse:function(data){
             data = data.de;
-            data.iy.push(data.iy[0]);
+//            data.iy.push(data.iy[0]);
             return data;
         }
     });

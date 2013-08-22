@@ -3,22 +3,23 @@
         <div class="menu-inner">
             <ul class="navIndex">
                 <li>
-                    <a href="#index">首页</a>
+                    <a href="#index" class="menu-index">首页</a>
                 </li>
                 <li>
-                    <a href="#brand">品牌</a>
+                    <a href="#brand" class="menu-brand">品牌</a>
                 </li>
                 <li>
-                    <a href="#sort">分类</a>
+                    <a href="#sort" class="menu-sort">分类</a>
                 </li>
                 <li>
-                    <a href="#effect">功效</a>
+                    <a href="#effect" class="menu-effect">功效</a>
                 </li>
-                <li>
-                    <a href="#admin">我的闺蜜</a>
-                </li>
+                <!--<li>-->
+                    <!--<a href="#admin">我的闺蜜</a>-->
+                <!--</li>-->
             </ul>
         </div>
+        <div class="menu-logo"></div>
     </div>
     <div id="search-view" class="search">
         <div class="head">
@@ -68,3 +69,29 @@
     <div id="productList" class="body-item productList"></div>
     <ul id="comments" class="body-item comment-list"></ul>
 </div>
+<div id="filter" class="filter">
+    <div class="seg-btn">
+        <a href="javascript:void(0)">品牌</a>
+        <a href="javascript:void(0)">分类</a>
+        <a href="javascript:void(0)">功效</a>
+        <a href="javascript:void(0)">排序</a>
+    </div>
+    <div class="selected-pack"></div>
+    <div class="seg-div">
+        <div class="seg-brand" style="display: block;">
+            <ul></ul>
+            <ul class="slide-bar"></ul>
+        </div>
+        <div class="seg-classify">
+            <ul></ul>
+            <ul class="slide-bar"></ul>
+        </div>
+        <div class="seg-effect">
+            <ul></ul>
+        </div>
+        <div class="seg-sort">
+            <ul></ul>
+        </div>
+    </div>
+</div>
+<a href="javascript:void(0)" id="filter-btn" class="filter-btn">筛选</a>

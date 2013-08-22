@@ -5,35 +5,12 @@ define(function(){
             this.render();
         },
         events:{
-            'click a':'toggle'
+            'click a':'click'
         },
         render:function(){
             var me = this;
             me.MenuEL = me.$el.children('.menu');
             me.SearchEL = me.$el.children('.search');
-//            me.MenuEL.html(me.menuTpl({
-//                list:[{
-//                    name:'首页',
-//                    link:'#index',
-//                    icon:'indexIcon'
-//                },{
-//                    name:'品牌',
-//                    link:'#brand',
-//                    icon:'brandIcon'
-//                },{
-//                    name:'分类',
-//                    link:'#sort',
-//                    icon:'sortIcon'
-//                },{
-//                    name:'功效',
-//                    link:'#effect',
-//                    icon:'effectIcon'
-//                },{
-//                    name:'我的闺蜜',
-//                    link:'#admin',
-//                    icon:'adminIcon'
-//                }]
-//            }));
             return this;
         },
         status:'close',
@@ -45,11 +22,23 @@ define(function(){
                 this.MenuEL.hide();
             }
         },
+        click:function(e){
+            $(e.target).addClass('on').parent().siblings('li').children('a').removeClass('on');
+            this.toggle();
+        },
         toggle:function(type){
             var me = this;
             if(this.status == 'close'){
                 this.status = 'open';
                 Kimiss.Body.Mask.show();
+                if(type == 'menu'){
+                    Kimiss.NavBody.MenuEL.show();
+                    Kimiss.NavBody.SearchEL.hide();
+                }
+                if(type == 'search'){
+                    Kimiss.NavBody.MenuEL.hide();
+                    Kimiss.NavBody.SearchEL.show();
+                }
             }else if(this.status == 'open'){
                 this.status = 'close';
                 type = null;

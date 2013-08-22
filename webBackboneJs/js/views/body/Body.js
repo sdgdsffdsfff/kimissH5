@@ -33,13 +33,21 @@ function(Index,Brand,Article,Loading,ProDetail,ProductList,Sort,Effect,Event,Com
     });
     var _body = Backbone.View.extend({
         initialize:function(){
+            var me = this;
             this.render();
-            this.$el.css({
-                minHeight:$(window).height() - 40
-            });
+            function resize(){
+                var h = $(window).height() - 40;
+                me.$el.css({
+                    minHeight:h
+                });
+                $('.filter').css({
+                    minHeight:h
+                });
+            }
+            $(window).resize(resize);
+            resize();
         },
-        modules:{
-        },
+        modules:{},
         getModule:function(name){
             return this.modules[name];
         },

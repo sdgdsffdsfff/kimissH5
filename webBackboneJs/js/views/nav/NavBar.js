@@ -29,6 +29,8 @@ define(function(){
             this.titleEL = this.$el.find('[data-title=1]');
         },
         toggle:function(e){
+            e.stopPropagation();
+            e.preventDefault();
             Kimiss.NavBody.toggle(e.target.id);
         },
         showCenterSeg:function(type){

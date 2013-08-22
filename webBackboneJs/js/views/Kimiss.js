@@ -2,13 +2,19 @@ define(['views/nav/navBar',
     'views/nav/NavBody',
     'views/search/Search',
     'views/body/Body',
-    'routes/Router'],function(NavBar,NavBody,SearchView,Body,Router){
+    'routes/Router',
+    'views/filter/Filter'],function(NavBar,NavBody,SearchView,Body,Router,Filter){
     //eric branch test...
     var _kimiss = Backbone.View.extend({
 //        navBodyTpl: _.template(AppTplMap.navBody),//_.template($('#navBar-tpl').html()),
 //        loadingTpl:_.template(AppTplMap.loading),//_.template($('#loading-tpl').html()),
 //        searchViewTpl:_.template(AppTplMap.searchView),//_.template($('#searchView-tpl').html()),
         bodyTpl:_.template(AppTplMap.body),//_.template($('#body-tpl').html()),
+        events:{
+            'click #filter-btn':function(){
+                this.Filter.toggle();
+            }
+        },
         render:function(){
             var me = this;
             me.$el.html(
@@ -28,6 +34,9 @@ define(['views/nav/navBar',
             });
             this.Body = new Body({
                 el:$('#body')
+            });
+            this.Filter = new Filter({
+                el:$('#filter')
             });
             this.Router = new Router();
             return this;

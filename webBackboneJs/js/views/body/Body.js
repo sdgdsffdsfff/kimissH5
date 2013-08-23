@@ -40,9 +40,6 @@ function(Index,Brand,Article,Loading,ProDetail,ProductList,Sort,Effect,Event,Com
                 me.$el.css({
                     minHeight:h
                 });
-                $('.filter').css({
-                    minHeight:h
-                });
             }
             $(window).resize(resize);
             resize();

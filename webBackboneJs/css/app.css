@@ -377,7 +377,7 @@ img{
     display: block;
 }
 .nav-body .menu{
-    position: relative;
+    position: absolute;
     z-index: 1;
     width: 80%;
     height: 100%;
@@ -385,11 +385,12 @@ img{
     background-color: #e9e8e8;
 }
 .nav-body .search{
-    position: relative;
+    position: absolute;
     z-index: 1;
     left: 20%;
     width: 80%;
     height: 100%;
+    background-color: #e9e8e8;
 }
 .nav-body .search .head{
     display: -webkit-box;
@@ -418,22 +419,6 @@ img{
     background-color: #eee;
     color: #999;
 }
-/*.searchView{*/
-    /*position: fixed;*/
-    /*height: 100%;*/
-    /*background: #F7F7F9;*/
-    /*top: 0;*/
-    /*left: 100%;*/
-    /*width: 100%;*/
-    /*-webkit-transition: left .3s ease-in-out;*/
-    /*-moz-transition: left .3s ease-in-out;*/
-/*}*/
-/*.searchView-show{*/
-    /*left: 0;*/
-/*}*/
-/*#menuView{*/
-    /*display: none;*/
-/*}*/
 .menu-inner{
     display: -webkit-box;
 }
@@ -595,22 +580,6 @@ img{
     background-size: 100%;
     background-repeat: no-repeat;
 }
-/*.menu-inner .proIndex li{*/
-    /*float: left;*/
-    /*width: 50%*/
-/*}*/
-/*.menu-inner .proIndex li a{*/
-    /*text-align: center;*/
-    /*background-color: #3a87ad;*/
-    /*line-height: 28px;*/
-    /*color: white;*/
-    /*display: block;*/
-    /*margin: 5px;*/
-/*}*/
-/*.menu-inner .proIndex li .item-on{*/
-    /*background-color: khaki;*/
-    /*color: #999;*/
-/*}*/
 
 .body-view{
     min-height: 100%;
@@ -967,8 +936,8 @@ img{
     /*margin: 120px 5px 40px 5px;*/
     top:110px;
     bottom:40px;
-    left:0px;
-    right:0px;
+    left:0;
+    right:0;
 }
 #search-field .tab-pane{
     width:100%;
@@ -976,11 +945,12 @@ img{
     overflow:hidden;
 }
 .filter{
-    position: fixed;
-    top: 40px;
-    width: 100%;
+    position: absolute;
+    width: 80%;
+    height: 100%;
+    left: 20%;
     background: #f2f2f2;
-    z-index: 100;
+    z-index: 1;
     display: -webkit-box;
     display: -moz-box;
     -webkit-box-orient: vertical;
@@ -1022,14 +992,24 @@ img{
 }
 .filter .seg-div div ul.slide-bar{}
 
+.nav-body-on{
+    z-index: 2 !important;
+}
 .filter-btn{
     display: block;
     position: fixed;
     z-index: 101;
-    background: lightcoral;
     height: 60px;
     width: 60px;
-    border-radius: 30px;
     bottom: 10px;
     right: 10px;
+    font-size: 60px;
+    line-height: 60px;
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+.filter-btn:hover,.filter-btn:active{
+    color: #333;
+    text-decoration: none;
 }

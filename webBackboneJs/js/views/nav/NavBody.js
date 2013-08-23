@@ -1,4 +1,4 @@
-define(function(){
+define(['views/filter/Filter'],function(Filter){
     var _navBody = Backbone.View.extend({
 //        menuTpl:_.template(AppTplMap.menu),
         initialize:function(){
@@ -11,6 +11,10 @@ define(function(){
             var me = this;
             me.MenuEL = me.$el.children('.menu');
             me.SearchEL = me.$el.children('.search');
+            me.FilterEL = me.$el.children('.filter');
+            this.Filter = new Filter({
+                el:$('#filter')
+            });
             return this;
         },
         status:'close',
@@ -32,12 +36,14 @@ define(function(){
                 this.status = 'open';
                 Kimiss.Body.Mask.show();
                 if(type == 'menu'){
-                    Kimiss.NavBody.MenuEL.show();
-                    Kimiss.NavBody.SearchEL.hide();
+                    Kimiss.NavBody.MenuEL.addClass('nav-body-on').siblings('div').removeClass('nav-body-on');
                 }
                 if(type == 'search'){
-                    Kimiss.NavBody.MenuEL.hide();
-                    Kimiss.NavBody.SearchEL.show();
+                    Kimiss.NavBody.SearchEL.addClass('nav-body-on').siblings('div').removeClass('nav-body-on');
+                }
+                if(type == 'filter'){
+                    Kimiss.NavBody.FilterEL.addClass('nav-body-on').siblings('div').removeClass('nav-body-on');
+                    this.Filter.load();
                 }
             }else if(this.status == 'open'){
                 this.status = 'close';

@@ -1,9 +1,10 @@
-define(function(){
+define(['collections/BrandList'],function(BrandList){
     return Backbone.View.extend({
-        show:function(){},
-        hide:function(){},
-        toggle:function(){
-            this.$el.toggle(300);
+        initialize:function(){
+            this.BrandList = new BrandList();
+        },
+        load:function(){
+            this.BrandList.fetch();
         }
     });
 });

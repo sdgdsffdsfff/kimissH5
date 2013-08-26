@@ -45,10 +45,22 @@ define(['views/filter/Filter'],function(Filter){
                     Kimiss.NavBody.FilterEL.addClass('nav-body-on').siblings('div').removeClass('nav-body-on');
                     this.Filter.load();
                 }
+                if(location.hash.indexOf('brand')>0){
+                    Kimiss.Body.modules.Brand.BrandIndex.$el.hide();
+                }
+                if(location.hash.indexOf('sort')>0){
+                    Kimiss.Body.modules.Sort.SortIndex.$el.hide();
+                }
             }else if(this.status == 'open'){
                 this.status = 'close';
                 type = null;
                 Kimiss.Body.Mask.hide();
+                if(location.hash.indexOf('brand')>0){
+                    Kimiss.Body.modules.Brand.BrandIndex.$el.show();
+                }
+                if(location.hash.indexOf('sort')>0){
+                    Kimiss.Body.modules.Sort.SortIndex.$el.show();
+                }
             }
             this.activeComp(type);
             Kimiss.slide(type);

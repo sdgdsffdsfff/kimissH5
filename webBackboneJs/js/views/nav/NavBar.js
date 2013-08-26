@@ -1,32 +1,21 @@
 define(function(){
     var _navBar = Backbone.View.extend({
         initialize:function(){
-//            this.MenuBtn = new Button({
-//                el:$('#menu'),
-//                clsPressing:'bar-btn-pressing'
-//            });
-//            this.MenuBtn.on('tap',function(){
-//                Kimiss.NavBar.NavBody.toggle();
-//            });
-//            this.SearchBtn = new Button({
-//                el:$('#search'),
-//                clsPressing:'bar-btn-pressing'
-//            });
-//            this.SearchBtn.on('tap',function(){
-//                Kimiss.SearchView.toggle();
-//            });
             this.render();
         },
         events:{
             'click #menu':'toggle',
             'click #search':'toggle'
-//            'touchstart .bar-btn':'barBtnOn',
-//            'touchend .bar-btn':'barBtnOff',
-//            'mousedown .bar-btn':'barBtnOn',
-//            'mouseup .bar-btn':'barBtnOff'
         },
         render:function(){
             this.titleEL = this.$el.find('[data-title=1]');
+            this.brandIndexesEL = this.$el.find('.brand-indexes-pack');
+        },
+        showIndexes:function(type){
+            this[type+'IndexesEL'].show();
+        },
+        hideIndexes:function(type){
+            this[type+'IndexesEL'].hide();
         },
         toggle:function(e){
             e.stopPropagation();

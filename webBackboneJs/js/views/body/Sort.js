@@ -3,30 +3,14 @@ define(['collections/SortList'],function(SortListClt){
         tpl: _.template(AppTplMap.sortIndexes),
         events:{
             'click ul li':function(e){
-                var brand =  Kimiss.Body.getModule('Brand');
-                var map = brand.brandListMap;
-                var index = e.target.innerHTML;
-                if(!map[index]){
-                    brand.addItem(brand.BrandListClt.findWhere({index:index}));
-                }
-                for(var i in map){
-                    if(i == index){
-                        map[i].show();
-                    }else{
-                        map[i].hide();
-                    }
-                }
-                $(e.target).addClass('brand-indexes-pressing');
-                $(e.target).siblings().removeClass('brand-indexes-pressing');
+                Kimiss.Body.modules.Sort.setScrollTop($(e.target).html());
+                $(e.target).addClass('on').siblings('li').removeClass('on');
+                e.stopPropagation();
             }
         },
-        initialize:function(){
-            this.indexes = this.options.indexes;
-            this.render();
-        },
-        render:function(){
+        addIndexes:function(indexes){
             this.$el.html(this.tpl({
-                indexes:this.indexes
+                indexes:indexes
             }));
         }
     });
@@ -58,12 +42,12 @@ define(['collections/SortList'],function(SortListClt){
         initialize:function(){
             this.render();
         },
-        events:{
-            'click ul.sort-indexes li':function(e){
-                this.setScrollTop($(e.target).html());
-                $(e.target).addClass('on').siblings('li').removeClass('on');
-            }
-        },
+//        events:{
+//            'click ul.sort-indexes li':function(e){
+//                this.setScrollTop($(e.target).html());
+//                $(e.target).addClass('on').siblings('li').removeClass('on');
+//            }
+//        },
         getP:function(e){
             return {
                 x: e.touches? e.touches[0].pageX: e.pageX,
@@ -75,19 +59,22 @@ define(['collections/SortList'],function(SortListClt){
             var ele = this.itemsEL.children('dl[sort-group-index='+s+']');
             if(ele.length){
                 var top = ele.offset().top;
-                $('body').scrollTop(top-40);
+                $('body').scrollTop(top-80);
             }
         },
         render:function(){
-            this.indexesEL = this.$el.find('.sort-indexes-pack');
+            this.indexesEL = $('#sort-indexes-pack');
             this.itemsEL = this.$el.find('.sort-items-pack');
             this.allEL = this.$el.find('.sort-all');
             this.hotEL = this.$el.find('.sort-hot');
+            this.SortIndex = new this.SortIndex({
+                el:this.indexesEL
+            });
         },
         scrolling:function(){
             var me = this;
             this.itemsEL.children('dl').each(function(i,a){
-                if($(a).offset().top + $(a).height()>= $('body').scrollTop()+41){
+                if($(a).offset().top + $(a).height()>= $('body').scrollTop()+81){
                     me.indexesEL.find('ul li[index-name='+$(a).attr('sort-group-index')+']').
                         addClass('on').siblings('li').removeClass('on');
                     return false;
@@ -98,12 +85,14 @@ define(['collections/SortList'],function(SortListClt){
             var me = this;
             type = type||'hot';
             me.$el.show();
+            me.indexesEL.show();
             Kimiss.NavBar.showCenterSeg('sort');
             if(!this.hasLoaded){
                 this.load(function(){
                     me.switchMode(type);
                 });
                 this.hasLoaded = true;
+                Kimiss.$el.append(me.indexesEL);
             }else{
                 me.switchMode(type);
             }
@@ -121,6 +110,7 @@ define(['collections/SortList'],function(SortListClt){
         },
         hide:function(){
             this.$el.hide();
+            this.indexesEL.hide();
             $(window).unbind('scroll');
             Kimiss.NavBar.hideCenterSeg('sort');
         },
@@ -137,9 +127,10 @@ define(['collections/SortList'],function(SortListClt){
             }));
         },
         addIndexes:function(indexes){
-            this.indexesEL.html(this.indexesTpl({
-                indexes:indexes
-            }));
+            this.SortIndex.addIndexes(indexes);
+//            this.indexesEL.html(this.indexesTpl({
+//                indexes:indexes
+//            }));
         },
         addHot:function(){
             var s = '2076,2071,2068,2075,9036,2072,1884,827,902,1880,1888,2070,1881,2069,1885,881,1893,1894,1988,1882,2083,2042,2197,1883,2041,2171,901,2008,1891,2048,9029,1895,1903,2089,867,2079,1320';
@@ -156,9 +147,11 @@ define(['collections/SortList'],function(SortListClt){
             if(type == 'hot'){
                 this.allEL.hide();
                 this.hotEL.show();
+                this.indexesEL.hide();
             }else if(type == 'all'){
                 this.allEL.show();
                 this.hotEL.hide();
+                this.indexesEL.show();
             }
         },
         load:function(callback){
@@ -169,7 +162,6 @@ define(['collections/SortList'],function(SortListClt){
                     me.addIndexes(clt.indexes);
                     me.addItems(clt.models);
                     me.addHot();
-                    console.log(arguments);
                     Kimiss.NavBar.loadSortSeg({
                         btnList:[{
                             name:'热门分类',

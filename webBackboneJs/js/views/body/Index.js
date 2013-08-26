@@ -92,7 +92,7 @@ define(['collections/IndexList','views/common/LoadMore'],function(IndexList,Load
                     callback();
                 },
                 error:function(){
-                    alert(123333);
+                    alert('Index init error.');
                 }
             });
         },

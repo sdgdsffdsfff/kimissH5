@@ -20,13 +20,9 @@ define(['collections/BrandList'],function(BrandListClt){
                 $(e.target).siblings().removeClass('brand-indexes-pressing');
             }
         },
-        initialize:function(){
-            this.indexes = this.options.indexes;
-            this.render();
-        },
-        render:function(){
+        addIndexes:function(indexes){
             this.$el.html(this.tpl({
-                indexes:this.indexes
+                indexes:indexes
             }));
         }
     });
@@ -58,10 +54,26 @@ define(['collections/BrandList'],function(BrandListClt){
             this.render();
         },
         render:function(){
-            this.indexesEL = this.$el.find('.brand-indexes-pack');
+            this.indexesEL = $('#brand-indexes-pack');
             this.itemsEL = this.$el.find('.brand-items-pack');
             this.allEL = this.$el.find('.brand-all');
             this.hotEL = this.$el.find('.brand-hot');
+            this.BrandIndex = new this.BrandIndex({
+                el:this.indexesEL
+            });
+        },
+        addBrandIndexes:function(indexes){
+            var me = this;
+            me.BrandIndex.addIndexes(indexes);
+//            this.brandIndexesEL.height($(window).height() - 80);
+
+//            var brandIndexScroller = new iScroll('brand-indexes-scroller',{
+//                vScrollbar:false
+//            });
+//            window.addEventListener('resize',function(){
+//                me.brandIndexesEL.height($(window).height() - 80);
+//                brandIndexScroller.refresh();
+//            },false);
         },
         hasLoaded:false,
         brandListMap:{},
@@ -80,22 +92,6 @@ define(['collections/BrandList'],function(BrandListClt){
             });
             this.brandListMap[model.get('index')] = l;
             return l;
-        },
-        addIndexes:function(indexes){
-            var me = this;
-            new this.BrandIndex({
-                el:this.indexesEL,
-                indexes:indexes
-            });
-            this.indexesEL.height($(window).height() - 40);
-
-            var brandIndexScroller = new iScroll('brand-indexes-scroller',{
-                vScrollbar:false
-            });
-            window.addEventListener('resize',function(){
-                me.indexesEL.height($(window).height() - 40);
-                brandIndexScroller.refresh();
-            },false);
         },
         show:function(type){
             var me = this;
@@ -123,6 +119,8 @@ define(['collections/BrandList'],function(BrandListClt){
         hide:function(){
             this.$el.hide();
             Kimiss.NavBar.hideCenterSeg('brand');
+            if(this.BrandIndex.$el)
+            this.BrandIndex.$el.hide();
         },
         switchMode:function(type){
             var anchor = Kimiss.NavBar.$el.find('.brand-seg [type-anchor='+type+']');
@@ -131,9 +129,11 @@ define(['collections/BrandList'],function(BrandListClt){
             if(type == 'hot'){
                 this.allEL.hide();
                 this.hotEL.show();
+                this.BrandIndex.$el.hide();
             }else if(type == 'all'){
                 this.allEL.show();
                 this.hotEL.hide();
+                this.BrandIndex.$el.show();
             }
         },
         load:function(callback){
@@ -141,7 +141,7 @@ define(['collections/BrandList'],function(BrandListClt){
             Kimiss.Body.Loading.show();
             this.BrandListClt.fetch({
                 success:function(clt){
-                    me.addIndexes(clt.indexes);
+                    me.addBrandIndexes(clt.indexes);
                     me.addItem(clt.models[0]);
                     me.addHot();
                     Kimiss.NavBar.loadBrandSeg({

@@ -1,0 +1,9 @@
+<%_.each(data,function(a){%>
+<dl>
+    <dt><%=a.title%></dt>
+    <%_.each(a.arr,function(b){%>
+    <dd><a href="javascript:void(0)" data-id="<%=b.id%>"><%=b.name%></a></dd>
+    <%})%>
+</dl>
+<%})%>
+

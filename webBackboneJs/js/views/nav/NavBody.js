@@ -55,10 +55,10 @@ define(['views/filter/Filter'],function(Filter){
                 this.status = 'close';
                 type = null;
                 Kimiss.Body.Mask.hide();
-                if(location.hash.indexOf('brand')>0){
+                if(location.hash.indexOf('brand/all')>0){
                     Kimiss.Body.modules.Brand.BrandIndex.$el.show();
                 }
-                if(location.hash.indexOf('sort')>0){
+                if(location.hash.indexOf('sort/all')>0){
                     Kimiss.Body.modules.Sort.SortIndex.$el.show();
                 }
             }

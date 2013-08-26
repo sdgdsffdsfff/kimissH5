@@ -2,7 +2,7 @@ function requireApp(){
     require.config({
         baseUrl:'js'
     });
-    require(['views/Kimiss','analysis/analysis'],function(Kimiss,Analysis){
+    require(['views/Kimiss','analysis/analysis','db/DB'],function(Kimiss,Analysis,DB){
         var kimiss = new Kimiss({
             el:$('#app')
         }).render();
@@ -11,6 +11,7 @@ function requireApp(){
         analysis.start();
         Km.Analysis = analysis;
         Backbone.history.start();
+        kimiss.DB = new DB();
     });
 }
 
@@ -90,6 +91,10 @@ var _templatesMap_ = [
     {
         name: 'segmentbtn',
         path: '/partials/segmentbtn.html'
+    },
+    {
+        name:'filter_brand_item',
+        path:'/partials/filter/brandItem.html'
     }
 ];
 

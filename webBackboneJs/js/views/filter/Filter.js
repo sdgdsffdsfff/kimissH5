@@ -1,33 +1,40 @@
-define(function(){
+define(['views/filter/Brand','views/filter/Classify','views/filter/Effect'],function(BrandFilter,ClassifyFilter,EffectFilter){
     return Backbone.View.extend({
-        brandItemTpl: _.template(AppTplMap.filter_brand_item),
         initialize:function(){
-            var brand = this.$el.find('.seg-brand');
-            this.brandEL = brand.children('div.list-pack');
-            this.brandBarEL = brand.children('ul.slide-bar');
+            this.brand = new BrandFilter({
+                el:$('#filter-brand')
+            });
+            this.classify = new ClassifyFilter({
+                el:$('#filter-classify')
+            });
+            this.effect = new EffectFilter({
+                el:$('#filter-effect')
+            });
 
-            var classify = this.$el.find('.seg-classify');
-            this.classifyEL = classify.children('div.list-pack');
-            this.classifyBarEL = classify.children('ul.slide-bar');
-
-            this.effectEL = this.$el.find('.seg-effect ul');
-
-            this.sortEL = this.$el.find('.seg-sort ul');
+            this.sortEL = $('#filter-sort');
 
 
         },
+        events:{
+            'click .seg-btn a':'switchFilter',
+            'click .selected-pack a':'closeSeleItem'
+        },
+        closeSeleItem:function(e){
+            var $el = $(e.target);
+            if(e.offsetX > $el.width() - 40){
+                $el.text('').attr('data-flt-id','-1').hide();
+                this[$el.attr('data-flt-sele')].clear();
+            }
+        },
+        switchFilter:function(e){
+            var $el =  $(e.target);
+            $el.addClass('on').siblings('a').removeClass('on');
+            $('#'+$el.attr('rel-filter-id')).show().siblings('.seg-item').hide();
+        },
         load:function(){
-//            var val = Kimiss.DB.brand_val,t = [];
-//            for(var i in val){
-//                t.push({
-//                    title:i,
-//                    arr:val[i]
-//                });
-//            }
-//            this.brandEL.html(this.brandItemTpl({
-//                data:t
-//            })).show();
-//            this.brandScroller = new iScroll('filter-brand');
+            this.brand.load();
+            this.classify.load();
+            this.effect.load();
         }
     });
 });

@@ -47,11 +47,17 @@ define(['views/nav/navBar',
             }
             w = $(window).width()/100;
             this.NavBar.$el.css({
-                webkitTransform:'translate3d('+per*80*w+'px,0,0)'
+                webkitTransform:'translate3d('+per*80+'%,0,0)'
             });
             this.Body.$el.css({
-                webkitTransform:'translate3d('+per*80*w+'px,0,0)'
+                webkitTransform:'translate3d('+per*80+'%,0,0)'
             });
+//            this.NavBar.$el.css({
+//                webkitTransform:'translate3d('+per*80*w+'px,0,0)'
+//            });
+//            this.Body.$el.css({
+//                webkitTransform:'translate3d('+per*80*w+'px,0,0)'
+//            });
         }
     });
     return _kimiss;

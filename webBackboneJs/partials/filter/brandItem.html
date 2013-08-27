@@ -1,9 +1,17 @@
-<%_.each(data,function(a){%>
-<dl>
-    <dt><%=a.title%></dt>
-    <%_.each(a.arr,function(b){%>
-    <dd><a href="javascript:void(0)" data-id="<%=b.id%>"><%=b.name%></a></dd>
+<div class="list-pack">
+    <%_.each(data,function(a){%>
+    <dl data-filter-title="<%=a.title%>">
+        <dt><%=a.title%></dt>
+        <%_.each(a.arr,function(b){%>
+        <dd><a href="javascript:void(0)" data-filter-id="<%=b.id%>"><%=b.name%></a></dd>
+        <%})%>
+    </dl>
     <%})%>
-</dl>
-<%})%>
+</div>
+<ul class="slide-bar">
+    <%_.each(indexes,function(a){%>
+        <li><%=a%></li>
+    <%})%>
+</ul>
+
 

@@ -5,7 +5,7 @@ define(['views/filter/Filter'],function(Filter){
             this.render();
         },
         events:{
-            'click a':'click'
+            'click ul.navIndex a':'click'
         },
         render:function(){
             var me = this;

@@ -95,6 +95,10 @@ var _templatesMap_ = [
     {
         name:'filter_brand_item',
         path:'/partials/filter/brandItem.html'
+    },
+    {
+        name:'filter_effect_item',
+        path:'/partials/filter/effectItem.html'
     }
 ];
 

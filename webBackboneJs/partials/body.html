@@ -31,26 +31,30 @@
     </div>
     <div id="filter" class="filter">
         <div class="seg-btn">
-            <a href="javascript:void(0)">品牌</a>
-            <a href="javascript:void(0)">分类</a>
-            <a href="javascript:void(0)">功效</a>
-            <a href="javascript:void(0)">排序</a>
+            <a href="javascript:void(0)" rel-filter-id="filter-brand">品牌</a>
+            <a href="javascript:void(0)" rel-filter-id="filter-classify">分类</a>
+            <a href="javascript:void(0)" rel-filter-id="filter-effect">功效</a>
+            <a href="javascript:void(0)" rel-filter-id="filter-sort">排序</a>
         </div>
-        <div class="selected-pack"></div>
+        <div class="selected-pack">
+            <a data-flt-sele="brand" class="selected-pack-item"></a>
+            <a data-flt-sele="classify" class="selected-pack-item"></a>
+            <a data-flt-sele="effect" class="selected-pack-item"></a>
+        </div>
         <div class="seg-div">
-            <div id="filter-brand" class="seg-brand" style="display: block;">
+            <div id="filter-brand" class="seg-item" style="display: block;">
+
+            </div>
+            <div id="filter-classify" class="seg-item">
                 <div class="list-pack"></div>
                 <ul class="slide-bar"></ul>
             </div>
-            <div id="filter-classify" class="seg-classify">
-                <div class="list-pack"></div>
-                <ul class="slide-bar"></ul>
+            <div id="filter-effect" class="seg-item">
             </div>
-            <div id="filter-effect" class="seg-effect">
-                <ul></ul>
-            </div>
-            <div class="seg-sort">
-                <ul></ul>
+            <div id="filter-sort" class="seg-item">
+                <ul>
+                    <li></li>
+                </ul>
             </div>
         </div>
     </div>

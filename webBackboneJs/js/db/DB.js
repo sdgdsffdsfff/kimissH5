@@ -64,7 +64,26 @@ define(function () {
                 }
             }
             this.brand_val = brand;
-            this.sort_val = JSON.parse(this.sort_val);
+            //classify
+            var sort = JSON.parse(this.sort_val),st = [];
+            sort = sort.de.pcy;
+            for(var i1 in sort){
+                var t1 = sort[i1],tt1;
+                for(var j1 = 0,ln1 = t1.length;j1<ln1;j1++){
+                    tt1 = t1[j1].split(':');
+                    t1[j1] = {
+                        id:tt1[0],
+                        name:tt1[1]
+                    };
+                }
+                st.push({
+                    title:i1,
+                    arr:t1
+                });
+            }
+            this.sort_val = st;
+            //effect
+            this.effect_val = this.getEffectList();
         },
         getEffectList:function(){
             var s = '保湿:893,' +
@@ -120,7 +139,7 @@ define(function () {
                     var s = JSON.stringify(data);
                     ls.setItem(me.brand_key,s);
                     me.brand_val = s;
-                    this.initOk('brand');
+                    me.initOk('brand');
                     console.log('brand_val init ok.');
                 }
             });
@@ -139,7 +158,7 @@ define(function () {
                     var s = JSON.stringify(data);
                     ls.setItem(me.sort_key,s);
                     me.sort_val = s;
-                    this.initOk('sort');
+                    me.initOk('sort');
                     console.log('sort_val init ok.');
                 }
             });
@@ -149,7 +168,7 @@ define(function () {
             $.get(this.rel_url,function(data){
                 ls.setItem(me.rel_key,data);
                 me.rel_val = data;
-                this.initOk('rel');
+                me.initOk('rel');
                 console.log('rel_val init ok.');
             },'text');
         }

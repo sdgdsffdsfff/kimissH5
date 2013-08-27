@@ -1,4 +1,4 @@
-define(['views/filter/Brand','views/filter/Classify','views/filter/Effect'],function(BrandFilter,ClassifyFilter,EffectFilter){
+define(['views/filter/Brand','views/filter/Classify','views/filter/Effect','views/filter/Sort'],function(BrandFilter,ClassifyFilter,EffectFilter,SortFilter){
     return Backbone.View.extend({
         initialize:function(){
             this.brand = new BrandFilter({
@@ -6,14 +6,13 @@ define(['views/filter/Brand','views/filter/Classify','views/filter/Effect'],func
             });
             this.classify = new ClassifyFilter({
                 el:$('#filter-classify')
-            });
+            })  ;
             this.effect = new EffectFilter({
                 el:$('#filter-effect')
             });
-
-            this.sortEL = $('#filter-sort');
-
-
+            this.sort = new SortFilter({
+                el:$('#filter-sort')
+            });
         },
         events:{
             'click .seg-btn a':'switchFilter',

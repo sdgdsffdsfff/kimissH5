@@ -39,7 +39,7 @@ define(function(){
                 s: '['+s+']',
                 t: t
             };
-            Kimiss.NavBar.setTitle(s);
+            Kimiss.NavBar.setTitle(Kimiss.DB.getNameByTypeId(s,t));
             Kimiss.Body.switch('ProductList',[d]);
             $('#filter-btn').css('display','block');
         },

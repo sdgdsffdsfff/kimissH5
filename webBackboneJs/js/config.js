@@ -3,6 +3,7 @@ function requireApp(){
         baseUrl:'js'
     });
     require(['views/Kimiss','analysis/analysis','db/DB'],function(Kimiss,Analysis,DB){
+
         var kimiss = new Kimiss({
             el:$('#app')
         }).render();
@@ -10,8 +11,8 @@ function requireApp(){
         var analysis = new Analysis();
         analysis.start();
         Km.Analysis = analysis;
-        Backbone.history.start();
         kimiss.DB = new DB();
+        Backbone.history.start();
     });
 }
 

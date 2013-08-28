@@ -47,6 +47,56 @@ define(function () {
                 this.dbInit();
             }
         },
+        getNameByTypeId:function(s,t){
+            var me = this,re = s, i, j, k, h,ln,p;
+            switch(t){
+                case 'bdy':
+                    for(i in me.brand_val){
+                        p = me.brand_val[i];
+                        k = null;
+                        for(j = 0,ln = p.length;j<ln;j++){
+                            if(parseInt(p[j].id) == parseInt(s)){
+                                k = p[j].name;
+                                break;
+                            }
+                        }
+                        if(k){
+                            re = k;
+                            break;
+                        }
+                    }
+                    break;
+                case 'pcdy':
+                    for(i=0,ln=me.sort_val.length;i<ln;i++){
+                        p = me.sort_val[i].arr;
+                        h = null;
+                        for(j=0,k= p.length;j<k;j++){
+                            if(parseInt(p[j].id)==parseInt(s)){
+                                h = p[j].name;
+                                break;
+                            }
+                        }
+                        if(h){
+                            re = h;
+                            break;
+                        }
+                    }
+                    break;
+                case 'pfdy':
+                    for(i= 0;i<me.effect_val.length;i++){
+                        var tt = me.effect_val[i];
+                        console.log(tt.id);
+                        if(parseInt(tt.id) == parseInt(s)){
+                            re =  tt.name;
+                            break;
+                        }
+                    }
+                    break;
+                default :
+                    break;
+            }
+            return re;
+        },
         dbInit:function(){
 //            this.db = openDatabase(this.db_name,'1.0','kimiss db, cbsi', 2*1024*1024);
             var rel = JSON.parse(this.rel_val).de,
@@ -54,6 +104,7 @@ define(function () {
                 rel_be = rel.bfy,bel = rel_be.length,
                 rel_bc = rel.bcy,bcl = rel_bc.length,
                 rel_ce = rel.cfy,cel = rel_ce.length;
+            console.log(rel);
             var re = {
                 be:[],//brand-effect
                 bc:[],//brand-classify
@@ -140,6 +191,7 @@ define(function () {
                 '均匀肤色:2554,' +
                 '抗氧化:2417,' +
                 '抗痘:2337,' +
+                '祛痘:2556,' +
                 '紧肤:2188,' +
                 '抗菌:2457,' +
                 '抗衰老:2108,' +

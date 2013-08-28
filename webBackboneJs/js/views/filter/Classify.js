@@ -40,23 +40,24 @@ define(function(){
                 indexes = [];
             if(type == 'brand'){
                 console.log('brand:'+key);
-                rel = rel.cb;
-                for(var i =0;i<val.length;i++){
-                    var tt = val[i].arr;
-                    for(var j=0;j<tt.length;j++){
-                        var sortid = tt[j].id;
-                        var brandarr = rel[sortid];
-//                        console.log(sortid+','+brandarr);
-                        if(brandarr){
-                            for(var k=0;k<brandarr.length;k++){
-                                if(brandarr[k] == key){
-                                    console.log(val[i].title+'='+tt[j].name);
-                                    break;
-                                }
-                            }
-                        }
-                    }
-                }
+                rel = rel.bc;
+                console.log(rel[key]);
+//                rel = rel.cb;
+//                for(var i =0;i<val.length;i++){
+//                    var tt = val[i].arr;
+//                    for(var j=0;j<tt.length;j++){
+//                        var sortid = tt[j].id;
+//                        var brandarr = rel[sortid];
+//                        if(brandarr){
+//                            for(var k=0;k<brandarr.length;k++){
+//                                if(brandarr[k] == key){
+//                                    console.log(val[i].title+'='+tt[j].name);
+//                                    break;
+//                                }
+//                            }
+//                        }
+//                    }
+//                }
             }
             for(var i=0;i<val.length;i++){
                 indexes.push(val[i].title);

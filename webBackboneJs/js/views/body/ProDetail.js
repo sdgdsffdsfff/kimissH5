@@ -17,7 +17,6 @@ define(['models/ProDetailModel','collections/CommentList','views/common/Carousel
         },
         loadComment:function(pd){
             var me = this;
-            Kimiss.Body.Loading.show();
             this.commentList.fetch({
                 data:{
                     pdy: '['+pd+']'
@@ -35,28 +34,33 @@ define(['models/ProDetailModel','collections/CommentList','views/common/Carousel
                         me.addNoComments();
                     }
                     me.$el.find('.small-loading').hide();
-                    Kimiss.Body.Loading.hide();
                 }
             });
         },
         hide:function(){
             this.$el.hide();
         },
+        lastPd:null,
         load:function(pd){
             var me = this;
-            this.model.fetch({
-                data:{
-                    pd:pd
-                },
-                success:function(model){
-                    Kimiss.NavBar.setTitle(model.get('pe'));
-                    me.$el.html(me.tpl(model.attributes));
-                    new Carousel({
-                        el:me.$el.find('#proDetail-carousel')
-                    });
-                    me.loadComment(pd);
-                }
-            });
+            if(this.lastPd != pd){
+                this.lastPd = pd;
+                Kimiss.Body.Loading.show();
+                this.model.fetch({
+                    data:{
+                        pd:pd
+                    },
+                    success:function(model){
+                        Kimiss.NavBar.setTitle(model.get('pe'));
+                        me.$el.html(me.tpl(model.attributes));
+                        new Carousel({
+                            el:me.$el.find('#proDetail-carousel')
+                        });
+                        me.loadComment(pd);
+                        Kimiss.Body.Loading.hide();
+                    }
+                });
+            }
         }
     });
     return _v;

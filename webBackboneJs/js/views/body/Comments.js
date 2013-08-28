@@ -19,6 +19,7 @@ define(['collections/CommentList','views/common/LoadMore'],function(CommentList,
         },
         hide:function(){
             this.$el.hide();
+
         },
         addItems:function(models){
             var me = this,s = '';
@@ -49,11 +50,14 @@ define(['collections/CommentList','views/common/LoadMore'],function(CommentList,
             });
         },
         load:function(pd){
-            this.lastPd = pd;
-            Kimiss.Body.Loading.show();
-            this.loadMore(pd,function(){
-                Kimiss.Body.Loading.hide();
-            });
+            if(this.lastPd != pd){
+                this.lastPd = pd;
+                Kimiss.Body.Loading.show();
+                this.$el.html('');
+                this.loadMore(pd,function(){
+                    Kimiss.Body.Loading.hide();
+                });
+            }
         }
     });
 });

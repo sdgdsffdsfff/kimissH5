@@ -29,6 +29,7 @@ define([
         },
         hide:function(){
             this.$el.hide();
+            this.$el.html('');
         },
         loadMoreCmp:null,
         lastLoadParams:{},
@@ -71,7 +72,7 @@ define([
             var me = this,t = this.lastLoadParams;
             if(!(t.s == params.s&& t.t == params.t)){
                 Kimiss.Body.Loading.show();
-                me.$el.html('');
+//                me.$el.html('');
                 me.loadMore(params,function(){
                     Kimiss.Body.Loading.hide();
                 });

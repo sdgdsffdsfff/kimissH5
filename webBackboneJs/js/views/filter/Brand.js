@@ -33,8 +33,9 @@ define(function(){
         clear:function(){
             this.last$el.removeClass('on');
         },
-        load:function(){
+        load:function(key,type){
             var val = Kimiss.DB.brand_val,
+                rel = Kimiss.DB.rel_val,
                 t = [],
                 indexes = [];
             for(var i in val){

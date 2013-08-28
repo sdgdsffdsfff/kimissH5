@@ -54,24 +54,25 @@
             <div id="filter-sort" class="seg-item">
                 <dl>
                     <dt>点评数</dt>
-                    <dd><a href="javascript:void(0)" class="end">高→低</a>
-                        <a href="javascript:void(0)" class="middle on"></a>
-                        <a href="javascript:void(0)" class="end">低→高</a></dd>
+                    <dd><a href="javascript:void(0)" data-sort-id="3" class="start">多→少</a>
+                        <a href="javascript:void(0)" data-sort-id="-1" class="middle on"></a>
+                        <a href="javascript:void(0)" data-sort-id="4" class="end">少→多</a></dd>
                 </dl>
                 <dl>
                     <dt>星级</dt>
-                    <dd><a href="javascript:void(0)" class="end">高→低</a>
-                        <a href="javascript:void(0)" class="middle on"></a>
-                        <a href="javascript:void(0)" class="end">低→高</a></dd>
+                    <dd><a href="javascript:void(0)" data-sort-id="1" class="start">高→低</a>
+                        <a href="javascript:void(0)" data-sort-id="-1" class="middle on"></a>
+                        <a href="javascript:void(0)" data-sort-id="2" class="end">低→高</a></dd>
                 </dl>
                 <dl>
                     <dt>价格</dt>
-                    <dd><a href="javascript:void(0)" class="end">高→低</a>
-                        <a href="javascript:void(0)" class="middle on"></a>
-                        <a href="javascript:void(0)" class="end">低→高</a></dd>
+                    <dd><a href="javascript:void(0)" data-sort-id="5" class="start">高→低</a>
+                        <a href="javascript:void(0)" data-sort-id="-1" class="middle on"></a>
+                        <a href="javascript:void(0)" data-sort-id="6" class="end">低→高</a></dd>
                 </dl>
             </div>
         </div>
+        <a class="submit-btn">确认</a>
     </div>
 </div>
 <div id="navBar" class="navbar navbar-inverse navbar-fixed-top">
@@ -113,4 +114,6 @@
     <div id="productList" class="body-item productList"></div>
     <ul id="comments" class="body-item comment-list"></ul>
 </div>
-<a href="javascript:void(0)" id="filter-btn" class="filter-btn"></a>
+<div id="btm-toolbar" class="btm-toolbar">
+    <a href="javascript:void(0)" id="filter-btn" class="filter-btn"></a>
+</div>

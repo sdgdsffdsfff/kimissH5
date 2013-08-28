@@ -44,6 +44,7 @@ define(['views/filter/Filter'],function(Filter){
                 if(type == 'filter'){
                     Kimiss.NavBody.FilterEL.addClass('nav-body-on').siblings('div').removeClass('nav-body-on');
                     this.Filter.load();
+                    $('filter-btn').hide();
                 }
                 if(location.hash.indexOf('brand')>0){
                     Kimiss.Body.modules.Brand.BrandIndex.$el.hide();

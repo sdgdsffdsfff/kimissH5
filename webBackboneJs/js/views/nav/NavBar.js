@@ -8,8 +8,16 @@ define(function(){
             'click #search':'toggle'
         },
         render:function(){
-            this.titleEL = this.$el.find('[data-title=1]');
-            this.brandIndexesEL = this.$el.find('.brand-indexes-pack');
+            var me = this;
+            me.titleEL = this.$el.find('[data-title=1]');
+            me.brandIndexesEL = this.$el.find('.brand-indexes-pack');
+//            me.filterEL = $('#filter-btn');
+//            function setFilterBtnH(){
+//                var h = $(window).height() - me.filterEL.outerHeight() - 10;
+//                me.filterEL.css('top',h+'px');
+//            }
+//            setFilterBtnH();
+//            $(window).resize(setFilterBtnH);
         },
         showIndexes:function(type){
             this[type+'IndexesEL'].show();

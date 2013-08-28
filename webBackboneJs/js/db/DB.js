@@ -49,7 +49,52 @@ define(function () {
         },
         dbInit:function(){
 //            this.db = openDatabase(this.db_name,'1.0','kimiss db, cbsi', 2*1024*1024);
-            this.rel_val = JSON.parse(this.rel_val);
+            var rel = JSON.parse(this.rel_val).de,
+                rt,
+                rel_be = rel.bfy,bel = rel_be.length,
+                rel_bc = rel.bcy,bcl = rel_bc.length,
+                rel_ce = rel.cfy,cel = rel_ce.length;
+            var re = {
+                be:[],//brand-effect
+                bc:[],//brand-classify
+                cb:[],//classify-brand
+                ce:[]//classify-effect
+            };
+            for(var i = 0;i<bel;i++){
+                rt = rel_be[i].split(':');
+                if(re.be.hasOwnProperty(rt[0])){
+                    re.be[rt[0]].push(rt[1]);
+                }else{
+                    re.be[rt[0]] = [rt[1]];
+                }
+            }
+            //bc
+            for(var i = 0;i<bcl;i++){
+                rt = rel_bc[i].split(':');
+                if(re.bc.hasOwnProperty(rt[0])){
+                    re.bc[rt[0]].push(rt[1]);
+                }else{
+                    re.bc[rt[0]] = [rt[1]];
+                }
+            }
+            //cb
+            for(var i = 0;i<bcl;i++){
+                rt = rel_bc[i].split(':');
+                if(re.cb.hasOwnProperty(rt[1])){
+                    re.cb[rt[1]].push(rt[0]);
+                }else{
+                    re.cb[rt[1]] = [rt[0]];
+                }
+            }
+            for(var i = 0;i<cel;i++){
+                rt = rel_ce[i].split(':');
+                if(re.ce.hasOwnProperty(rt[0])){
+                    re.ce[rt[0]].push(rt[1]);
+                }else{
+                    re.ce[rt[0]] = [rt[1]];
+                }
+            }
+            this.rel_val = re;
             //brand
             var  brand = JSON.parse(this.brand_val);
             brand = brand.de.by;

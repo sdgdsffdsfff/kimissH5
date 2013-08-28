@@ -38,7 +38,19 @@ define([
             params.ie = params.ie?(params.ie+1):1;
             this.lastLoadParams = params;
             data.ie = params.ie;
-            data[params.t] = params.s;
+            if(params.t.indexOf('-')<0){
+                data[params.t] = params.s;
+            }else{
+                var t = params.t.split('-'),
+                    s = params.s.replace(/[\[\]]/g,'').split('-');
+                for(var i=1;i< t.length;i++){
+                    if(t[i] == 'pst'){
+                        data[t[i]] = s[i];
+                    }else{
+                        data[t[i]] = '['+s[i]+']';
+                    }
+                }
+            }
             if(params.t == 'pswy'){
                 this.productList.setSoUrl();
             }else{

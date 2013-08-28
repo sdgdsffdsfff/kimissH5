@@ -1,5 +1,12 @@
 define(function(){
     var _router = Backbone.Router.extend({
+        initialize:function(){
+            window.onhashchange = function(e){
+                if(e.newURL.indexOf('#productList')<0){
+                    $('#filter-btn').hide();
+                }
+            };
+        },
         routes:{
             '': 'index',
             'index':'index',
@@ -34,6 +41,7 @@ define(function(){
             };
             Kimiss.NavBar.setTitle(s);
             Kimiss.Body.switch('ProductList',[d]);
+            $('#filter-btn').css('display','block');
         },
         comments:function(pd){
             Kimiss.Body.switch('Comments',[pd]);

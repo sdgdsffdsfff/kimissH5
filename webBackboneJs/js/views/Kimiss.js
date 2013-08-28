@@ -34,6 +34,7 @@ define(['views/nav/navBar',
             this.Body = new Body({
                 el:$('#body')
             });
+            this.$toolbar = $('#btm-toolbar');
             this.Router = new Router();
             return this;
         },
@@ -50,6 +51,9 @@ define(['views/nav/navBar',
                 webkitTransform:'translate3d('+per*80+'%,0,0)'
             });
             this.Body.$el.css({
+                webkitTransform:'translate3d('+per*80+'%,0,0)'
+            });
+            this.$toolbar.css({
                 webkitTransform:'translate3d('+per*80+'%,0,0)'
             });
 //            this.NavBar.$el.css({

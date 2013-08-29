@@ -32,7 +32,6 @@ define(['views/filter/Brand','views/filter/Classify','views/filter/Effect','view
                 classifyId = el.children('a[data-flt-sele=classify]').attr('data-flt-id'),
                 effectId = el.children('a[data-flt-sele=effect]').attr('data-flt-id'),
                 sortId = this.sort.sele_id;
-            console.log(brandId+','+classifyId+','+effectId+','+sortId);
             e.stopPropagation();
             if(brandId>0){
                 s+=('-'+brandId);

@@ -7,6 +7,9 @@ define(function(){
         },
         render:function(){},
         events:{
+            'click ul.slide-bar':function(e){
+                e.stopPropagation();
+            },
             'click ul.slide-bar li':'scrollByIndex',
             'click div.list-pack dl dd a':'selectOne'
         },
@@ -16,6 +19,7 @@ define(function(){
                 this.scroller.scrollTo(0,el.parent().offset().top - el.offset().top);
             }
             $(e.target).addClass('on').siblings('li').removeClass('on');
+            e.stopPropagation();
         },
         selectOne:function(e){
             var id = parseInt($(e.target).attr('data-filter-id')),
@@ -33,18 +37,40 @@ define(function(){
         clear:function(){
             this.last$el.removeClass('on');
         },
-        load:function(key,type){
-            var val = Kimiss.DB.brand_val,
-                rel = Kimiss.DB.rel_val,
-                t = [],
-                indexes = [];
-            for(var i in val){
-                t.push({
-                    title:i,
-                    arr:val[i]
-                });
-                indexes.push(i);
+        getTTValue:function(key,ii){
+            var me = this,t = {};
+            if(!ii){
+                return null;
             }
+            $.each(Kimiss.DB.brand_val,function(i,a){
+                $.each(a,function(j,b){
+                    $.each(Kimiss.DB.rel_val[ii][key],function(k,c){
+                        if(parseInt(b.id) == parseInt(c)){
+                            if(t.hasOwnProperty(i)){
+                                t[i].push({
+                                    id:c,
+                                    name: b.name
+                                });
+                            }else{
+                                t[i] = [{
+                                    id:c,
+                                    name: b.name
+                                }];
+                            }
+                            return false;
+                        }
+                    });
+                });
+            });
+            return t;
+        },
+        load:function(key,type){
+            var me =this,
+                indexes = [];
+            var t = me.getTTValue(key,type == 'classify'?'cb':type=='effect'?'eb':null);
+            $.each(t,function(i){
+                indexes.push(i);
+            });
             this.$el.html(this.brandItemTpl({
                 data:t,
                 indexes:indexes

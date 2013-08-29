@@ -1,8 +1,8 @@
 <div class="list-pack">
-    <%_.each(data,function(a){%>
-    <dl data-filter-title="<%=a.title%>">
-        <dt><%=a.title%></dt>
-        <%_.each(a.arr,function(b){%>
+    <%_.each(data,function(a,i){%>
+    <dl data-filter-title="<%=i%>">
+        <dt><%=i%></dt>
+        <%_.each(a,function(b){%>
         <dd><a href="javascript:void(0)" data-filter-id="<%=b.id%>"><%=b.name%></a></dd>
         <%})%>
     </dl>

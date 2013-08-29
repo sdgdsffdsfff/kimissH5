@@ -16,6 +16,7 @@ define(function(){
                 this.scroller.scrollTo(0,el.parent().offset().top - el.offset().top);
             }
             $(e.target).addClass('on').siblings('li').removeClass('on');
+            e.stopPropagation();
         },
         selectOne:function(e){
             var id = parseInt($(e.target).attr('data-filter-id')),
@@ -33,37 +34,42 @@ define(function(){
         clear:function(){
             this.last$el.removeClass('on');
         },
+        getTTValue:function(key,ii){
+            var me = this,t = {};
+            if(!ii){
+                return null;
+            }
+            $.each(Kimiss.DB.sort_val,function(i,a){
+                $.each(a.arr,function(j,b){
+                    $.each(Kimiss.DB.rel_val[ii][key],function(k,c){
+                        if(parseInt(b.id) == parseInt(c)){
+                            if(t.hasOwnProperty(a.title)){
+                                t[a.title].push({
+                                    id:c,
+                                    name: b.name
+                                });
+                            }else{
+                                t[a.title] = [{
+                                    id:c,
+                                    name: b.name
+                                }];
+                            }
+                            return false;
+                        }
+                    });
+                });
+            });
+            return t;
+        },
         load:function(key,type){
-            var val = Kimiss.DB.sort_val,
-                rel = Kimiss.DB.rel_val,
-                t = [],
+            var me = this,
                 indexes = [];
-            if(type == 'brand'){
-                console.log('brand:'+key);
-                rel = rel.bc;
-                console.log(rel[key]);
-//                rel = rel.cb;
-//                for(var i =0;i<val.length;i++){
-//                    var tt = val[i].arr;
-//                    for(var j=0;j<tt.length;j++){
-//                        var sortid = tt[j].id;
-//                        var brandarr = rel[sortid];
-//                        if(brandarr){
-//                            for(var k=0;k<brandarr.length;k++){
-//                                if(brandarr[k] == key){
-//                                    console.log(val[i].title+'='+tt[j].name);
-//                                    break;
-//                                }
-//                            }
-//                        }
-//                    }
-//                }
-            }
-            for(var i=0;i<val.length;i++){
-                indexes.push(val[i].title);
-            }
+            var t = me.getTTValue(key,type == 'brand'?'bc':type=='effect'?'ec':null);
+            $.each(t,function(i){
+                indexes.push(i);
+            });
             this.$el.html(this.brandItemTpl({
-                data:val,
+                data:t,
                 indexes:indexes
             })).show();
             this.scroller = new iScroll('filter-classify');

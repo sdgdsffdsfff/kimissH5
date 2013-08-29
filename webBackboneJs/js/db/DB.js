@@ -15,7 +15,7 @@ define(function () {
         sort_key:'KIMISS_SORT_IDNAME_MAP',
         sort_val:null,
         sort_flag:false,
-        rel_url:'/data/data.json',
+        rel_url:'http://m.kimiss.com/files/product_index.php?c=iapp&rd=28',
         brand_url:'http://m.kimiss.com/files/product_index.php?c=iapp&rd=20',
         sort_url:'http://m.kimiss.com/files/product_index.php?c=iapp&rd=21&st=1',
         init:function(){
@@ -85,7 +85,6 @@ define(function () {
                 case 'pfdy':
                     for(i= 0;i<me.effect_val.length;i++){
                         var tt = me.effect_val[i];
-                        console.log(tt.id);
                         if(parseInt(tt.id) == parseInt(s)){
                             re =  tt.name;
                             break;
@@ -107,16 +106,28 @@ define(function () {
             console.log(rel);
             var re = {
                 be:[],//brand-effect
+                eb:[],//effect-brand
                 bc:[],//brand-classify
                 cb:[],//classify-brand
-                ce:[]//classify-effect
+                ce:[],//classify-effect
+                ec:[]//effect-classify
             };
+            //be
             for(var i = 0;i<bel;i++){
                 rt = rel_be[i].split(':');
                 if(re.be.hasOwnProperty(rt[0])){
                     re.be[rt[0]].push(rt[1]);
                 }else{
                     re.be[rt[0]] = [rt[1]];
+                }
+            }
+            //eb
+            for(var i = 0;i<bel;i++){
+                rt = rel_be[i].split(':');
+                if(re.eb.hasOwnProperty(rt[1])){
+                    re.eb[rt[1]].push(rt[0]);
+                }else{
+                    re.eb[rt[1]] = [rt[0]];
                 }
             }
             //bc
@@ -137,6 +148,7 @@ define(function () {
                     re.cb[rt[1]] = [rt[0]];
                 }
             }
+            //ce
             for(var i = 0;i<cel;i++){
                 rt = rel_ce[i].split(':');
                 if(re.ce.hasOwnProperty(rt[0])){
@@ -145,7 +157,19 @@ define(function () {
                     re.ce[rt[0]] = [rt[1]];
                 }
             }
+            //ec
+            for(var i = 0;i<cel;i++){
+                rt = rel_ce[i].split(':');
+                if(re.ec.hasOwnProperty(rt[1])){
+                    re.ec[rt[1]].push(rt[0]);
+                }else{
+                    re.ec[rt[1]] = [rt[0]];
+                }
+            }
             this.rel_val = re;
+
+
+
             //brand
             var  brand = JSON.parse(this.brand_val);
             brand = brand.de.by;
@@ -262,12 +286,22 @@ define(function () {
         },
         getRelValFromServer:function(){
             var me = this;
-            $.get(this.rel_url,function(data){
-                ls.setItem(me.rel_key,data);
-                me.rel_val = data;
-                me.initOk('rel');
-                console.log('rel_val init ok.');
-            },'text');
+            $.ajax({
+                type : "POST",
+                async : false,
+                url : this.rel_url,
+                cache : false, //默认值true
+                dataType : "jsonp",
+                jsonp: "callbackfun",
+                jsonpCallback:"jsonpCallback",
+                success : function(data){
+                    var s = JSON.stringify(data);
+                    ls.setItem(me.rel_key,s);
+                    me.rel_val = s;
+                    me.initOk('rel');
+                    console.log('rel_val init ok.');
+                }
+            });
         }
     };
     return db;

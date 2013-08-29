@@ -20,10 +20,27 @@ define(function(){
             }
             e.stopPropagation();
         },
+        getTTValue:function(key,ii){
+            var me = this,t = [];
+            if(!ii){
+                return null;
+            }
+            $.each(Kimiss.DB.effect_val,function(i,a){
+                $.each(Kimiss.DB.rel_val[ii][key],function(k,c){
+                    if(parseInt(a.id) == parseInt(c)){
+                        t.push(a);
+                        return false;
+                    }
+                });
+            });
+            return t;
+        },
         load:function(key,type){
-            var val = Kimiss.DB.effect_val;
+            var val = Kimiss.DB.effect_val,
+                me = this,
+                t = me.getTTValue(key,type == 'brand'?'be':type=='classify'?'ce':null);
             this.$el.html(this.itemTpl({
-                data:val
+                data:t
             })).show();
             this.scroller = new iScroll('filter-effect');
         }

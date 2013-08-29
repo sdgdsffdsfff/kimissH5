@@ -19,11 +19,6 @@ define(function(){
             'proDetail/:pd':'proDetail',
             'productList/s=:s&t=:t':'productList',
             'comments/:pd':'comments'
-//            'productList/pswy=:pswy':'productListPswy',
-//            'productList/bdy=:bdy':'productListBdy',
-//            'productList/pcdy=:pcdy':'productListPcdy',
-//            'productList/pfdy=:pfdy':'productListPfdy',
-//            'productList/bdy=:bdy/pcdy=:pcdy/pfdy=:pfdy/pswy=:pswy':'productList'
         },
         index:function(){
             Kimiss.Body.switch('Index');
@@ -39,21 +34,15 @@ define(function(){
                 s: '['+s+']',
                 t: t
             };
-            Kimiss.NavBar.setTitle(Kimiss.DB.getNameByTypeId(s,t));
+            if(s&& s.indexOf('-')<0){
+                Kimiss.NavBar.setTitle(Kimiss.DB.getNameByTypeId(s,t));
+            }
             Kimiss.Body.switch('ProductList',[d]);
             $('#filter-btn').css('display','block');
         },
         comments:function(pd){
             Kimiss.Body.switch('Comments',[pd]);
         },
-//        productList:function(bdy,pcdy,pfdy,pswy){
-//            Kimiss.Body.switch('ProductList',[{
-//                bdy:bdy,
-//                pcdy:pcdy,
-//                pfdy:pfdy,
-//                pswy:pswy
-//            }]);
-//        },
         brandType:function(type){
             Kimiss.Body.switch('Brand',[type]);
         },

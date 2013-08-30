@@ -43,9 +43,9 @@ define(function(){
                 $(analy).attr('data-analy-reg',true);
                 $(analy).bind('click',me.socket,me.emit);
             });
-            $(window).scroll(function(){
-                console.log('>>'+$(document.body).scrollTop());
-            });
+//            $(window).scroll(function(){
+//                console.log('>>'+$(document.body).scrollTop());
+//            });
         },
         unbindAnalyEvents:function(){
             var me = this;

@@ -5,6 +5,12 @@ define(function(){
                 if(e.newURL.indexOf('#productList')<0){
                     $('#filter-btn').hide();
                 }
+                if(e.newURL.indexOf('#productList')<0
+                    &&e.newURL.indexOf('#article')<0
+                    &&e.newURL.indexOf('#proDetail')<0
+                    &&e.newURL.indexOf('#comments')<0){
+                    $('#back-btn').hide();
+                }
             };
         },
         routes:{
@@ -25,9 +31,11 @@ define(function(){
         },
         proDetail:function(pd){
             Kimiss.Body.switch('ProDetail',[pd]);
+            $('#back-btn').css('display','block');
         },
         article:function(td){
             Kimiss.Body.switch('Article',[td]);
+            $('#back-btn').css('display','block');
         },
         productList:function(s,t){
             var d = {
@@ -39,9 +47,11 @@ define(function(){
             }
             Kimiss.Body.switch('ProductList',[d]);
             $('#filter-btn').css('display','block');
+            $('#back-btn').css('display','block');
         },
         comments:function(pd){
             Kimiss.Body.switch('Comments',[pd]);
+            $('#back-btn').css('display','block');
         },
         brandType:function(type){
             Kimiss.Body.switch('Brand',[type]);

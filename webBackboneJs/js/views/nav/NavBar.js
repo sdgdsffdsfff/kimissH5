@@ -62,6 +62,11 @@ define(function(){
         },
         setTitle:function(t){
             this.titleEL.text(t);
+            if(t == ''){
+                this.titleEL.addClass('img-title');
+            }else{
+                this.titleEL.removeClass('img-title');
+            }
         },
         showTitle:function(){
             this.$el.find('[data-title=1]').show();

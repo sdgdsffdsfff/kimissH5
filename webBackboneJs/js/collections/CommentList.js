@@ -18,6 +18,11 @@ define(['models/CommentModel'],function(CommentModel){
         model:CommentModel,
         parse:function(data){
             data = data.de.cy;
+            console.log(data);
+            $.each(data,function(i,a){
+                var date = new Date(parseInt(a.ce)*1000);
+                a.ce1 = date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate();
+            });
             return data;
         }
     });

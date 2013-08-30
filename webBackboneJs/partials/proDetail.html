@@ -12,7 +12,13 @@
         <div class="col">
             <div class="row">
                 <div class="name">星级：</div>
-                <div class="value"><%=pt%></div>
+                <div class="value">
+                    <ol>
+                        <%_.each(_.range(pt),function(){%>
+                        <li class="redStar"></li>
+                        <%});%>
+                    </ol>
+                </div>
             </div>
             <div class="row">
                 <div class="name">上市时间：</div>
@@ -24,7 +30,7 @@
             </div>
             <div class="row">
                 <div class="name">属性：</div>
-                <div class="value"><%=pt%></div>
+                <div class="value"><%=attr%></div>
             </div>
             <div class="row">
                 <div class="name">简介：</div>

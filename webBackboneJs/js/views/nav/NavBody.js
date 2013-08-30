@@ -39,6 +39,7 @@ define(['views/filter/Filter'],function(Filter){
                     Kimiss.NavBody.MenuEL.addClass('nav-body-on').siblings('div').removeClass('nav-body-on');
                 }
                 if(type == 'search'){
+                    window.scrollTo(0,0);
                     Kimiss.NavBody.SearchEL.addClass('nav-body-on').siblings('div').removeClass('nav-body-on');
                 }
                 if(type == 'filter'){

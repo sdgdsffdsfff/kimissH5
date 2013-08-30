@@ -52,6 +52,7 @@ define(['views/filter/Brand','views/filter/Classify','views/filter/Effect','view
             Kimiss.Router.navigate('productList/s='+s+'&t='+t,{
                 trigger:true
             });
+            Kimiss.NavBody.toggle();
         },
         switchFilter:function(e){
             var $el =  $(e.target);

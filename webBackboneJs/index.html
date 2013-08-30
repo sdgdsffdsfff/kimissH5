@@ -1,16 +1,52 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
     <title>美丽闺蜜</title>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-itunes-app" content="app-id=664555106">
+    <link rel="apple-touch-icon-precomposed" href="/resources/114x114.png">
+
+    <style>
+        #loading-face{
+            position: absolute;
+            background: pink;
+            height: 100%;
+            width: 100%;
+            z-index: 10000;
+        }
+        .logo-face{
+            top: 30px;
+            position: absolute;
+            background: url(/resources/logo_face.png);
+            background-repeat: no-repeat;
+            background-size: 180px auto;
+            background-position: center center;
+            width: 100%;
+            height: 100px;
+        }
+        .copyright-face{
+            width: 100%;
+            height: 50px;
+            position: absolute;
+            bottom: 30px;
+            background-image: url(/resources/copyright.png);
+            background-repeat: no-repeat;
+            background-size: 150px auto;
+            background-position: center center;
+        }
+    </style>
     <link rel="stylesheet" href="css/bootstrap.css"/>
     <link rel="stylesheet" href="css/app.css"/>
     <link rel="stylesheet" href="css/icons.css"/>
 </head>
 <body id="app">
+<!--<div id="loading-face">-->
+    <!--<div class="logo-face"></div>-->
+    <!--<div class="copyright-face"></div>-->
+<!--</div>-->
     <script src="libs/jquery-1.10.2.min.js"></script>
     <script src="libs/bootstrap.js"></script>
     <script src="libs/iscroll.js"></script>

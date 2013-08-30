@@ -12,6 +12,9 @@ define(['views/nav/navBar',
         events:{
             'click #filter-btn':function(){
                 Kimiss.NavBody.toggle('filter');
+            },
+            'click #back-btn':function(){
+                history.back();
             }
         },
         render:function(){

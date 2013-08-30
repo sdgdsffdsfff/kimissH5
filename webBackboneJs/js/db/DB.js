@@ -103,7 +103,7 @@ define(function () {
                 rel_be = rel.bfy,bel = rel_be.length,
                 rel_bc = rel.bcy,bcl = rel_bc.length,
                 rel_ce = rel.cfy,cel = rel_ce.length;
-            console.log(rel);
+//            console.log(rel);
             var re = {
                 be:[],//brand-effect
                 eb:[],//effect-brand

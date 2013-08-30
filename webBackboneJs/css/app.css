@@ -163,8 +163,19 @@ img{
     text-align: left;
     -webkit-box-flex:1;
     -moz-box-flex:1;
+    display: -webkit-box;
+    -webkit-box-orient: horizontal;
 }
-
+.data-grid .col .row .value ol{
+    display: -webkit-box;
+    -webkit-box-orient: horizontal;
+}
+.data-grid .col .row .value ol li{
+    width: 12px;
+    background-size: 100%;
+    background-position: left center;
+    background-repeat: no-repeat;
+}
 
 
 
@@ -179,7 +190,7 @@ img{
 
 .bar-btn{
     height: 100%;
-    width: 40px;
+    width: 50px;
     line-height: 40px;
     color: white;
     font-size: 28px;
@@ -246,7 +257,7 @@ img{
     -webkit-box-align:center;
     width: 100%;
     height: 0;
-    background: #dbdbdb;
+    background: white;
     z-index: 3;
     left: 0;
     right: 0;
@@ -261,17 +272,20 @@ img{
 }
 .loading .loading-v .loading-h{
     -webkit-box-flex: 1;
+    background-repeat: no-repeat;
+    background-position: center center;
 }
 .loading .loading-v .loading-h .loading-box{
-    min-width: 40px;
-    min-height: 40px;
+    min-width: 80px;
+    min-height: 80px;
+    background-size: 100%;
     -webkit-animation: loadMore 1s infinite linear;
     -webkit-animation-play-state: running;
     -moz-transform:translate(-50%,-50%) rotateZ(45deg);
     -moz-animation: loadMore 1s infinite linear;
     -moz-animation-play-state: running;
 }
-.loading .loading-v .loading-h .loading-box:before{
+.loading .loading-v .loading-h .loading-box1:before{
     position: absolute;
     font-family: 'IcoMoon';
     content:'#';
@@ -313,7 +327,7 @@ img{
     position: absolute;
     text-align: center;
     color: white;
-    font-size: 20px;
+    font-size: 18px;
     line-height: 40px;
     margin: 0;
     padding:0;
@@ -323,8 +337,13 @@ img{
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: auto 22px;
 }
-
+.navbar-inner .img-title{
+    background-image: url(/resources/logo_txt.png);
+}
 .brand-seg{
     position: absolute;
     left: 50%;
@@ -685,6 +704,7 @@ img{
     border: #DBDBDB 1px solid;
     border-radius: 5px;
     overflow: hidden;
+    position: relative;
 }
 .index-list li:ACTIVE{
     background-color: #e7e7e7;
@@ -699,6 +719,34 @@ img{
     margin: 0;
     line-height: 28px;
     height: 28px;
+    padding: 0 50px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.index-list li .date{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    margin: 5px;
+    width: 44px;
+    height: 44px;
+    text-align: center;
+    line-height: 22px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+.index-list li .date .year{
+    font-size: 8px;
+    line-height: 27px;
+    height: 18px;
+    color: white;
+}
+.index-list li .date .day{
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 20px;
+    height: 22px;
 }
 .index-load-more{
     position: relative;
@@ -1149,6 +1197,20 @@ img{
 .filter-btn:hover,.filter-btn:active{
     color: #333;
     text-decoration: none;
+}
+.back-btn{
+    display: none;
+    position: absolute;
+    z-index: 101;
+    height: 50px;
+    width: 50px;
+    bottom: 0;
+    left: 0;
+    margin:10px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    -webkit-transition: left,right .3s ease-in-out;
 }
 #filter-sort{
     padding: 20px 10px;

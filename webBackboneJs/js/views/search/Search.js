@@ -11,10 +11,14 @@ define(function(){
             this.$el.find('a.submit-btn').attr('href','#productList/s='+v+'&t=pswy');
         },
         submit:function(e){
-            var v = this.$el.find('input').val();
+            var me = this,v = this.$el.find('input').val();
             Kimiss.slide();
             setTimeout(function(){
-                location.hash = '#productList/s='+v+'&t=pswy';
+//                location.hash = '#productList/s='+v+'&t=pswy';
+                me.$el.find('input').blur();
+                Kimiss.Router.navigate('productList/s='+encodeURIComponent(v)+'&t=pswy',{
+                    trigger:true
+                });
             },300);
             return false;
         },

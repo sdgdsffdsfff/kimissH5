@@ -7,6 +7,7 @@ define(['models/IndexModel'],function(IndexModel){
         url:'http://m.kimiss.com/files/eventapi.php?c=KMIOSAPI&rd=10&cly=1',
         ie:1,
         parse:function(resp){
+            console.log(resp.de.ty);
             return resp.de.ty;
         }
 //        onItemAdd:function(model){

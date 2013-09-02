@@ -35,7 +35,27 @@ define(function(){
             this.socket.on('disconnect',function(){
                 me.onclose();
             });
+            this.socket.emit('gesture',{
+                model:'Model',
+                data:{
+                    name:'onOpen',
+                    id:this.ID,
+                    ts:Date.now()
+                }
+            });
             this.bindAnalyEvents();
+        },
+        onclose:function(){
+            console.log('The WebSocket server has closed!');
+            this.openFlag = false;
+            this.socket.emit('gesture',{
+                model:'Model',
+                data:{
+                    name:'onClose',
+                    id:this.ID,
+                    ts:Date.now()
+                }
+            });
         },
         bindAnalyEvents:function(){
             var me = this;
@@ -74,10 +94,6 @@ define(function(){
         onmessage:function(){
             console.log('The WebSocket server response: ');
             console.log(arguments);
-        },
-        onclose:function(){
-            console.log('The WebSocket server has closed!');
-            this.openFlag = false;
         },
         end:function(){},
         gesture:function(){},

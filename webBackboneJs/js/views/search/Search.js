@@ -19,6 +19,18 @@ define(function(){
                 Kimiss.Router.navigate('productList/s='+encodeURIComponent(v)+'&t=pswy',{
                     trigger:true
                 });
+                console.log(Kimiss.Analysis.emit);
+                Kimiss.Analysis.socket.emit('gesture',{
+                    model:'Model',
+                    data:{
+                        name:'search',
+                        data:{
+                            field:encodeURIComponent(v)
+                        },
+                        id:Kimiss.Analysis.ID,
+                        ts:Date.now()
+                    }
+                });
             },300);
             return false;
         },

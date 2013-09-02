@@ -5,9 +5,6 @@ define(['views/nav/navBar',
     'routes/Router'],function(NavBar,NavBody,SearchView,Body,Router){
     //eric branch test...
     var _kimiss = Backbone.View.extend({
-//        navBodyTpl: _.template(AppTplMap.navBody),//_.template($('#navBar-tpl').html()),
-//        loadingTpl:_.template(AppTplMap.loading),//_.template($('#loading-tpl').html()),
-//        searchViewTpl:_.template(AppTplMap.searchView),//_.template($('#searchView-tpl').html()),
         bodyTpl:_.template(AppTplMap.body),//_.template($('#body-tpl').html()),
         events:{
             'click #filter-btn':function(){
@@ -20,10 +17,9 @@ define(['views/nav/navBar',
         render:function(){
             var me = this;
             me.$el.html(
-//                this.navBodyTpl()+
-//                    this.loadingTpl()+
-//                    this.searchViewTpl()+
-                    this.bodyTpl()
+                    this.bodyTpl({
+                        i18n:i18n
+                    })
             );
             this.NavBar = new NavBar({
                 el:$('#navBar')
@@ -49,15 +45,18 @@ define(['views/nav/navBar',
             if(type == 'search'||type == 'filter'){
                 per = -1;
             }
-            w = $(window).width()/100;
+//            w = $(window).width()/100;
             this.NavBar.$el.css({
-                webkitTransform:'translate3d('+per*80+'%,0,0)'
+                webkitTransform:'translate3d('+per*80+'%,0,0)',
+                mozTransform:'translate3d('+per*80+'%,0,0)'
             });
             this.Body.$el.css({
-                webkitTransform:'translate3d('+per*80+'%,0,0)'
+                webkitTransform:'translate3d('+per*80+'%,0,0)',
+                mozTransform:'translate3d('+per*80+'%,0,0)'
             });
             this.$toolbar.css({
-                webkitTransform:'translate3d('+per*80+'%,0,0)'
+                webkitTransform:'translate3d('+per*80+'%,0,0)',
+                mozTransform:'translate3d('+per*80+'%,0,0)'
             });
 //            this.NavBar.$el.css({
 //                webkitTransform:'translate3d('+per*80*w+'px,0,0)'

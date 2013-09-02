@@ -23,10 +23,6 @@ define(['models/ProDetailModel','collections/CommentList','views/common/Carousel
                 },
                 success:function(clt){
                     var list = me.$el.find('.comment-list');
-//                    clt.models.each(function(a){
-//                        var s = me.commentTpl(a.attributes);
-//                        list.html(list.html()+s);
-//                    });
                     if(clt.models.length>0){
                         list.html(me.commentTpl(clt.models[0].attributes));
                         me.viewMoreComments(pd);
@@ -58,6 +54,7 @@ define(['models/ProDetailModel','collections/CommentList','views/common/Carousel
                         });
                         me.loadComment(pd);
                         Kimiss.Body.Loading.hide();
+                        Kimiss.Analysis.refreshAnalyEvents();
                     }
                 });
             }

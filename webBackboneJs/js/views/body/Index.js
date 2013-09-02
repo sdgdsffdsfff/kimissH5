@@ -1,41 +1,11 @@
 define(['collections/IndexList','views/common/LoadMore'],function(IndexList,LoadMore){
-//    var _indexListItem = Backbone.View.extend({
-//        tagName:'li',
-//        className:'index-list-item',
-//        model:null,
-//        tpl: _.template(AppTplMap.indexListItem),
-//        initialize:function(){
-//            this.render();
-//        },
-//        render:function(){
-//            this.$el.articleid = this.model.get('td');
-//            this.$el.html(this.tpl(this.model.attributes));
-//            return this;
-//        }
-//    });
-
     var _index = Backbone.View.extend({
-        initialize:function(){
-            this.IndexList = new IndexList();
-        },
+        IndexList:new IndexList(),
         className:'index-list',
-        events:{
-//            'click li':function(e){
-//                Kimiss.Body.switch('Article',[$(e.currentTarget).attr('article-id')]);
-//            }
-        },
         titleTpl: _.template(AppTplMap.indexListTitle),
         bodyTpl: _.template(AppTplMap.indexListBody),
-//        ListItem: _indexListItem,
         hasLoaded:false,
         items:[],
-//        addItem:function(model){
-//            var item = new this.ListItem({
-//                model:model
-//            });
-//            this.items.push(item);
-//            this.$el.append(item.$el);
-//        },
         addTitle:function(){
             this.$el.html(this.titleTpl());
         },
@@ -45,6 +15,9 @@ define(['collections/IndexList','views/common/LoadMore'],function(IndexList,Load
                 this.loadMoreCmp.remove();
             }
             models.each(function(model){
+                var t = new Date(parseInt(model.attributes.tt)*1000);
+                model.attributes.date_top = t.getFullYear()+'.'+ (t.getMonth()+1);
+                model.attributes.date_bottom = t.getDate();
                 re.push(model.attributes);
             });
             me.$el.html(me.$el.html()+this.bodyTpl({
@@ -89,6 +62,7 @@ define(['collections/IndexList','views/common/LoadMore'],function(IndexList,Load
                         me.addTitle();
                     }
                     me.addItems(clt.models);
+                    Kimiss.Analysis.refreshAnalyEvents();
                     callback();
                 },
                 error:function(){

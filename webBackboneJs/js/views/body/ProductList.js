@@ -63,6 +63,7 @@ define([
                     if(clt.models.length <10){
                         me.loadMoreCmp.remove();
                     }
+                    Kimiss.Analysis.refreshAnalyEvents();
                     callback();
                 }
             });

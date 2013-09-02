@@ -20,6 +20,7 @@ define(['models/ArticleModel'],function(ArticleModel){
                     me.$el.html(me.tpl(model.attributes));
                     Kimiss.NavBar.setTitle(model.get('te'));
                     Kimiss.Body.Loading.hide();
+                    Kimiss.Analysis.refreshAnalyEvents();
                 }
             });
         }

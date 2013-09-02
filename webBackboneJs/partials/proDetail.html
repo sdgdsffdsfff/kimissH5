@@ -11,7 +11,7 @@
     <div class="data-grid">
         <div class="col">
             <div class="row">
-                <div class="name">星级：</div>
+                <div class="name"><%=i18n.level_txt%>: </div>
                 <div class="value">
                     <ol>
                         <%_.each(_.range(pt),function(){%>
@@ -21,29 +21,30 @@
                 </div>
             </div>
             <div class="row">
-                <div class="name">上市时间：</div>
+                <div class="name"><%=i18n.listedTime%>: </div>
                 <div class="value"><%=pk%></div>
             </div>
             <div class="row">
-                <div class="name">规格：</div>
+                <div class="name"><%=i18n.format%>: </div>
                 <div class="value"><%=psy%></div>
             </div>
             <div class="row">
-                <div class="name">属性：</div>
+                <div class="name"><%=i18n.attrs%>: </div>
                 <div class="value"><%=attr%></div>
             </div>
             <div class="row">
-                <div class="name">简介：</div>
+                <div class="name"><%=i18n.desc%>: </div>
                 <div class="value"><%=po%></div>
             </div>
         </div>
     </div>
     <div class="split-line">
-        <div class="txt pinglunicon">共 <em style="color:red;"><%=pn%></em> 条评论</div>
+        <div class="txt pinglunicon"><%=i18n.gong%> <em style="color:red;"><%=pn%></em> <%=i18n.tiaopinglun%></div>
         <div class="line"></div>
     </div>
     <ul class="comment-list"></ul>
-    <a href="javascript:void(0)" class="view-more-comment">查看更多评论</a>
+    <a data-analy='Model->{"name":"viewMoreComment"}'
+       href="javascript:void(0)" class="view-more-comment"><%=i18n.viewMoreComments%></a>
     <div class="small-loading">
         <div class="loading-v">
             <div class="loading-h">

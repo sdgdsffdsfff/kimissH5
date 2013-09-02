@@ -10,7 +10,7 @@ define(function(){
             'click ul.slide-bar':function(e){
                 e.stopPropagation();
             },
-            'click ul.slide-bar li':'scrollByIndex',
+            'click ul.slide-bar li a':'scrollByIndex',
             'click div.list-pack dl dd a':'selectOne'
         },
         scrollByIndex:function(e){
@@ -18,7 +18,7 @@ define(function(){
             if(el.length){
                 this.scroller.scrollTo(0,el.parent().offset().top - el.offset().top);
             }
-            $(e.target).addClass('on').siblings('li').removeClass('on');
+            $(e.target).addClass('on').parent().siblings('li').children('a').removeClass('on');
             e.stopPropagation();
         },
         selectOne:function(e){

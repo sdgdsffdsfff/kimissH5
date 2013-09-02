@@ -1,6 +1,5 @@
 define(['views/filter/Filter'],function(Filter){
     var _navBody = Backbone.View.extend({
-//        menuTpl:_.template(AppTplMap.menu),
         initialize:function(){
             this.render();
         },

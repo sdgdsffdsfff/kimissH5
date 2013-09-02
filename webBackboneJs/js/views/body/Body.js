@@ -56,10 +56,10 @@ function(Index,Brand,Article,Loading,ProDetail,ProductList,Sort,Effect,Event,Com
                 el:$('#body-mask')
             });
             this.modules.Index = new Index({
-                el:$('#index')
+                el:$('#indexView')
             });
             this.modules.Brand = new Brand({
-                el:$('#brand')
+                el:$('#brandView')
             });
             this.modules.Article = new Article({
                 el:$('#article')
@@ -71,10 +71,10 @@ function(Index,Brand,Article,Loading,ProDetail,ProductList,Sort,Effect,Event,Com
                 el:$('#productList')
             });
             this.modules.Sort = new Sort({
-                el:$('#sort')
+                el:$('#sortView')
             });
             this.modules.Effect = new Effect({
-                el:$('#effect')
+                el:$('#effectView')
             });
             this.modules.Comments = new Comments({
                 el:$('#comments')

@@ -3,11 +3,11 @@ define(function(){
         for(var i in options){
             this[i] = options[i];
         }
+        this.ID = Math.UUID();
     };
     analysis.prototype = {
         url:'',
         socket:null,
-        initialize:function(){},
         openFlag:false,
         start:function(){
             var me = this;
@@ -56,15 +56,19 @@ define(function(){
         },
         refreshAnalyEvents:function(){
             var me = this;
-            me.iteratorAnalyDom(function(i,analy){
-                if(!$(analy).attr('data-analy-reg')){
-                    $(analy).bind('click',me.emit);
-                }
-            });
+            if(this.openFlag){
+                me.iteratorAnalyDom(function(i,analy){
+                    if(!$(analy).attr('data-analy-reg')){
+                        $(analy).attr('data-analy-reg',true);
+                        $(analy).bind('click',me.socket,me.emit);
+                    }
+                });
+            }
         },
         iteratorAnalyDom:function(fn){
             var me = this,
                 analys = $('[data-analy]');
+            console.log('Analyzed Objects : '+analys.length);
             analys.each(fn);
         },
         onmessage:function(){
@@ -79,18 +83,22 @@ define(function(){
         gesture:function(){},
         click:function(){},
         emit:function(e){
-            var socket = e.data;
+            var me = this,socket = e.data;
             var s = $(this).attr('data-analy'),model,json;
             if(socket){
                 try{
-                    s = s.replaceAll(':','":"').replaceAll(',','","').replaceAll('{','{"').replaceAll('}','"}');
-                    s = /(\w+)(\{[^\{\}]*\})/g.exec(s);
-                    model = s[1];
-                    json = $.parseJSON(s[2]);
+//                    s = s.replaceAll(':','":"').replaceAll(',','","')
+//                        .replaceAll('{','{"').replaceAll('}','"}')
+//                        .replaceAll('[','["').replaceAll(']','"]');
+//                    s = /(\w+)(\{[^\{\}]*\})/g.exec(s);
+                    s = s.split('->');
+                    model = s[0];
+                    json = $.parseJSON(s[1]);
                     json.ts = Date.now();
-                    console.log('emit to model:'+model);
-                    console.log(json);
-                    console.log('emit to model==');
+                    json.id = Kimiss.Analysis.ID;
+//                    console.log('emit to model:'+model);
+                    console.log('emit '+json.name);
+//                    console.log('emit to model==');
                     socket.emit('gesture',{
                         model:model,
                         data:json
@@ -98,7 +106,8 @@ define(function(){
                 }catch(e){
                     console.log('parse emitted data error!');
                 }
-
+            }else{
+                console.log('Gain ws server error!');
             }
         }
     };

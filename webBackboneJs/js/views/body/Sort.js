@@ -42,12 +42,6 @@ define(['collections/SortList'],function(SortListClt){
         initialize:function(){
             this.render();
         },
-//        events:{
-//            'click ul.sort-indexes li':function(e){
-//                this.setScrollTop($(e.target).html());
-//                $(e.target).addClass('on').siblings('li').removeClass('on');
-//            }
-//        },
         getP:function(e){
             return {
                 x: e.touches? e.touches[0].pageX: e.pageX,
@@ -90,6 +84,7 @@ define(['collections/SortList'],function(SortListClt){
             if(!this.hasLoaded){
                 this.load(function(){
                     me.switchMode(type);
+                    Kimiss.Analysis.refreshAnalyEvents();
                 });
                 this.hasLoaded = true;
                 Kimiss.$el.append(me.indexesEL);
@@ -128,9 +123,6 @@ define(['collections/SortList'],function(SortListClt){
         },
         addIndexes:function(indexes){
             this.SortIndex.addIndexes(indexes);
-//            this.indexesEL.html(this.indexesTpl({
-//                indexes:indexes
-//            }));
         },
         addHot:function(){
             var s = '2076,2071,2068,2075,9036,2072,1884,827,902,1880,1888,2070,1881,2069,1885,881,1893,1894,1988,1882,2083,2042,2197,1883,2041,2171,901,2008,1891,2048,9029,1895,1903,2089,867,2079,1320';
@@ -164,11 +156,11 @@ define(['collections/SortList'],function(SortListClt){
                     me.addHot();
                     Kimiss.NavBar.loadSortSeg({
                         btnList:[{
-                            name:'热门分类',
+                            name:i18n.hot_classify,
                             link:'#sort/hot',
                             anchor:'hot'
                         },{
-                            name:'全部分类',
+                            name:i18n.all_classify,
                             link:'#sort/all',
                             anchor:'all'
                         }],

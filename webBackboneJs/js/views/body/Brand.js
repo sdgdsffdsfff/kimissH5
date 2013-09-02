@@ -91,6 +91,7 @@ define(['collections/BrandList'],function(BrandListClt){
                 model:model
             });
             this.brandListMap[model.get('index')] = l;
+            Kimiss.Analysis.refreshAnalyEvents();
             return l;
         },
         show:function(type){
@@ -102,6 +103,7 @@ define(['collections/BrandList'],function(BrandListClt){
                 this.load(function(){
                     me.switchMode(type);
                     me.resetHotWidth();
+                    Kimiss.Analysis.refreshAnalyEvents();
                 });
                 this.hasLoaded = true;
             }else{
@@ -146,11 +148,11 @@ define(['collections/BrandList'],function(BrandListClt){
                     me.addHot();
                     Kimiss.NavBar.loadBrandSeg({
                         btnList:[{
-                            name:'热门品牌',
+                            name:i18n.hot_brand,
                             link:'#brand/hot',
                             anchor:'hot'
                         },{
-                            name:'全部品牌',
+                            name:i18n.all_brand,
                             link:'#brand/all',
                             anchor:'all'
                         }],

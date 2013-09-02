@@ -1,3 +1,4 @@
     <%_.each(list,function(item){%>
-    <a href="#productList/s=<%=item.id%>&t=pfdy"><%=item.name%></a>
+    <a data-analy='Model->{"name":"effect-item","data":{"effectId":"<%=item.id%>"}}'
+       href="#productList/s=<%=item.id%>&t=pfdy"><%=item.name%></a>
     <%});%>

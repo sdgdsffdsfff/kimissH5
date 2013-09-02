@@ -1,5 +1,6 @@
 <ul indexName="<%=index%>">
     <%_.each(arr,function(item){%>
-    <li><a href="#productList/s=<%=item.id%>&t=bdy"><%=item.name%></a></li>
+    <li><a data-analy='Model->{"name":"all-brand-item","data":{"brandID":"<%=item.id%>"}}'
+           href="#productList/s=<%=item.id%>&t=bdy"><%=item.name%></a></li>
     <%});%>
 </ul>

@@ -12,7 +12,7 @@ define(['models/BrandModel'],function(BrandModel){
                 async : false,
                 url : model.url,
                 data : options.data,
-                cache : false, //默认值true
+                cache : false, //default true
                 dataType : "jsonp",
                 jsonp: "callbackfun",
                 jsonpCallback:"jsonpCallback",

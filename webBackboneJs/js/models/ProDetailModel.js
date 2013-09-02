@@ -18,7 +18,7 @@ define(function(){
         parse:function(data){
             data = data.de;
 //            data.iy.push(data.iy[0]);
-            console.log(data);
+//            console.log(data);
             data.pt = Math.round(data.pt);
             var date = new Date(parseInt(data.pk)*1000);
             data.pk = date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate();

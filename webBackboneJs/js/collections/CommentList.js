@@ -8,7 +8,7 @@ define(['models/CommentModel'],function(CommentModel){
                 async : false,
                 url : model.url,
                 data : options.data,
-                cache : false, //默认值true
+                cache : false, //default true
                 dataType : "jsonp",
                 jsonp: "callbackfun",
                 jsonpCallback:"jsonpCallback",
@@ -18,7 +18,7 @@ define(['models/CommentModel'],function(CommentModel){
         model:CommentModel,
         parse:function(data){
             data = data.de.cy;
-            console.log(data);
+//            console.log(data);
             $.each(data,function(i,a){
                 var date = new Date(parseInt(a.ce)*1000);
                 a.ce1 = date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate();

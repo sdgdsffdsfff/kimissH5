@@ -14,7 +14,8 @@
     <ul>
         <%_.each(tn,function(item){%>
         <li>
-            <a href="#proDetail/<%=item.pd%>"><img src="<%=item.il%>"/></a>
+            <a data-analy='Model->{"name":"proDetail","data":{"proID":"<%=item.pd%>"}}' href="#proDetail/<%=item.pd%>">
+                <img src="<%=item.il%>"/></a>
             <h6><%=item.pe%></h6>
             <p><%=item.ct%></p>
         </li>

@@ -66,6 +66,7 @@ define(['views/filter/Brand','views/filter/Classify','views/filter/Effect','view
         load:function(){
             var params = Kimiss.Body.getModule('ProductList').lastLoadParams,
                 s = params.s.substring(1,params.s.length-1);
+            this.$el.children('.selected-pack').children('a').attr('data-flt-id',null).text('').hide();
             switch(params.t){
                 case 'bdy'://brand
                     this.classify.load(s,'brand');

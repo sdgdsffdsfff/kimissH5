@@ -1,6 +1,6 @@
-<!--<div>A↓Z</div>-->
 <ul class="sort-indexes">
     <%_.each(indexes,function(item){%>
-    <li index-name="<%=item%>"><%=item%></li>
+    <li data-analy='Model->{"name":"classify-index","data":{"index":"<%=item%>"}}'
+        index-name="<%=item%>"><%=item%></li>
     <%});%>
 </ul>

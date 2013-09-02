@@ -2,7 +2,7 @@ define(function(){
     return Backbone.View.extend({
         tagName:'a',
         className:'index-load-more',
-        text:'点击加载更多',
+        text:i18n.loadMore_txt,
         loading:false,
         initialize:function(){
             for(var i in this.options){

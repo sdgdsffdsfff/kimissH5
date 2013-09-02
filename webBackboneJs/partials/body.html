@@ -3,20 +3,21 @@
         <div class="menu-inner">
             <ul class="navIndex">
                 <li>
-                    <a href="#index" class="menu-index">首页</a>
+                    <a data-analy='Model->{"name":"nav-item","data":{"name":"index"}}'
+                       href="#index" class="menu-index"><%=i18n.index_name%></a>
                 </li>
                 <li>
-                    <a href="#brand" class="menu-brand">品牌</a>
+                    <a data-analy='Model->{"name":"nav-item","data":{"name":"brand"}}'
+                       href="#brand" class="menu-brand"><%=i18n.brand_name%></a>
                 </li>
                 <li>
-                    <a href="#sort" class="menu-sort">分类</a>
+                    <a data-analy='Model->{"name":"nav-item","data":{"name":"sort"}}'
+                       href="#sort" class="menu-sort"><%=i18n.classify_name%></a>
                 </li>
                 <li>
-                    <a href="#effect" class="menu-effect">功效</a>
+                    <a data-analy='Model->{"name":"nav-item","data":{"name":"effect"}}'
+                       href="#effect" class="menu-effect"><%=i18n.effect_name%></a>
                 </li>
-                <!--<li>-->
-                    <!--<a href="#admin">我的闺蜜</a>-->
-                <!--</li>-->
             </ul>
         </div>
         <div class="menu-logo"></div>
@@ -24,17 +25,17 @@
     <div id="search-view" class="search">
         <div class="head">
             <form action="/#productList/s=keyword&t=pswy">
-                <input type="search" placeholder="搜索"/>
+                <input type="search" placeholder="<%=i18n.search_name%>"/>
             </form>
-            <a class="submit-btn" href="#productList/s=keyword&t=pswy">搜索</a>
+            <a class="submit-btn" href="#productList/s=keyword&t=pswy"><%=i18n.search_name%></a>
         </div>
     </div>
     <div id="filter" class="filter">
         <div class="seg-btn">
-            <a href="javascript:void(0)" rel-filter-id="filter-brand">品牌</a>
-            <a href="javascript:void(0)" rel-filter-id="filter-classify">分类</a>
-            <a href="javascript:void(0)" rel-filter-id="filter-effect">功效</a>
-            <a href="javascript:void(0)" rel-filter-id="filter-sort">排序</a>
+            <a href="javascript:void(0)" rel-filter-id="filter-brand"><%=i18n.brand_name%></a>
+            <a href="javascript:void(0)" rel-filter-id="filter-classify"><%=i18n.classify_name%></a>
+            <a href="javascript:void(0)" rel-filter-id="filter-effect"><%=i18n.effect_name%></a>
+            <a href="javascript:void(0)" rel-filter-id="filter-sort"><%=i18n.sort_name%></a>
         </div>
         <div class="selected-pack">
             <a data-flt-sele="brand" class="selected-pack-item filter-close-btn"></a>
@@ -53,26 +54,26 @@
             </div>
             <div id="filter-sort" class="seg-item">
                 <dl>
-                    <dt>点评数</dt>
-                    <dd><a href="javascript:void(0)" data-sort-id="3" class="start">多→少</a>
+                    <dt><%=i18n.commentNum_txt%></dt>
+                    <dd><a href="javascript:void(0)" data-sort-id="3" class="start"><%=i18n.sort_moreToLess%></a>
                         <a href="javascript:void(0)" data-sort-id="-1" class="middle on"></a>
-                        <a href="javascript:void(0)" data-sort-id="4" class="end">少→多</a></dd>
+                        <a href="javascript:void(0)" data-sort-id="4" class="end"><%=i18n.sort_lessToMore%></a></dd>
                 </dl>
                 <dl>
-                    <dt>星级</dt>
-                    <dd><a href="javascript:void(0)" data-sort-id="1" class="start">高→低</a>
+                    <dt><%=i18n.level_txt%></dt>
+                    <dd><a href="javascript:void(0)" data-sort-id="1" class="start"><%=i18n.sort_highToLow%></a>
                         <a href="javascript:void(0)" data-sort-id="-1" class="middle on"></a>
-                        <a href="javascript:void(0)" data-sort-id="2" class="end">低→高</a></dd>
+                        <a href="javascript:void(0)" data-sort-id="2" class="end"><%=i18n.sort_lowToHigh%></a></dd>
                 </dl>
                 <dl>
-                    <dt>价格</dt>
-                    <dd><a href="javascript:void(0)" data-sort-id="5" class="start">高→低</a>
+                    <dt><%=i18n.price_txt%></dt>
+                    <dd><a href="javascript:void(0)" data-sort-id="5" class="start"><%=i18n.sort_highToLow%></a>
                         <a href="javascript:void(0)" data-sort-id="-1" class="middle on"></a>
-                        <a href="javascript:void(0)" data-sort-id="6" class="end">低→高</a></dd>
+                        <a href="javascript:void(0)" data-sort-id="6" class="end"><%=i18n.sort_lowToHigh%></a></dd>
                 </dl>
             </div>
         </div>
-        <a class="submit-btn">确认</a>
+        <a class="submit-btn"><%=i18n.ok_txt%></a>
     </div>
 </div>
 <div id="navBar" class="navbar navbar-inverse navbar-fixed-top">
@@ -80,9 +81,9 @@
         <div data-title="1" class="title"></div>
 
         <div class="expand">
-            <a href="javascript:void(0)" data-analy="Model{name:menu-btn,actionType:tap}" id="menu"
+            <a href="javascript:void(0)" data-analy='Model->{"name":"menu-btn"}' id="menu"
                class="pull-left bar-btn menu-btn box orivc"></a>
-            <a href="javascript:void(0)" data-analy="Model{name:search-btn,actionType:tap}" id="search"
+            <a href="javascript:void(0)" data-analy='Model->{"name":"search-btn"}' id="search"
                class="pull-right bar-btn search-btn box orivc"></a>
         </div>
     </div>
@@ -100,27 +101,27 @@
         </div>
     </div>
     <div id="body-mask" class="body-mask"></div>
-    <div id="index" class="body-item">
+    <div id="indexView" class="body-item">
     </div>
-    <div id="brand" class="body-item brand">
+    <div id="brandView" class="body-item brand">
         <div class="brand-all">
             <div class="brand-items-pack"></div>
         </div>
         <div class="brand-hot"></div>
     </div>
-    <div id="sort" class="body-item sort">
+    <div id="sortView" class="body-item sort">
         <div class="sort-all">
             <div class="sort-items-pack"></div>
         </div>
         <ul class="sort-hot"></ul>
     </div>
     <div id="article" class="body-item article"></div>
-    <div id="effect" class="body-item effect"></div>
+    <div id="effectView" class="body-item effect"></div>
     <div id="proDetail" class="body-item proDetail"></div>
     <div id="productList" class="body-item productList"></div>
     <ul id="comments" class="body-item comment-list"></ul>
 </div>
 <div id="btm-toolbar" class="btm-toolbar">
-    <a href="javascript:void(0)" id="back-btn" class="back-btn"></a>
-    <a href="javascript:void(0)" id="filter-btn" class="filter-btn"></a>
+    <a href="javascript:void(0)" data-analy='Model->{"name":"back-btn"}' id="back-btn" class="back-btn"></a>
+    <a href="javascript:void(0)" data-analy='Model->{"name":"filter-btn"}' id="filter-btn" class="filter-btn"></a>
 </div>

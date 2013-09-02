@@ -302,6 +302,11 @@ img{
     min-height:40px;
     margin:0;
     padding:0;
+    position: fixed;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+    border-radius: 0;
     -webkit-transition: -webkit-transform .3s ease-in-out;
     -moz-transition: -webkit-transform .3s ease-in-out;
     -webkit-transform: translate3d(0%,0,0);
@@ -611,13 +616,17 @@ img{
     text-decoration: none;
 }
 .productList ul li a img{
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
+    margin: 10px;
 }
 .productList ul li a section{
     -webkit-box-flex: 1;
     -moz-box-flex: 1;
     padding: 1px;
+}
+.productList ul li a section h6{
+    height: 12px;
 }
 .productList ul li a section > .foot{
     display: -webkit-box;
@@ -1195,10 +1204,10 @@ img{
     display: none;
     position: absolute;
     z-index: 101;
-    height: 50px;
-    width: 50px;
+    height: 40px;
+    width: 40px;
     bottom: 0;
-    right: 0;
+    right: 5px;
     margin:10px;
     background-size: 100%;
     background-repeat: no-repeat;
@@ -1213,10 +1222,10 @@ img{
     display: none;
     position: absolute;
     z-index: 101;
-    height: 50px;
-    width: 50px;
+    height: 40px;
+    width: 40px;
     bottom: 0;
-    left: 0;
+    left: 5px;
     margin:10px;
     background-size: 100%;
     background-repeat: no-repeat;

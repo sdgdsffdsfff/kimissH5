@@ -6,13 +6,14 @@
             <img src="<%=item.il%>"/>
             <section>
                 <h5><%=item.pe%></h5>
-                <%_.each(item.psy,function(p){%>
-                <h6><%=p%></h6>
-                <%});%>
+                <h6><%=item.psy%></h6>
                 <div class="foot">
                     <ol>
                         <%_.each(_.range(item.pt),function(){%>
                         <li class="redStar"></li>
+                        <%});%>
+                        <%_.each(_.range(5-item.pt),function(){%>
+                        <li class="grayStar"></li>
                         <%});%>
                     </ol>
                     <div style="-webkit-box-flex:1;"></div>

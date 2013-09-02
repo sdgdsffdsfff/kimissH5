@@ -161,7 +161,7 @@ var i18n = {
     more_txt:'更多',
 
     loadMore_txt:'点击加载更多',
-    a:1
+    a:23
 };
 
 var AppTplMap = {},_templatesMap_L = 0;

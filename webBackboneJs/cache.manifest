@@ -1,0 +1,34 @@
+CACHE MANIFEST
+
+# VERSION 0.3
+
+# cached files
+CACHE:
+css/bootstrap.css
+css/app.css
+css/icons.css
+
+fonts/Kimiss.ttf
+
+resources/hotFenlei.jpg
+resources/hotPinpai.jpg
+resources/logo.png
+resources/logo_face.png
+resources/logo_txt.png
+resources/114x114.png
+resources/screen_icon.png
+resources/copyright.png
+
+libs/jquery-1.10.2.min.js
+libs/underscore.js
+libs/backbone.js
+libs/iscroll.js
+libs/require.js
+libs/socket.io.js
+libs/utils.js
+
+js/*
+
+NETWORK:
+*
+FALLBACK:

@@ -21,8 +21,10 @@ define(function(){
             'sort':'sortType',
             'sort/:type':'sortType',
             'article/:td':'article',
+            'Km.ArticlePacker!td=:td':'article',
             'effect':'effect',
             'proDetail/:pd':'proDetail',
+            'Km.PDetailPacker!pd=:pd':'proDetail',
             'productList/s=:s&t=:t':'productList',
             'comments/:pd':'comments'
         },

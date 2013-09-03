@@ -1,9 +1,13 @@
 define([
-    'collections/ProductList','models/ProductsModel','views/common/LoadMore'
-],function(ProductList,ProductsModel,LoadMore){
+    'collections/ProductList',
+//    'models/ProductsModel',
+    'views/common/LoadMore'
+],function(ProductList,
+//           ProductsModel,
+           LoadMore){
     var _v = Backbone.View.extend({
         productList:new ProductList,
-        model:new ProductsModel,
+//        model:new ProductsModel,
         tpl: _.template(AppTplMap.productList),
         getLoadMore:function(){
             var me = this;

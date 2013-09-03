@@ -2,7 +2,9 @@ define(['views/nav/navBar',
     'views/nav/NavBody',
     'views/search/Search',
     'views/body/Body',
-    'routes/Router'],function(NavBar,NavBody,SearchView,Body,Router){
+    'analysis/analysis',
+    'db/DB',
+    'routes/Router'],function(NavBar,NavBody,SearchView,Body,Analysis,DB,Router){
     //eric branch test...
     var _kimiss = Backbone.View.extend({
         bodyTpl:_.template(AppTplMap.body),//_.template($('#body-tpl').html()),
@@ -21,6 +23,10 @@ define(['views/nav/navBar',
                         i18n:i18n
                     })
             );
+
+            this.Analysis = new Analysis();
+            this.DB = new DB();
+
             this.NavBar = new NavBar({
                 el:$('#navBar')
             });

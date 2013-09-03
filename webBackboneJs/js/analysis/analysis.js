@@ -4,6 +4,7 @@ define(function(){
             this[i] = options[i];
         }
         this.ID = Math.UUID();
+        this.start();
     };
     analysis.prototype = {
         url:'',
@@ -13,7 +14,7 @@ define(function(){
             var me = this;
             if(typeof io != 'undefined'){
                 try{
-                    var socket = io.connect('42.96.193.252:3001');
+                    var socket = io.connect('http://42.96.193.252:3001');
                     socket.on('connect',function(){
                         me.onopen();
                     });
@@ -25,6 +26,7 @@ define(function(){
                     });
                     this.socket = socket;
                 }catch(e){
+                    console.log(e);
                 }
             }
         },

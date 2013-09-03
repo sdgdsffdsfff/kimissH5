@@ -336,8 +336,8 @@ img{
     line-height: 40px;
     margin: 0;
     padding:0;
-    left: 40px;
-    right: 40px;
+    left: 50px;
+    right: 50px;
     height: 40px;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -729,7 +729,7 @@ img{
      width: 100%;
  }
 .index-list li p{
-    text-align: center;
+    text-align: left;
     margin: 0;
     line-height: 28px;
     height: 28px;
@@ -737,6 +737,7 @@ img{
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    padding-right: 30px;
 }
 .index-list li .date{
     position: absolute;
@@ -885,7 +886,7 @@ img{
     line-height: 14px;
 }
 .brand-indexes-pressing{
-    background-color: gray;
+    background-color: #FFADBC;
     color: white;
 }
 
@@ -1104,9 +1105,9 @@ img{
 .filter .seg-div .seg-item{
     display: none;
     left: 5px;
-    top: 5px;
+    top: 0;
     right: 5px;
-    bottom: 5px;
+    bottom: 0;
     position: absolute;
 }
 .filter .seg-div .seg-item .slide-bar{

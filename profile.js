@@ -1,0 +1,23 @@
+({
+    baseUrl:'webBackboneJs/js',
+    paths:{
+        backbone:'../libs/backbone',
+        underscore:'../libs/underscore',
+        jquery:'../libs/jquery-1.10.2.min',
+        socketIO:'../libs/socket.io',
+        iScroll:'../libs/iscroll',
+        utils:'../libs/utils',
+        kimiss:'views/Kimiss'
+    },
+    shim:{
+        backbone:{
+            deps:['underscore','jquery'],
+            exports:'Backbone'
+        },
+        kimiss:{
+            deps:['config','backbone','jquery','socketIO','iScroll','utils']
+        }
+    },
+    name:'main',
+    out:'main-build.js'
+})

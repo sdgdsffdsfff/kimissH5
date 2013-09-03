@@ -19,6 +19,22 @@ app.get('/',function(req,res){
         res.end();
     });
 });
+app.get('/minJs',function(req,res){
+    var path = __dirname+'/webBackboneJs/libs';
+    var jquery = fs.readFileSync(path+'/jquery-1.10.2.min.js');
+    var iscroll = fs.readFileSync(path+'/iscroll-min.js');
+    var underscore = fs.readFileSync(path+'/underscore-min.js');
+    var backbone = fs.readFileSync(path+'/backbone-min.js');
+    var socketio = fs.readFileSync(path+'/socket.io-min.js');
+    var utils = fs.readFileSync(path+'/utils.js');
+    var require = fs.readFileSync(path+'/require-min.js');
+    var s = jquery + iscroll + underscore + backbone+ socketio + utils + require;
+    fs.writeFile(__dirname+'/webBackboneJs/libs/libs.js',s ,'utf-8', function(err){
+        if(err) throw err;
+        res.write('minJs ok!');
+        res.end();
+    });
+});
 app.configure(function(){
     app.use(express.static(__dirname + '/webBackboneJs'));
 });

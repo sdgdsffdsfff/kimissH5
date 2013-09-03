@@ -25,7 +25,7 @@ define(function(){
                     data:{
                         name:'search',
                         data:{
-                            field:encodeURIComponent(v)
+                            field:v
                         },
                         id:Kimiss.Analysis.ID,
                         ts:Date.now()

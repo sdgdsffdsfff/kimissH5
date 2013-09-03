@@ -1,24 +1,4 @@
-function requireApp(){
-    require.config({
-        baseUrl:'js'
-    });
-    require(['views/Kimiss','analysis/analysis','db/DB'],function(Kimiss,Analysis,DB){
-
-        var kimiss = new Kimiss({
-            el:$('#app')
-        });
-        window['Km'] = window['Kimiss'] = kimiss;
-        var analysis = new Analysis();
-        analysis.start();
-        Km.Analysis = analysis;
-        kimiss.DB = new DB();
-        setTimeout(function(){
-            kimiss.render();
-            Backbone.history.start();
-        },1);
-    });
-}
-
+var AppTplMap = {},KIMISS_STATUS = 'development';//production
 var _templatesMap_ = [
     {
         name: 'body',
@@ -161,17 +141,38 @@ var i18n = {
     more_txt:'更多',
 
     loadMore_txt:'点击加载更多',
+    bianjijingxuan:'编辑精选',
     a:23
 };
 
-var AppTplMap = {},_templatesMap_L = 0;
-_templatesMap_.each(function(a){
-    var fn = function(s){
-        AppTplMap[arguments.callee.tempName] = s;
-        if(++_templatesMap_L == _templatesMap_.length){
-            requireApp();
-        }
-    };
-    fn.tempName = a.name;
-    $.get(a.path,fn);
-});
+//function requireApp(){
+//    require.config({
+//        baseUrl:'js'
+//    });
+//    require(['views/Kimiss','analysis/analysis','db/DB','../libs/socket.io-min'],function(Kimiss,Analysis,DB,io){
+//        var kimiss = new Kimiss({
+//            el:$('#app')
+//        });
+//        window['Km'] = window['Kimiss'] = kimiss;
+//        var analysis = new Analysis();
+//        analysis.start();
+//        Km.Analysis = analysis;
+//        kimiss.DB = new DB();
+//        setTimeout(function(){
+//            kimiss.render();
+//            Backbone.history.start();
+//        },1);
+//    });
+//}
+//function loadTemplates(){
+//    _templatesMap_.each(function(a){
+//        var fn = function(s){
+//            AppTplMap[arguments.callee.tempName] = s;
+//            if(++_templatesMap_L == _templatesMap_.length){
+//                requireApp();
+//            }
+//        };
+//        fn.tempName = a.name;
+//        $.get(a.path,fn);
+//    });
+//}

@@ -18,7 +18,8 @@ define(['models/ArticleModel'],function(ArticleModel){
                 },
                 success:function(model){
                     me.$el.html(me.tpl(model.attributes));
-                    Kimiss.NavBar.setTitle(model.get('te'));
+//                    Kimiss.NavBar.setTitle(model.get('te'));
+                    Kimiss.NavBar.setTitle(i18n.bianjijingxuan);
                     Kimiss.Body.Loading.hide();
                     Kimiss.Analysis.refreshAnalyEvents();
                 }

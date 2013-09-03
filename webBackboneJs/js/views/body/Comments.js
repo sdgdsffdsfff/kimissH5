@@ -44,8 +44,15 @@ define(['collections/CommentList','views/common/LoadMore'],function(CommentList,
                 },
                 success:function(clt){
                     var l = clt.models.length;
-                    me.addItems(clt.models);
-                    cb();
+                    if(l > 0){
+                        me.addItems(clt.models);
+                        cb();
+                    }else{
+                        cb();
+                        Kimiss.Router.navigate('proDetail/'+pd,{
+                            trigger:true
+                        });
+                    }
                 }
             });
         },

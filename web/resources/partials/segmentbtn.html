@@ -1,0 +1,18 @@
+<div class="seg-btnpack">
+    <div class="seg-backtxt">
+        <%_.each(btnList,function(btn,i){%>
+        <a href="<%=btn.link%>" type-anchor="<%=btn.anchor%>"
+            <%if(activeIndex == i){%>
+                class="on"
+            <%}%>>
+            <%=btn.name%>
+        </a>
+        <%});%>
+    </div>
+    <div class="seg-anchor">
+        <a href="javascript:void(0)">
+            <%=btnList[activeIndex].name%>
+        </a>
+    </div>
+
+</div>

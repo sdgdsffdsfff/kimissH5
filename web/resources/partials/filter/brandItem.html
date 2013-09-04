@@ -1,0 +1,17 @@
+<div class="list-pack">
+    <%_.each(data,function(a,i){%>
+    <dl data-filter-title="<%=i%>">
+        <dt><%=i%></dt>
+        <%_.each(a,function(b){%>
+        <dd><a href="javascript:void(0)" data-filter-id="<%=b.id%>"><%=b.name%></a></dd>
+        <%})%>
+    </dl>
+    <%})%>
+</div>
+<ul class="slide-bar">
+    <%_.each(indexes,function(a){%>
+        <li><a><%=a%></a></li>
+    <%})%>
+</ul>
+
+

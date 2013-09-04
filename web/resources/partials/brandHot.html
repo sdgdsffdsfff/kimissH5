@@ -1,0 +1,5 @@
+<%_.each(list,function(item,i){%>
+    <a data-analy='Model->{"name":"hot-brand-item","data":{"brandID":"<%=item%>"}}' style="background-position: -<%=i*58%>px 0;"
+       href="#productList/s=<%=item%>&t=bdy"></a>
+<%});%>
+<div class="clear"></div>

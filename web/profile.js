@@ -1,0 +1,22 @@
+({
+    baseUrl:'app',
+    paths:{
+        backbone:'../resources/libs/backbone',
+        underscore:'../resources/libs/underscore',
+        socketIO:'../resources/libs/socket.io',
+        iScroll:'../resources/libs/iscroll',
+        utils:'../resources/libs/utils',
+        kimiss:'views/Kimiss'
+    },
+    shim:{
+        backbone:{
+            deps:['underscore'],
+            exports:'Backbone'
+        },
+        kimiss:{
+            deps:['backbone','socketIO','iScroll','utils']
+        }
+    },
+    name:'main',
+    out:'app/main-build.js'
+})

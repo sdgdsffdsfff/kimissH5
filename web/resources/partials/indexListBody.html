@@ -1,0 +1,12 @@
+<ul class="index-list">
+    <%_.each(list,function(item){%>
+    <li>
+        <a data-analy='Model->{"name":"article","data":{"articleId":"<%=item.td%>"}}' href="#article/<%=item.td%>"><img src="<%=item.tl%>"/></a>
+        <p><%=item.te%></p>
+        <div class="date index-date">
+            <div class="year"><%=item.date_top%></div>
+            <div class="day"><%=item.date_bottom%></div>
+        </div>
+    </li>
+    <%});%>
+</ul>

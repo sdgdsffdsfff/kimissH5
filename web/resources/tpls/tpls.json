@@ -1,0 +1,70 @@
+[
+    {
+        "name": "body",
+        "path": "/resources/partials/body.html"
+    },
+    {
+        "name": "brandList",
+        "path": "/resources/partials/brandList.html"
+    },
+    {
+        "name": "brandIndexes",
+        "path": "/resources/partials/brandIndex.html"
+    },
+    {
+        "name": "brandHot",
+        "path": "/resources/partials/brandHot.html"
+    },
+    {
+        "name": "sortList",
+        "path": "/resources/partials/sortList.html"
+    },
+    {
+        "name": "sortIndexes",
+        "path": "/resources/partials/sortIndex.html"
+    },
+    {
+        "name": "sortHot",
+        "path": "/resources/partials/sortHot.html"
+    },
+    {
+        "name": "indexListBody",
+        "path": "/resources/partials/indexListBody.html"
+    },
+    {
+        "name": "indexListTitle",
+        "path": "/resources/partials/indexListTitle.html"
+    },
+    {
+        "name": "article",
+        "path": "/resources/partials/article.html"
+    },
+    {
+        "name": "effect",
+        "path": "/resources/partials/effect.html"
+    },
+    {
+        "name": "proDetail",
+        "path": "/resources/partials/proDetail.html"
+    },
+    {
+        "name": "comment",
+        "path": "/resources/partials/comment.html"
+    },
+    {
+        "name": "productList",
+        "path": "/resources/partials/products.html"
+    },
+    {
+        "name": "segmentbtn",
+        "path": "/resources/partials/segmentbtn.html"
+    },
+    {
+        "name": "filter_brand_item",
+        "path": "/resources/partials/filter/brandItem.html"
+    },
+    {
+        "name": "filter_effect_item",
+        "path": "/resources/partials/filter/effectItem.html"
+    }
+]

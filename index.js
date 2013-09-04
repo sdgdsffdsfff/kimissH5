@@ -4,6 +4,7 @@ var server = http.createServer();
 var express = require('express');
 var app = express(server);
 var os = require('os');
+var cp = require('child_process');
 var port = 80;
 app.get('/',function(req,res){
     var headers = {};
@@ -12,7 +13,7 @@ app.get('/',function(req,res){
     headers["Access-Control-Allow-Credentials"] = true;
     headers["Access-Control-Max-Age"] = '86400'; // 24 hours
     headers["Access-Control-Allow-Headers"] = "X-Requested-With, Access-Control-Allow-Origin, X-HTTP-Method-Override, Content-Type, Authorization, Accept";
-    fs.readFile(__dirname + '/webBackboneJs/index.html',function(err,data){
+    fs.readFile(__dirname + '/web/index.html',function(err,data){
         if(err) throw err;
         res.writeHead(200, headers);
         res.write(data);
@@ -20,23 +21,27 @@ app.get('/',function(req,res){
     });
 });
 app.get('/minJs',function(req,res){
-    var path = __dirname+'/webBackboneJs/libs';
-    var jquery = fs.readFileSync(path+'/jquery-1.10.2.min.js');
-    var iscroll = fs.readFileSync(path+'/iscroll-min.js');
-    var underscore = fs.readFileSync(path+'/underscore-min.js');
-    var backbone = fs.readFileSync(path+'/backbone-min.js');
-    var socketio = fs.readFileSync(path+'/socket.io-min.js');
-    var utils = fs.readFileSync(path+'/utils.js');
-    var require = fs.readFileSync(path+'/require-min.js');
-    var s = jquery + iscroll + underscore + backbone+ socketio + utils + require;
-    fs.writeFile(__dirname+'/webBackboneJs/libs/libs.js',s ,'utf-8', function(err){
-        if(err) throw err;
+    cp.exec('node web/r.js -o web/profile.js',{},function(){// optimize=none
+        console.log(arguments);
         res.write('minJs ok!');
+        res.end();
+    });
+
+});
+app.get('/packPartials',function(req,res){
+    var s = fs.readFileSync(__dirname+'/web/resources/tpls/tpls.json');
+    var arr =JSON.parse(s),l = arr.length,out = {};
+    for(var i = 0 , ln = arr.length;i<ln ; i++){
+        out[arr[i].name] = fs.readFileSync(__dirname+'/web'+arr[i].path).toString();
+    }
+    fs.writeFile(__dirname+'/web/resources/tpls/tpls_pro.json',JSON.stringify(out),function(err){
+        if(err) throw err;
+        res.write('Pack partials ok!');
         res.end();
     });
 });
 app.configure(function(){
-    app.use(express.static(__dirname + '/webBackboneJs'));
+    app.use(express.static(__dirname + '/web'));
 });
 
 showIP();

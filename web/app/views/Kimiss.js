@@ -9,11 +9,13 @@ define(['views/nav/navBar',
     var _kimiss = Backbone.View.extend({
         bodyTpl:_.template(AppTplMap.body),//_.template($('#body-tpl').html()),
         events:{
-            'click #filter-btn':function(){
+            'click #filter-btn':function(e){
                 Kimiss.NavBody.toggle('filter');
+                e.stopPropagation();
             },
-            'click #back-btn':function(){
+            'click #back-btn':function(e){
                 history.back();
+                e.stopPropagation();
             }
         },
         render:function(){

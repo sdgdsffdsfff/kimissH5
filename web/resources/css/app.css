@@ -1,17 +1,17 @@
 /* app css stylesheet */
-/*@font-face{*/
-    /*font-family: 'IcoMoon';*/
-    /*src: url('/resources/fonts/icomoon.eot?') format('eot');*//*IE*/
-    /*src: url('/resources/fonts/icomoon.woff') format('woff'), url('/resources/fonts/icomoon.ttf') format('truetype');*//*non-IE*/
-/*}*/
+@font-face{
+    font-family: 'IcoMoon';
+    src: url('http://new-icon.ol-img.com/article/kimiss-m/resources/fonts/icomoon.eot?') format('eot');/*IE*/
+    src: url('http://new-icon.ol-img.com/article/kimiss-m/resources/fonts/icomoon.woff') format('woff'), url('http://new-icon.ol-img.com/article/kimiss-m/resources/fonts/icomoon.ttf') format('truetype');/*non-IE*/
+}
 @font-face{
     font-family: 'Kimiss';
-    src:  url('/resources/fonts/Kimiss.ttf') format('truetype');/*non-IE*/
+    src:  url('http://new-icon.ol-img.com/article/kimiss-m/resources/fonts/Kimiss.woff') format('woff'),url('http://new-icon.ol-img.com/article/kimiss-m/resources/fonts/Kimiss.ttf') format('truetype');/*non-IE*/
 }
 html,body{
     overflow-x: hidden;
     font-size: 12px;
-    line-height: 22px;
+
 }
 a{
     color: #000000;
@@ -178,7 +178,29 @@ img{
     background-position: left center;
     background-repeat: no-repeat;
 }
-
+.data-grid .col .desc{
+    overflow: hidden;
+    padding-right: 5px;
+    text-align: right;
+}
+.data-grid .col .desc a{
+    position: relative;
+    color: #363636;
+}
+.data-grid .col .desc a:before{
+    -webkit-transform: rotate(0deg);
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    right: 110%;
+    top: 1px;
+    content: ' ';
+    background-size: 100%;
+}
+.data-grid .col .desc a.reverse:before{
+    -webkit-transform: rotate(180deg);
+    top: 3px;
+}
 
 
 
@@ -304,6 +326,7 @@ img{
     margin:0;
     padding:0;
     position: fixed;
+    top:0;
     right: 0;
     left: 0;
     z-index: 1030;
@@ -348,7 +371,7 @@ img{
     background-size: auto 22px;
 }
 .navbar-inner .img-title{
-    background-image: url(/resources/imgs/logo_txt.png);
+    background-image: url(http://new-icon.ol-img.com/article/kimiss-m/resources/imgs/logo_txt.png);
 }
 .brand-seg{
     position: absolute;
@@ -440,7 +463,7 @@ img{
     /*top: 40px;*/
     /*position: absolute;*/
     position: fixed;
-    z-index: 1;
+    /*z-index: 1;*/
     background: white;
 }
 .nav-body-show{
@@ -548,7 +571,7 @@ img{
 .menu-logo{
     position: absolute;
     bottom: 0;
-    background: url(/resources/imgs/logo.png) no-repeat;
+    background: url(http://new-icon.ol-img.com/article/kimiss-m/resources/imgs/logo.png) no-repeat;
     background-size: 100% auto;
     width: 80%;
     height: 80px;
@@ -828,10 +851,10 @@ img{
     background-repeat: no-repeat;
 }
 .brand .brand-hot a{
-    background-image: url(/resources/imgs/hotPinpai.jpg);
+    background-image: url(http://new-icon.ol-img.com/article/kimiss-m/resources/imgs/hotPinpai.jpg);
 }
 .sort .sort-hot a{
-    background-image: url(/resources/imgs/hotFenlei.jpg);
+    background-image: url(http://new-icon.ol-img.com/article/kimiss-m/resources/imgs/hotFenlei.jpg);
 }
 .brand-indexes-pack{
     position: fixed;
@@ -1209,8 +1232,8 @@ img{
     display: none;
     position: absolute;
     z-index: 101;
-    height: 40px;
-    width: 40px;
+    height: 50px;
+    width: 50px;
     bottom: 0;
     right: 5px;
     margin:10px;
@@ -1227,8 +1250,8 @@ img{
     display: none;
     position: absolute;
     z-index: 101;
-    height: 40px;
-    width: 40px;
+    height: 50px;
+    width: 50px;
     bottom: 0;
     left: 5px;
     margin:10px;

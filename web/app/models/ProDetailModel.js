@@ -29,7 +29,7 @@ define(function(){
             data.attr = attr;
             var psy = '';
             $.each(data.psy,function(i,a){
-                psy += a.replace(':','/\uffe5')+' '
+                psy += a.replace(':',i18n.rmb)+' '
             });
             data.psy = psy;
             return data;

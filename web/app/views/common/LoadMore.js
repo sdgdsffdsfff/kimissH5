@@ -3,6 +3,7 @@ define(function(){
         tagName:'a',
         className:'index-load-more',
         text:i18n.loadMore_txt,
+        loadingTxt:i18n.loading_txt,
         loading:false,
         initialize:function(){
             for(var i in this.options){
@@ -29,10 +30,12 @@ define(function(){
         },
         startAnim:function(){
             this.$el.addClass('index-load-more-run');
+            this.$el.text(this.loadingTxt);
             this.loading = true;
         },
         stopAnim:function(){
             this.$el.removeClass('index-load-more-run');
+            this.$el.text(this.text);
             this.loading = false;
         }
     });

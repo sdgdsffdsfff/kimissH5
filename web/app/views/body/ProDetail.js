@@ -4,7 +4,37 @@ define(['models/ProDetailModel','collections/CommentList','views/common/Carousel
         commentList:new CommentList,
         tpl: _.template(AppTplMap.proDetail),
         commentTpl: _.template(AppTplMap.comment),
+        wholeDesc:false,
         render:function(){},
+        events:{
+            'click .data-grid .col .desctxt .value':'toggleDesc1',
+            'click .data-grid .col .desc a':'toggleDesc'
+        },
+        toggleDesc1:function(e){
+            var a = $(e.target).parent().next().children('a');
+            if(this.wholeDesc){//fold
+                $(a).text(i18n.spreadDesc);
+                $(a).removeClass('reverse');
+                $(e.target).css('maxHeight','88px');
+            }else{//spread
+                $(a).text(i18n.foldDesc);
+                $(a).addClass('reverse');
+                $(e.target).css('maxHeight','100000px');
+            }
+            this.wholeDesc = !this.wholeDesc;
+        },
+        toggleDesc:function(e){
+            if(this.wholeDesc){//fold
+                $(e.target).text(i18n.spreadDesc);
+                $(e.target).removeClass('reverse');
+                $(e.target).parent().prev().children('.value').css('maxHeight','88px');
+            }else{//spread
+                $(e.target).text(i18n.foldDesc);
+                $(e.target).addClass('reverse');
+                $(e.target).parent().prev().children('.value').css('maxHeight','100000px');
+            }
+            this.wholeDesc = !this.wholeDesc;
+        },
         show:function(pd){
             this.load(pd);
             this.$el.show();

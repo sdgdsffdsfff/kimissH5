@@ -26,11 +26,11 @@ define(function(){
         showCenterSeg:function(type){
 //            this.hideTitle();
             if (type == 'brand'){
-                this.setTitle('品牌');
+                this.setTitle(i18n.brand_name);
                 this.$el.find('.brand-seg').show();
                 this.$el.find('.sort-seg').hide();
             }else if(type == 'sort'){
-                this.setTitle('分类');
+                this.setTitle(i18n.classify_name);
                 this.$el.find('.sort-seg').show();
                 this.$el.find('.brand-seg').hide();
             }

@@ -3,7 +3,7 @@ define(function(){
         parse:function(data){
             var psy = '';
             $.each(data.psy,function(i,a){
-                psy += a.replace(':','/\uffe5')+' '
+                psy += a.replace(':',i18n.rmb)+' '
             });
             data.psy = psy;
             data.pt = Math.round(data.pt);

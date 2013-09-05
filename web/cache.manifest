@@ -32,3 +32,50 @@ js/*
 NETWORK:
 *
 FALLBACK:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+    #loading-face{
+        position: absolute;
+        background: pink;
+        height: 100%;
+        width: 100%;
+        z-index: 10000;
+    }
+    .logo-face{
+        top: 30px;
+        position: absolute;
+        background: url(resources/imgs/logo_face.png);
+        background-repeat: no-repeat;
+        background-size: 180px auto;
+        background-position: center center;
+        width: 100%;
+        height: 100px;
+    }
+    .copyright-face{
+        width: 100%;
+        height: 50px;
+        position: absolute;
+        bottom: 30px;
+        background-image: url(resources/imgs/copyright.png);
+        background-repeat: no-repeat;
+        background-size: 150px auto;
+        background-position: center center;
+    }
+</style>
+<div id="loading-face">
+    <div class="logo-face"></div>
+    <div class="copyright-face"></div>
+</div>

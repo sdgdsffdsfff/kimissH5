@@ -1,4 +1,4 @@
-[
+jsonpCallback([
     {
         "name": "body",
         "path": "/resources/partials/body.html"
@@ -67,4 +67,4 @@
         "name": "filter_effect_item",
         "path": "/resources/partials/filter/effectItem.html"
     }
-]
+])

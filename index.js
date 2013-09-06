@@ -28,18 +28,27 @@ app.get('/minJs',function(req,res){
     });
 
 });
-app.get('/packPartials',function(req,res){
-    var s = fs.readFileSync(__dirname+'/web/resources/tpls/tpls.json');
-    var arr =JSON.parse(s),l = arr.length,out = {};
-    for(var i = 0 , ln = arr.length;i<ln ; i++){
-        out[arr[i].name] = fs.readFileSync(__dirname+'/web'+arr[i].path).toString();
-    }
-    fs.writeFile(__dirname+'/web/resources/tpls/tpls_pro.json',JSON.stringify(out),function(err){
+app.get('/tpls',function(req,res){
+    var out = getTpls();
+    res.write(JSON.stringify(out));
+    res.end();
+});
+app.get('/packTpls',function(req,res){
+    var out = 'jsonpCallback('+JSON.stringify(getTpls())+')';
+    fs.writeFile(__dirname+'/web/resources/tpls/tpls_pro.json',out,function(err){
         if(err) throw err;
         res.write('Pack partials ok!');
         res.end();
     });
 });
+function getTpls(){
+    var s = fs.readFileSync(__dirname+'/web/resources/tpls/tpls.json');
+    var arr =JSON.parse(s),l = arr.length,out = {};
+    for(var i = 0 , ln = arr.length;i<ln ; i++){
+        out[arr[i].name] = fs.readFileSync(__dirname+'/web'+arr[i].path).toString();
+    }
+    return out;
+}
 app.configure(function(){
     app.use(express.static(__dirname + '/web'));
 });

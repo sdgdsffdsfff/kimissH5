@@ -1,10 +1,11 @@
 (function(){
-//    var MODE = 'PRO',//PRO  DEV
+    var MODE = 'PRO',//PRO  DEV
 //        lang = 'cn';// cn en
 //    var host = 'http://new-icon.ol-img.com/article/kimiss-m/';
-    var MODE = 'DEV',//PRO  DEV
+//    var MODE = 'DEV',//PRO  DEV
         lang = 'en';// cn en
-    var host = 'http://m1.kimiss.com/';
+//    var host = 'http://m1.kimiss.com/';
+    var host = 'http://192.168.19.174/';
     function write(content) {
         document.write(content);
     }

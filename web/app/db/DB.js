@@ -92,7 +92,7 @@ define(function () {
                     }
                     break;
                 case 'pst':
-                    re = '新品';
+                    re = i18n.xinpin;
                     break;
                 default :
                     break;

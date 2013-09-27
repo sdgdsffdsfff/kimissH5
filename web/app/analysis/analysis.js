@@ -42,7 +42,8 @@ define(function(){
                 data:{
                     name:'onOpen',
                     data:{
-                        userAgent:navigator.userAgent
+                        userAgent:navigator.userAgent,
+                        url:location.href
                     },
                     id:this.ID,
                     ts:Date.now()

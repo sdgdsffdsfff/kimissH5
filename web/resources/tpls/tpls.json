@@ -44,6 +44,10 @@
         "path": "/resources/partials/effect.html"
     },
     {
+        "name": "login",
+        "path": "/resources/partials/login.html"
+    },
+    {
         "name": "proDetail",
         "path": "/resources/partials/proDetail.html"
     },

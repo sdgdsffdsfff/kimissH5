@@ -109,6 +109,7 @@ var i18n = {
     brand_name:'品牌',
     classify_name:'分类',
     effect_name:'功效',
+    login_name:'登录',
     sort_name:'排序',
 
     search_name:'搜索',

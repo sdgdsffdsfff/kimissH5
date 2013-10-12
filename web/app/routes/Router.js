@@ -23,6 +23,7 @@ define(function(){
             'article/:td':'article',
             'Km.ArticlePacker!td=:td':'article',
             'effect':'effect',
+            'login':'login',
             'proDetail/:pd':'proDetail',
             'Km.PDetailPacker!pd=:pd':'proDetail',
             'productList/s=:s&t=:t':'productList',
@@ -63,6 +64,9 @@ define(function(){
         },
         effect:function(){
             Kimiss.Body.switch('Effect');
+        },
+        login:function(){
+            Kimiss.Body.switch('Login');
         }
     });
     return _router;

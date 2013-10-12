@@ -74,7 +74,7 @@ function(Index,Brand,Article,Loading,ProDetail,ProductList,Sort,Effect,Event,Com
                 el:$('#sortView')
             });
             this.modules.Login = new Login({
-                el:$('$loginView')
+                el:$('#loginView')
             });
             this.modules.Effect = new Effect({
                 el:$('#effectView')

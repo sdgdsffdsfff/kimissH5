@@ -588,7 +588,9 @@ img{
 .menu-effect:before{
     content:'G'
 }
-
+.menu-login:before{
+    content:'G'
+}
 .menu-inner .proIndex{
     -webkit-box-flex: 1;
     -moz-box-flex: 1;

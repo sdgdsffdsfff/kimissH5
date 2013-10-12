@@ -8,6 +8,7 @@ jsonpCallback({
     "brand_name": "品牌",
     "classify_name": "分类",
     "effect_name": "功效",
+    "login_name": "登陆",
     "sort_name": "排序",
     "search_name": "搜索",
     "sort_moreToLess": "多→少",

@@ -41,6 +41,10 @@ app.get('/packTpls',function(req,res){
         res.end();
     });
 });
+app.get('/test',function(req,res){
+    res.write(JSON.stringify({}));
+    res.end();
+});
 function getTpls(){
     var s = fs.readFileSync(__dirname+'/web/resources/tpls/tpls.json');
     var arr =JSON.parse(s),l = arr.length,out = {};

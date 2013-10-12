@@ -66,7 +66,7 @@ define(function(){
             Kimiss.Body.switch('Effect');
         },
         login:function(){
-            Kimiss.Body.switch('Login');
+            Kimiss.Body.switch('Effect');
         }
     });
     return _router;

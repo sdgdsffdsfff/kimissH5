@@ -5,7 +5,7 @@ var express = require('express');
 var app = express(server);
 var os = require('os');
 var cp = require('child_process');
-var port = 80;
+var port = 8088;
 app.get('/',function(req,res){
     var headers = {};
     headers["Access-Control-Allow-Origin"] = "*";

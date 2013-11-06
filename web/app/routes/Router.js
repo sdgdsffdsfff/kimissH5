@@ -27,7 +27,9 @@ define(function(){
             'proDetail/:pd':'proDetail',
             'Km.PDetailPacker!pd=:pd':'proDetail',
             'productList/s=:s&t=:t':'productList',
-            'comments/:pd':'comments'
+            'comments/:pd':'comments',
+            'userInfo':'userInfo',
+            'userInfo/:type':'userInfo'
         },
         index:function(){
             Kimiss.Body.switch('Index');
@@ -67,6 +69,9 @@ define(function(){
         },
         login:function(){
             Kimiss.Body.switch('Login');
+        },
+        userInfo:function(type){
+            Kimiss.Body.switch('UserInfo',[type]);
         }
     });
     return _router;

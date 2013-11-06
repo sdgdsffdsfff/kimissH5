@@ -2,8 +2,9 @@ define(['views/body/Index','views/body/Brand',
     'views/body/Article','views/body/Loading',
     'views/body/ProDetail','views/body/ProductList',
     'views/body/Sort','views/body/Effect',
+    'views/body/Login','views/body/UserInfo',
     'views/common/Event','views/body/Comments'],
-function(Index,Brand,Article,Loading,ProDetail,ProductList,Sort,Effect,Event,Comments){
+function(Index,Brand,Article,Loading,ProDetail,ProductList,Sort,Effect,Login,UserInfo,Event,Comments){
     var BodyMask = Backbone.View.extend({
         initialize:function(){
             var me = this;
@@ -75,6 +76,9 @@ function(Index,Brand,Article,Loading,ProDetail,ProductList,Sort,Effect,Event,Com
             });
             this.modules.Login = new Login({
                 el:$('#loginView')
+            });
+            this.modules.UserInfo = new UserInfo({
+                el:$('#userInfo')
             });
             this.modules.Effect = new Effect({
                 el:$('#effectView')

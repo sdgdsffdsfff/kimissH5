@@ -6,6 +6,7 @@
         lang = 'en';// cn en
 //    var host = 'http://m1.kimiss.com/';
     var host = location.protocol+'//'+location.host+'/';//'http://192.168.19.174/';
+    console.log(host);
     function write(content) {
         document.write(content);
     }

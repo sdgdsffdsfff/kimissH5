@@ -1,0 +1,117 @@
+<div class="userContent">
+    <div class="userTop">
+        <img src="resources/imgs/mine/user.jpg" class="userAvatar" width="60" height="60"/>
+        <span class="userName">Schneeweisschen</span>
+        <div class="userList">
+            <a class="noLine showComment" href="#userInfo/comment"><%=i18n.user_haveComment%><span class="colorRed">99999</span></a>
+            <a class="showProfile" href="#userInfo/profile"><%=i18n.user_mineInfo%></a>
+            <a class="noMargin loginOut"><%=i18n.user_loginOut%></a>
+        </div>
+    </div>
+    <div class="commentDiv users" id="commentDiv">
+        <div class="userLine"><span class="word"><a class="comment"><%=i18n.user_mineComment%></a></span></div>
+        <ul>
+            <%_.each(data,function(item){%>
+            <li>
+                <div class="commentList">
+                    <div class="commentTop">
+                        <img src="<%=item.il%>" width="51" height="51"/>
+                        <div class="proInfo">
+                            <p class="proTitle"><a href="#" class="peTitle"><%=item.pe%></a><a href="javascript:void(0);" class="zan"><%=item.cn%></a></p>
+                            <p class="proStar">
+                                <%_.each(_.range(item.cs),function(){%>
+                                <a class="redStar"></a>
+                                <%});%>
+                                <%_.each(_.range(5-item.cs),function(){%>
+                                <a class="grayStar"></a>
+                                <%});%>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="commentInfo">
+                        <p class="commentTitle"><%=i18n.c3%></p>
+                        <p class="proAddr"><%=i18n.c4%></p>
+                    </div>
+                    <p class="commentCon"><%=item.ct%></p>
+                    <div class="commentTime">
+                        <%if(item.ca=="1"){%><img src="resources/imgs/mine/2.jpg" width="15" height="15"/><%}%>
+                        <%
+                        var date = new Date(parseInt(item.ce)*1000);
+                        var str = date.getFullYear()+"."+(date.getMonth()+1)+"."+date.getDate();
+                        %>
+                        <span class="time"><%=str%></span>
+                        <a class="commentMore test"></a>
+                    </div>
+                </div>
+            </li>
+            <%});%>
+        </ul>
+    </div>
+    <div class="myProfile users" id="myProfile">
+        <div class="userLine"><span class="word"><a class="comment"><%=i18n.user_mineInfo%></a></span></div>
+        <form action="#userInfo" class="profileForm">
+            <ul class="profileInfo">
+                <li>
+                    <span class="profileName"><%=i18n.user_sex%></span>
+                    <div class="profileValue">
+                        <span class="show_profile_val"><%=(data.gender=="0")?i18n.user_sex_woman:i18n.user_sex_man%></span>
+                        <span class="selectBg"></span>
+                        <select id="select_sex" class="hide_dom">
+                            <option selected value="<%=i18n.user_sex_woman%>"><%=i18n.user_sex_woman%></option>
+                            <option value="<%=i18n.user_sex_man%>"><%=i18n.user_sex_man%></option>
+                        </select>
+                    </div>
+                </li>
+                <li>
+                    <span class="profileName"><%=i18n.user_birth%></span>
+                    <div class="profileValue">
+                        <% var str = data.birthyear+"-"+data.birthmonth+"-"+data.birthday%>
+                        <span class="show_profile_val"><%=str%></span>
+                        <span class="selectBg"></span>
+                        <input type="date" id="date_input" value="<%=str%>" class="hide_dom"/>
+                    </div>
+                </li>
+                <li>
+                    <span class="profileName"><%=i18n.user_skin%></span>
+                    <div class="profileValue">
+                        <span class="show_profile_val"><%=data.field1%></span>
+                        <span class="selectBg"></span>
+                        <select id="select_skin" class="hide_dom">
+                            <%_.each(i18n.user_skin_select,function(item){%>
+                            <option selected value="<%=item%>"><%=item%></option>
+                            <%});%>
+                        </select>
+                    </div>
+                </li>
+                <li>
+                    <span class="profileName"><%=i18n.user_hair%></span>
+                    <div class="profileValue">
+                        <span class="show_profile_val"><%=data.field2%></span>
+                        <span class="selectBg"></span>
+                        <select id="select_hair" class="hide_dom">
+                            <%_.each(i18n.user_hair_select,function(item){%>
+                            <option selected value="<%=item%>"><%=item%></option>
+                            <%});%>
+                        </select>
+                    </div>
+                </li>
+                <li>
+                    <span class="profileName"><%=i18n.user_yearCp%></span>
+                    <div class="profileValue marginTo">
+                        <span class="show_profile_val"><%=data.field3%></span>
+                        <span class="selectBg"></span>
+                        <select id="select_cp" class="hide_dom">
+                            <%_.each(i18n.user_yearCp_select,function(item){%>
+                            <option selected value="<%=item%>"><%=item%></option>
+                            <%});%>
+                        </select>
+                    </div>
+                </li>
+            </ul>
+            <div class="form_button">
+                <input type="reset" class="formBut" value="<%=i18n.user_cancel%>"/>
+                <input type="submit" class="formBut" readonly style="float: right;" value="<%=i18n.user_save%>"/>
+            </div>
+        </form>
+    </div>
+</div>

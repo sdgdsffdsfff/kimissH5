@@ -1,13 +1,15 @@
 define(function(){
     var _m = Backbone.Model.extend({
-        url:'http://m.kimiss.com/files/product_index.php?c=iapp&rd=31',
+        initialize:function(id){},
+        uid:null,
+        url:'http://9night.kimiss.com/api.php?mod=wapuinfo',
         sync: function(method, model, options) {
             // Default JSON-request options.
             return $.ajax({
                 type : "POST",
                 async : false,
                 url : model.url,
-                data : options.data,
+                data : {'profilesubmitbtn': 0,'uid':options.ud},
                 cache : false, //默认值true
                 dataType : "jsonp",
                 jsonp: "callbackfun",
@@ -15,24 +17,23 @@ define(function(){
                 success : options.success
             });
         },
-        parse:function(data){
-            data = data.de;
-//            data.iy.push(data.iy[0]);
-//            console.log(data);
-            data.pt = Math.round(data.pt);
-            var date = new Date(parseInt(data.pk)*1000);
-            data.pk = (date.getFullYear()||'')+'-'+((date.getMonth()+1)||'')+'-'+(date.getDate()||'');
-            var attr = '';
-            $.each(data.pfy,function(i,a){
-                attr+= a.split(':')[1]+' ';
+        load:function(cb){
+            var pro = this;
+            this.fetch({
+                data:{
+                    ud:$.cookie("uid")
+                },
+                success:function(req){
+                    var data = req.attributes[0];
+                    if(data.err=="0"){
+                        cb(data.data);
+                    }
+                    else{
+                        alert(data.ret_msg);
+                    }
+                },
+                error:function(req){}
             });
-            data.attr = attr;
-            var psy = '';
-            $.each(data.psy,function(i,a){
-                psy += a.replace(':',i18n.rmb)+' '
-            });
-            data.psy = psy;
-            return data;
         }
     });
 

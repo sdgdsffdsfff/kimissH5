@@ -1,12 +1,11 @@
-<style type="text/css">
-    .login_div{background-color: #e9e8e8; width: 100%; height: 100%;}
-    .login_div input[type="text"],.login_div input[type="password"],.login_div input[type="submit"]{width: 250px;height: 50px;color: #C6C6C6;}
-    .login_div .code{width: 150px;}
-    .login_div input[type="submit"]{-webkit-transform: translate(0,0);-moz-transform: translate(0,0);background: -webkit-linear-gradient(#FBD1DC,#FCC7D6);-webkit-border-radius: 20px;-moz-border-radius: 20px;}
-</style>
 <div class="login_div">
-    <input type="text" placeholder="电子邮件："/>
-    <input type="password" placeholder="密码"/>
-    <input type="text" class="code" placeholder="验证码"/>
-    <input type="submit" value="登录">
+    <form action="" id="loginForm">
+        <input type="text" name="email" placeholder="<%=i18n.login_mail%>" value="330785652@qq.com"/>
+        <input type="password" name="psd" placeholder="<%=i18n.login_password%>" value="330785652"/>
+        <input type="text" name="code" class="code" placeholder="<%=i18n.login_code%>"/>
+        <img class="codeUrl" title="<%=i18n.login_code_verify%>" src=""/>
+        <input type="hidden" name="sechash" class="codeHash" value="">
+        <input type="submit" id="submit" value="<%=i18n.login_submit%>">
+    </form>
+    <div id="errorTips" style="color: red;"></div>
 </div>

@@ -70,5 +70,9 @@
     {
         "name": "filter_effect_item",
         "path": "/resources/partials/filter/effectItem.html"
+    },
+    {
+        "name":"userInfo",
+        "path":"/resources/partials/userInfo.html"
     }
 ]

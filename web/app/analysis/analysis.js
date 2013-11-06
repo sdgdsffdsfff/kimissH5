@@ -12,6 +12,7 @@ define(function(){
         openFlag:false,
         start:function(){
             var me = this;
+            return;
             if(typeof io != 'undefined'){
                 try{
                     var socket = io.connect('http://42.96.193.252:3001');

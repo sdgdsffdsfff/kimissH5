@@ -978,7 +978,22 @@ img{
     background-color: #ffff00;
     color: #999;
 }
-
+.login{
+    padding:5px;
+}
+.login a{
+    display: inline-block;
+    padding: 3px 5px;
+    margin: 5px;
+    color: #7f7f7f;
+    border-radius: 7px;
+    border: #bfc0c2 1px solid;
+    background: -webkit-linear-gradient(#ffffff,#e7e8e8);
+}
+.login a:active{
+    background-color: #ffff00;
+    color: #999;
+}
 .article{
     padding: 5px;
 }
@@ -1315,4 +1330,340 @@ img{
     width: 100%;
     overflow: visible;
     -webkit-transition: -webkit-transform .3s ease-in-out;
+}
+/*login*/
+.login_div{
+    width: 100%;
+    height: 100%;
+    padding-top: 10px;
+    margin:0 auto;
+    /*position: relative;top: -50px;*/
+}
+.login_top{
+    width: 100%;
+    height: 60px;
+    -webkit-box-shadow: #333 0 -2px 3px 1px;
+}
+.login_top span{
+    display:block;
+    width: 20%;
+    height: 60px;
+    float: left;
+    border-right:1px #D8A5AE solid;
+    background: -webkit-linear-gradient(#FCB2BF,#FED3DA);
+    -webkit-box-sizing: border-box;
+}
+.radiusR{
+    -webkit-border-top-right-radius: 5px;
+}
+.radiusL{
+    -webkit-border-top-left-radius: 5px;
+}
+.noBorder{
+    border:none !important;
+}
+.login_div input[type="text"],.login_div input[type="password"],.login_div input[type="submit"]{
+    width: 100%;
+    height: 30px;
+    color: #C6C6C6;
+    margin-top: 10px;
+    padding-left: 10px;
+    /*-webkit-box-shadow:inset 0px 1px 0px #DDD;*/
+    -webkit-appearance: none;border: 1px #ddd solid;
+}
+.login_div .code{
+    width: 55% !important;
+}
+.login_div img{
+    width: 40%;
+    max-width: 120px;
+    float:right;
+    margin-top: 12px;
+    cursor: pointer;
+}
+.login_div input[type="submit"]{
+    height: 35px;
+    color: #000;
+    margin-top: 15px;
+    -webkit-box-shadow:none;
+    -webkit-border-radius: 3px;
+    border: 1px #bbb8aa solid;
+    -webkit-box-sizing:border-box;
+    background: -webkit-linear-gradient(#fbd2da,#fbc8d2);
+}
+.login_div form{
+    width: 80%;
+    margin: 0 auto;
+}
+/*common css*/
+.userLine .comment,.proInfo .zan,.proInfo .proStar a,.commentInfo .commentTitle,.commentInfo .proAddr,.commentTime .time,.commentTime .commentMore,.profileValue .selectBg{
+    background: url("../imgs/mine/icons.png") no-repeat;
+    background-size: 25px 130px;
+}
+.userContent{
+    font-family: "STHeiti Light [STXihei]";
+    color: #333333;
+}
+.userContent p{
+    margin:0;
+}
+.userContent{
+    width: 100%;
+    padding:15px 10px;
+}
+.userTop{
+    width: 100%;
+    height: 75px;
+    min-width: 288px;
+    /*font-size: 10px;*/
+    background-color: #ffffff;
+    -webkit-border-radius: 3px;
+    padding:7px 9px;
+}
+.userTop img,.userTop .userName,.userTop .userList{
+    float:left;
+}
+.userTop .userName{
+    width: 70%;
+    height: 25px;
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+}
+.userTop .userName,.userTop .userList{
+    margin-left: 10px;
+}
+.userTop .userList a{
+    width: 60px;
+    height: 35px;
+    float: left;
+    cursor: pointer;
+    margin-right: 10px;
+    text-align: center;
+    line-height: 34px;
+    color: #666666;
+    border: 1px #dedede solid;
+    -webkit-box-sizing: border-box;
+    text-decoration: none;
+    -webkit-border-radius: 3px;
+    background-color: #f4f4f4;
+}
+.userList .noMargin{
+    margin:0 !important;
+}
+.userList .colorRed{
+    color: #db4f5c;
+    display: block;
+    font-weight: 500;
+}
+.userList .noLine{
+    line-height: normal !important;
+    padding-top: 5px;
+}
+.userLine{
+    width: 100%;
+    height: 1px;
+    background-color: rgb(211, 211, 211);
+    margin: 20px 0;
+}
+.userLine .word{
+    display: block;
+    width: 70px;
+    background-color: #eeeeee;
+    line-height: 30px;
+    text-align: center;
+    padding-left: 5px;
+    position: relative;
+    top: -15px;
+    left: 5px;
+}
+.userLine .comment{
+    height: 25px;
+    display: block;
+    padding-left: 12px;
+    /*font-size: 10px;*/
+    color: #747474;
+    background-position: 0 10px;
+}
+/*.commentDiv{*/
+    /*display: none;*/
+/*}*/
+.commentDiv ul li{
+    margin-bottom: 10px;
+}
+.commentList{
+    width: 100%;
+    padding:10px 7px;
+    overflow: hidden;
+    min-width: 288px;
+    background-color: #ffffff;
+    -webkit-border-radius: 3px;
+}
+.commentList .commentTop{
+    overflow: hidden;
+}
+.commentTop img{
+    float: left;
+    margin-left: 1px;
+    border: 1px #e5e5e5 solid;
+    -webkit-box-sizing: border-box;
+}
+.commentTop .proInfo{
+    min-width: 220px;
+    padding-left: 60px;
+}
+.commentTop .proInfo p{
+    margin: 0 0 3px 0;
+    overflow: hidden;
+}
+.commentTop .proTitle,.commentTop .proTitle a{
+    color: #db4f5c;
+}
+.proTitle .peTitle{
+    display: block;
+    max-width: 80%;
+    float: left;
+}
+.proInfo .zan{
+    max-width: 15%;
+    height: 15px;
+    background-position: 0 -14px;
+    padding-left: 15px;
+    float: right;
+}
+.proInfo .proStar .redStar,.proInfo .proStar .grayStar{
+    display: block;
+    float: left;
+    width: 12px;
+    height: 12px;
+}
+.proInfo .proStar .redStar{
+    background-position: 0 -100px;
+}
+.proInfo .proStar .grayStar{
+    background-position: 0 -120px;
+}
+.commentInfo .commentTitle{
+    width: 100%;
+    height: 15px;
+    padding-left: 15px;
+    margin-top: 5px;
+    background-position: 0 -30px;
+}
+.commentInfo .proAddr{
+    width: 100%;
+    height: 15px;
+    padding-left: 15px;
+    /*font-size: 10px;*/
+    color: #666666;
+    margin-top: 5px;
+    background-position: 0 -47px;
+}
+.commentList .commentCon,.commentList .commentCon_all{
+    /*font-size: 10px;*/
+    float: left;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin-top: 10px;
+    max-height: 50px;
+    -webkit-transition: max-height 0.3s ease-in-out;
+}
+.commentList .maxHeight{
+    max-height: 1000px;
+    -webkit-transition: max-height 2s ease-in-out;
+}
+.commentList .commentTime{
+    float: left;
+    width: 100%;
+    margin-top:10px;
+}
+.commentTime img{
+    float: left;
+}
+.commentTime .time{
+    float: left;
+    display: block;
+    width: 50%;
+    height: 15px;
+    /*font-size: 10px;*/
+    color: #9d9d9d;
+    margin-left: 5px;
+    padding-left: 15px;
+    line-height: 16px;
+    background-position: 0 -60px;
+}
+.commentTime .commentMore{
+    width: 12px;
+    height: 12px;
+    float: right;
+    cursor: pointer;
+    background-position: 0 -73px;
+}
+.commentTime .commentLeast{
+    background-position: 0 -86px;
+}
+.profileForm{
+    padding:0 10px;
+}
+.profileForm .formBut{
+    width: 48%;
+    height: 35px;
+    border: 1px #bbb8aa solid;
+    -webkit-box-sizing: border-box;
+    background: -webkit-linear-gradient(#fbd2da,#fbc8d2);
+    -webkit-border-radius: 3px;
+    margin-top: 15px;
+}
+.profileInfo li{
+    color: #db4f5c;
+    margin-top:10px;
+    overflow: hidden;
+}
+.profileInfo select,.profileInfo input[type="date"]{
+    /*opacity: 0;*/
+    left: 70px;
+    position: absolute;
+}
+.profileInfo select{
+    -webkit-webkit-appearance: none;
+    -moz-webkit-appearance: none;
+    -ms-webkit-appearance: none;
+    -o-webkit-appearance: none;
+    webkit-appearance: none;
+}
+.profileInfo .profileName{
+    display: block;
+    float: left;
+    height: 25px;
+    line-height: 25px;
+    font-size: 12px;
+    margin-right: 10px;
+}
+.profileInfo .profileValue{
+    height: 25px;
+    padding:0 10px;
+    line-height: 24px;
+    color: #333333;
+    margin-left: 40px;
+    cursor: pointer;
+    border:1px #dcdcdc solid;
+    -webkit-border-radius: 3px;
+    background: -webkit-linear-gradient(#f5f5f5,#f1f1f1);
+}
+.profileInfo .borderRed{
+    border: 1px #db4f5c solid;
+}
+.profileInfo .marginTo{
+    margin-left: 90px;
+}
+.profileValue .selectBg{
+    width: 8px;
+    height: 24px;
+    display: block;
+    float: right;
+    background-position: 0 -223px;
+    background-size: 50px 260px;
+}
+.displayNone{
+    display: none;
 }

@@ -4,6 +4,7 @@ require.config({
         backbone:'../resources/libs/backbone',
         underscore:'../resources/libs/underscore',
 //        jquery:'../resources/libs/jquery-1.10.2.min',
+        jCookie:'../resources/libs/jquery.cookie',
         socketIO:'../resources/libs/socket.io',
         iScroll:'../resources/libs/iscroll',
         utils:'../resources/libs/utils',
@@ -15,7 +16,7 @@ require.config({
             exports:'Backbone'
         },
         kimiss:{
-            deps:[/*'config',*/'backbone',/*'jquery',*/'socketIO','iScroll','utils']
+            deps:[/*'config',*/'backbone',/*'jquery',*/'jCookie','socketIO','iScroll','utils']
         }
     }
 });

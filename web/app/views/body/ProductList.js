@@ -60,6 +60,10 @@ define([
             }else{
                 this.productList.setListUrl();
             }
+            if(data.hasOwnProperty('pst')){
+                data['pst'] = data['pst'].replace("[","").replace("]","")
+            }
+            console.log(data);
             this.productList.fetch({
                 data:data,
                 success:function(clt,data){

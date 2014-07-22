@@ -4,7 +4,7 @@ define(function(){
             this[i] = options[i];
         }
         this.ID = Math.UUID();
-        this.start();
+//        this.start();
     };
     analysis.prototype = {
         url:'',

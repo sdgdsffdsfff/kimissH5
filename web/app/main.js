@@ -7,6 +7,7 @@ require.config({
         socketIO:'../resources/libs/socket.io',
         iScroll:'../resources/libs/iscroll',
         utils:'../resources/libs/utils',
+        adv:'../resources/libs/adv',
         kimiss:'views/Kimiss'
     },
     shim:{

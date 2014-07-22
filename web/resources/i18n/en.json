@@ -25,6 +25,8 @@ jsonpCallback({
     "tiaopinglun": "条评论",
     "gong": "共",
     "viewMoreComments": "查看更多评论",
+    "night_9": "晚九点",
+    "tyTuan": "体验团",
     "xinpin": "新品",
     "mianmo": "面膜",
     "jinghua": "精华",
@@ -38,5 +40,11 @@ jsonpCallback({
     "bianjijingxuan": "编辑精选",
     "spreadDesc":"展开",
     "foldDesc":"收起",
-    "rmb":"￥"
+    "rmb":"￥",
+    "app_free":"免费",
+    "app_try":"抢试用",
+    "app_day":"天天",
+    "app_know":"长知识",
+    "app_kimiss":"和闺蜜儿们一起玩转美妆界",
+    "app_down":"免费下载"
 })

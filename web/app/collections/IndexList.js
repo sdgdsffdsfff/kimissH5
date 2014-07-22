@@ -4,7 +4,7 @@ define(['models/IndexModel'],function(IndexModel){
 //            this.bind('add',this.onItemAdd,this);
         },
         model: IndexModel ,
-        url:'http://m.kimiss.com/files/eventapi.php?c=KMIOSAPI&rd=10&cly=1',
+        url:'http://m.kimiss.com/files/eventapi.php?c=KMIOSAPI&rd=10&cly=2',
         ie:1,
         parse:function(resp){
 //            console.log(resp.de.ty);

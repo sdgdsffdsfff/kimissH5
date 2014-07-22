@@ -1,7 +1,10 @@
 define(function(){
     var _router = Backbone.Router.extend({
         initialize:function(){
+            var me = this;
+            me.checkApp();
             window.onhashchange = function(e){
+                me.checkApp();
                 if(e.newURL.indexOf('#productList')<0){
                     $('#filter-btn').hide();
                 }
@@ -12,6 +15,18 @@ define(function(){
                     $('#back-btn').hide();
                 }
             };
+        },
+        checkApp:function(){
+            //app
+            var close_app = window.localStorage.getItem("close_app");
+            var hash = window.location.hash;
+            if(close_app!=1 && (hash=="" || hash=="#index")){
+                $(".fn_x14").css("visibility","visible");
+                $(".body-item").css("paddingBottom","50px");
+            }else{
+                $(".fn_x14").css("visibility","hidden");
+                $(".body-item").css("padding",0);
+            }
         },
         routes:{
             '': 'index',

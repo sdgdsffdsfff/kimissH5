@@ -16,6 +16,10 @@ define(['views/nav/navBar',
             'click #back-btn':function(e){
                 history.back();
                 e.stopPropagation();
+            },
+            'click #app_close':function(e){
+                $(".fn_x14").css("visibility","hidden");
+                window.localStorage.setItem("close_app",1);
             }
         },
         render:function(){
@@ -25,7 +29,6 @@ define(['views/nav/navBar',
                         i18n:i18n
                     })
             );
-
             this.Analysis = new Analysis();
             this.DB = new DB();
 
